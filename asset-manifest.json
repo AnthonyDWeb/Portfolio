@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.ecd54037.css",
-    "main.js": "/portfolio/static/js/main.6017f673.js",
+    "main.js": "/portfolio/static/js/main.c9f6f9f8.js",
     "static/js/787.81e7857b.chunk.js": "/portfolio/static/js/787.81e7857b.chunk.js",
     "static/media/profil-image.png": "/portfolio/static/media/profil-image.c60b6c39e528cf8c8c3e.png",
     "static/media/CV_Anthony_DELFORGE.pdf": "/portfolio/static/media/CV_Anthony_DELFORGE.8a7ded29dd76c86d75d4.pdf",
@@ -25,11 +25,11 @@
     "static/media/mongoDB.svg": "/portfolio/static/media/mongoDB.1aca075d5cce0819fea7.svg",
     "index.html": "/portfolio/index.html",
     "main.ecd54037.css.map": "/portfolio/static/css/main.ecd54037.css.map",
-    "main.6017f673.js.map": "/portfolio/static/js/main.6017f673.js.map",
+    "main.c9f6f9f8.js.map": "/portfolio/static/js/main.c9f6f9f8.js.map",
     "787.81e7857b.chunk.js.map": "/portfolio/static/js/787.81e7857b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ecd54037.css",
-    "static/js/main.6017f673.js"
+    "static/js/main.c9f6f9f8.js"
   ]
 }
