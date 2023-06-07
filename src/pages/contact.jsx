@@ -18,27 +18,6 @@ export default function Contact() {
         emailjs.sendForm('service_e8pv57p', 'template_lcxba0u', form.current, '3ikO7YjNf0nyGgEdP')
     };
 
-    const FormField = ({ label, placeholder }) => {
-        return (
-            <div style={{ display: "flex", flexDirection: isMobile && "column", width: "100%", justifyContent: "center", alignItems: isMobile ? "center" : "center", marginBottom: 20 }}>
-                <label style={{ padding: isMobile && "0 0 5px 30px", width: isMobile && "100%", marginRight: !isMobile && 10 }}>{label}</label>
-                <GlassmorphismComponent width={isMobile ? orientation === "landscape" ? "65vw" : "55vw" : "80%"} >
-                    <input type="email" name="user_email" placeholder={placeholder} style={{ background: "none", display: "flex", justifyContent: "flex-start", border: "none", borderRadius: "10px", padding: "5px", width: "100%" }} />
-                </GlassmorphismComponent>
-            </div>
-        )
-    }
-    const TextArea = ({ placeholder }) => {
-        return (
-            <TextAreaContainer>
-                <GlassmorphismComponent width={"100%"}>
-                    <label>Votre message</label>
-                    <textarea name="message" placeholder={placeholder} wrap="soft" rows="15" cols="20" style={{ backgroundColor: "transparent", width: "90%", borderRadius: 5, padding: 5, textAlign: "justify" }} />
-                </GlassmorphismComponent>
-            </TextAreaContainer>
-        )
-    }
-
     const Form = () => {
         return (
             <FormContainer ref={form} onSubmit={sendEmail}>
@@ -49,7 +28,29 @@ export default function Contact() {
                 <SubmitButtonContainer type="submit" value="Envoyer !" />
             </FormContainer>
         )
-    }
+    };
+
+    const FormField = ({ label, placeholder }) => {
+        return (
+            <div style={{ display: "flex", flexDirection: isMobile && "column", width: "100%", justifyContent: "center", alignItems: isMobile ? "center" : "center", marginBottom: 20 }}>
+                <label style={{ padding: isMobile && "0 0 5px 30px", width: isMobile && "100%", marginRight: !isMobile && 10 }}>{label}</label>
+                <GlassmorphismComponent width={isMobile ? orientation === "landscape" ? "65vw" : "55vw" : "80%"} >
+                    <input type="email" name="user_email" placeholder={placeholder} style={{ background: "none", border: "none", borderRadius: "10px", padding: "5px", width: "100%" }} />
+                </GlassmorphismComponent>
+            </div>
+        )
+    };
+    const TextArea = ({ placeholder }) => {
+        return (
+            <TextAreaContainer>
+                <GlassmorphismComponent width={"100%"}>
+                    <label>Votre message</label>
+                    <textarea name="message" placeholder={placeholder} wrap="soft" rows="15" cols="20" style={{ backgroundColor: "transparent", width: "90%", borderRadius: 5, padding: 5, textAlign: "justify" }} />
+                </GlassmorphismComponent>
+            </TextAreaContainer>
+        )
+    };
+
 
     // Media
     const IconesLink = ({ source, link, label }) => <IconeLink href={link} target="_blank"><Icone src={source} />{label}</IconeLink>
