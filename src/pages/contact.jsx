@@ -15,27 +15,30 @@ export default function Contact() {
 
     const sendEmail = (e) => {
         e.preventDefault();
-        emailjs.sendForm('service_e8pv57p', 'template_lcxba0u', form.current, '3ikO7YjNf0nyGgEdP')
+        emailjs.sendForm('service_pb82yvi', 'template_lcxba0u', form.current, '690lTCyUWZ-OdtxkO')
     };
 
     const Form = () => {
         return (
             <FormContainer ref={form} onSubmit={sendEmail}>
                 <h2 >Me Contacter</h2>
-                <FormField label={"Nom :"} placeholder={"Qui êtes-vous? ..."} />
-                <FormField label={"E-mail :"} placeholder={"Votre e-mail..."} />
+                <FormField label={"Nom :"} placeholder={"Qui êtes-vous? ..."} type={"text"} name={"user_name"}/>
+                <FormField label={"E-mail :"} placeholder={"Votre e-mail..."} type={"email"} name={"user_email"}/>
                 <TextArea placeholder={"Votre message..."} />
                 <SubmitButtonContainer type="submit" value="Envoyer !" />
             </FormContainer>
         )
     };
 
-    const FormField = ({ label, placeholder }) => {
+    const FormField = ({ label, placeholder, type, name }) => {
+        const formfielddiv = { display: "flex", flexDirection: isMobile && "column", width: "100%", justifyContent: "center", alignItems: isMobile ? "center" : "center", marginBottom: 20 };
+        const formfieldlabel = { padding: isMobile && "0 0 5px 30px", width: isMobile && "100%", marginRight: !isMobile && 10 };
+        const inputStyle = { background: "none", border: "none", borderRadius: "10px", padding: "5px", width: "100%" };
         return (
-            <div style={{ display: "flex", flexDirection: isMobile && "column", width: "100%", justifyContent: "center", alignItems: isMobile ? "center" : "center", marginBottom: 20 }}>
-                <label style={{ padding: isMobile && "0 0 5px 30px", width: isMobile && "100%", marginRight: !isMobile && 10 }}>{label}</label>
+            <div style={formfielddiv}>
+                <label style={formfieldlabel}>{label}</label>
                 <GlassmorphismComponent width={isMobile ? orientation === "landscape" ? "65vw" : "55vw" : "80%"} >
-                    <input type="email" name="user_email" placeholder={placeholder} style={{ background: "none", border: "none", borderRadius: "10px", padding: "5px", width: "100%" }} />
+                    <input type={type} name={name} placeholder={placeholder} style={inputStyle} />
                 </GlassmorphismComponent>
             </div>
         )
