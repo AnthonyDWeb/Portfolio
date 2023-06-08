@@ -10,7 +10,6 @@ export default function Homepage() {
   const { orientation, isMobile, isTablet, isDesktop, device } = useDevice();
   const { PageContainer, pageContainerStyle, row, column, titleStyle, title2Style, title3Style } = useContext(StyleContext);
 
-  console.log(device);
   // TITLE
   const span1TitleClass = "animate__animated animate__backInLeft animate__delay-1s";
   const span2TitleClass = "animate__animated animate__backInRight animate__delay-2s";
@@ -66,8 +65,7 @@ display: flex; align-items: center; flex-direction: column; margin-top: ${props 
 }
 `;
 const DownloadButton = styled.button`
-background: linear-gradient(to left, blue, red);
-border: 1px solid; border-radius: 5px; padding: 10px; margin: 10px; width: fit-content;
+background: linear-gradient(to left, blue, red); border: none; border-radius: 10px; padding: 10px; margin: 10px; width: fit-content;
 >a { color: black; }
 :hover { 
   background: linear-gradient(to left, red, blue); 

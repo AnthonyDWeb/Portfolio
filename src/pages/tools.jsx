@@ -36,22 +36,22 @@ export default function Tools() {
         <PageContainer style={pageContainerStyle}  id='tools'>
             <GlassmorphismComponent>
                 <h2>Outils</h2>
-                <div class="wrapper">
-                    <div class="slider">
-                        <div class="slide">
+                <div className="wrapper">
+                    <div className="slider">
+                        <div className="slide">
                             {toolsArr.map(e => {
                                 return (
-                                    <div>
+                                    <div key={e.file}>
                                         <img src={require(`../assets/toolsIcone/${e.file}`)} width={80} height={80} alt={`icone ${e.name}`} />
                                         <p style={{ textAlign: "center" }}>{e.name}</p>
                                     </div>
                                 )
                             })}
                         </div>
-                        <div class="slide">
+                        <div className="slide">
                             {toolsArr.map(e => {
                                 return (
-                                    <div>
+                                    <div key={`${e.file}2`}>
                                         <img src={require(`../assets/toolsIcone/${e.file}`)} width={80} height={80} alt={`icone ${e.name}`} />
                                         <p style={{ textAlign: "center" }}>{e.name}</p>
                                     </div>

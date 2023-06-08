@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import '../App.css';
 import emailjs from '@emailjs/browser';
@@ -11,21 +11,33 @@ import { StyleContext } from '../contexts/style.context';
 export default function Contact() {
     const { isMobile, orientation } = useDevice();
     const { PageContainer, pageContainerStyle, } = useContext(StyleContext);
+    const [isSend,setSend] = useState(false);
     const form = useRef();
+
+    useEffect(() => {
+        isSend && setTimeout(() => setSend(false), 1000);
+    }, [isSend])
 
     const sendEmail = (e) => {
         e.preventDefault();
         emailjs.sendForm('service_pb82yvi', 'template_lcxba0u', form.current, '690lTCyUWZ-OdtxkO')
+            .then(function (response) {
+                console.log('SUCCESS!', response.status, response.text);
+                setSend(true);
+            }, function (error) {
+                console.log('FAILED...', error);
+            });
     };
 
     const Form = () => {
+        const btnValue = isSend ? "Email envoyé !" : "Envoyer"
         return (
             <FormContainer ref={form} onSubmit={sendEmail}>
                 <h2 >Me Contacter</h2>
-                <FormField label={"Nom :"} placeholder={"Qui êtes-vous? ..."} type={"text"} name={"user_name"}/>
-                <FormField label={"E-mail :"} placeholder={"Votre e-mail..."} type={"email"} name={"user_email"}/>
+                <FormField label={"Nom :"} placeholder={"Qui êtes-vous? ..."} type={"text"} name={"user_name"} />
+                <FormField label={"E-mail :"} placeholder={"Votre e-mail..."} type={"email"} name={"user_email"} />
                 <TextArea placeholder={"Votre message..."} />
-                <SubmitButtonContainer type="submit" value="Envoyer !" />
+                <SubmitButtonContainer type="submit" value={btnValue} style={{color: isSend && "green"}} />
             </FormContainer>
         )
     };
@@ -48,7 +60,7 @@ export default function Contact() {
             <TextAreaContainer>
                 <GlassmorphismComponent width={"100%"}>
                     <label>Votre message</label>
-                    <textarea name="message" placeholder={placeholder} wrap="soft" rows="15" cols="20" style={{ backgroundColor: "transparent", width: "90%", borderRadius: 5, padding: 5, textAlign: "justify" }} />
+                    <textarea name="message" placeholder={placeholder} wrap="soft" rows="15" cols="20" style={{ backgroundColor: "transparent", width: "90%", borderRadius: 5, padding: 5, textAlign: "justify", marginTop: 10 }} />
                 </GlassmorphismComponent>
             </TextAreaContainer>
         )
@@ -79,7 +91,8 @@ export default function Contact() {
 }
 
 
-const FormContainer = styled.form`display: flex; flex-direction: column; width: 100%; justify-content: center; align-items: center;
+const FormContainer = styled.form`
+display: flex; flex-direction: column; width: 100%; justify-content: center; align-items: center;
 textarea::placeholder { color: white};
 input::placeholder { color: white};
 `;
@@ -91,7 +104,7 @@ display: flex; width: 100%; justify-content: center; align-items: center; margin
 const SubmitButtonContainer = styled.input`
 background-color: transparent; border: 1px solid; border-radius: 5px; padding: 5px; margin: 10px; width: fit-content;
 :hover {
-    color: green;
+    color: blue;
     cursor: pointer;
 }
 `;

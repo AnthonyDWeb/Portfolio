@@ -47,29 +47,32 @@ display: flex; align-items: center;
 flex-direction: ${props => props.orientation !== "portrait" && "column"};
 height: ${props => props.orientation === "portrait" && "100vh"};
 width: ${props => props.orientation === "portrait" ? "180px" : "100vw"};
-background-color: rgba(10,3,3,0.4);
+background-color: ${props => props.desktop && "rgba(10,3,3,0.4)"};
+// ${props => props.orientation !== "portrait" && "rgba(10,3,3,0.4)"};
 
 `;
 
 const NavList = styled.div`
-display: flex;   justify-content: right; align-items: center; position:"relative"; padding: 5px;
+display: flex;  z-index: 2;  
+justify-content: ${props => props.desktop ? "right" : "space-around"}; 
+align-items: center; position:"relative"; padding: 5px;
 background-color: ${props => props.desktop ? "transparent" : "whitesmoke"};
 flex-direction: ${props => props.orientation === "portrait" && "column"};
 height: ${props => props.orientation === "portrait" && "100vh"}; 
 width: ${props => props.desktop ? "95%" : "100%"};
+border: none;
 .link {
-    color: whitesmoke;
+    color: ${props => props.desktop ? "whitesmoke" : "black"};
     font-weight: bold;
-    margin: ${props => props.orientation === "portrait" ? "25px 10px" : "5px 20px"};
+    margin: ${props => props.orientation === "portrait" ? "25px 0px" : "5px 20px"};
     padding: 2px 8px 5px 8px;
     border: 1px solid transparent;
     border-radius: 10px;
     :hover {
-        color: ${props => props.desktop ? "whitesmoke" : "black"};
-        border: 1px solid ${props => props.desktop && "black"};
-        box-shadow: 0px 0px 10px 0px white;
+        color: black;
+        background-color: whitesmoke;
+        box-shadow: 0px 0px 5px 0px whitesmoke;
     }
-
 }
 `;
 
@@ -78,7 +81,7 @@ display: flex;
 align-items: center; 
 justify-content: center; 
 background-color: whitesmoke; 
-margin-top: ${props => props.orientation !== "portrait" && "-5px"};
+margin-top: ${props => props.orientation !== "portrait" && "0px"};
 margin-left: ${props => props.orientation === "portrait" && "-5px"};
 border-radius: ${props => props.orientation === "portrait" ? "0% 90% 90% 0%" : "0 0 90% 90%"};
 height: ${props => props.orientation === "portrait" ? "20vh" : "fit-content"};
@@ -86,9 +89,8 @@ width: ${props => props.orientation === "portrait" ? "fit-content" : "20vw"};
 border: none;
 .arrow {
     rotate: ${props => props.orientation === "portrait" && "-90"}deg;
+    transform: translateY(2px);
     background-color: transparent;
-    margin-right: ${props => props.orientation === "portrait" && "-5px"};
-
 }
 .true {
     rotate: ${props => props.orientation === "portrait" ? "90" : "180"}deg

@@ -1,15 +1,16 @@
-import React, { createContext } from "react";
+import React, { createContext, useState } from "react";
 import styled from 'styled-components';
 import useDevice from "../utils/hooks/useDevice";
 
 export const StyleContext = createContext({});
 export const StyleProvider = props => {
   const { isMobile, isTablet, isDesktop } = useDevice();
+  const [theme,setTheme] = useState();
 
   // CONTAINER
   const row = { display: "flex", flexDirection: "row", alignItems: "center" };
   const column = { display: "flex", flexDirection: "column" };
-  const pageContainerStyle = {padding: isDesktop && "50px 0"};
+  const pageContainerStyle = {padding: isDesktop ? "50px 0px" : "20px 0px"};
 
   // TITLE
   const titleStyle = { fontSize: isMobile ? "4vw" : isTablet ? "3vw" : "3vw", marginBottom: "30px" };

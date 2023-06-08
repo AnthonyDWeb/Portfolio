@@ -6,6 +6,11 @@
   color: white;
   font-family: 'Berkshire Swash', cursive;
 }
+
+p {
+  text-align: justify;
+}
+
 .App {
   display: flex;
   align-items: center;
@@ -14,14 +19,27 @@
   height: 100vh;
   width: 100vw;
 }
-.redirectLink {
+
+.formation {
+  color: cornflowerblue; 
   margin: 0 5px;
   font-style: italic;
+  font-weight: bold;
+}
+.formation:hover {
   text-decoration: underline;
 }
-.redirectLink:hover {
-  color: cornflowerblue;
+.redirectLink {
+  color: crimson;
+  margin: 0 5px;
+  font-style: italic;
+  font-weight: bold;
 }
+
+.redirectLink:hover {
+  text-decoration: underline;
+}
+
 .mainContainer {
   padding: 25px 0
 }
