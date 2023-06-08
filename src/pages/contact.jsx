@@ -37,7 +37,7 @@ export default function Contact() {
                 <FormField label={"Nom :"} placeholder={"Qui êtes-vous? ..."} type={"text"} name={"user_name"} />
                 <FormField label={"E-mail :"} placeholder={"Votre e-mail..."} type={"email"} name={"user_email"} />
                 <TextArea placeholder={"Votre message..."} />
-                <SubmitButtonContainer type="submit" value={btnValue} style={{color: isSend && "green"}} />
+                <SubmitButtonContainer type="submit" value={btnValue} style={{color: isSend && "black", backgroundColor: isSend && "green", border: "none", fontWeight: isSend && "bold"}} />
             </FormContainer>
         )
     };
@@ -104,7 +104,8 @@ display: flex; width: 100%; justify-content: center; align-items: center; margin
 const SubmitButtonContainer = styled.input`
 background-color: transparent; border: 1px solid; border-radius: 5px; padding: 5px; margin: 10px; width: fit-content;
 :hover {
-    color: blue;
+    color: black;
+    background-color: white;
     cursor: pointer;
 }
 `;
