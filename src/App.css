@@ -14,7 +14,14 @@
   height: 100vh;
   width: 100vw;
 }
-
+.redirectLink {
+  margin: 0 5px;
+  font-style: italic;
+  text-decoration: underline;
+}
+.redirectLink:hover {
+  color: cornflowerblue;
+}
 .mainContainer {
   padding: 25px 0
 }
