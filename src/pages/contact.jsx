@@ -1,12 +1,18 @@
+// LIBRARY //
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
-import '../App.css';
 import emailjs from '@emailjs/browser';
+// STYLE //
+import '../App.css';
+// CONTEXT //
+import { StyleContext } from '../contexts/style.context';
+// PAGE //
+// COMPONENT //
 import GlassmorphismComponent from '../components/glassmorphism/glassmorphism-component';
+// OTHER //
+import useDevice from '../utils/hooks/useDevice';
 import github from '../assets/toolsIcone/github.svg';
 import linkedin from '../assets/linkedin.png';
-import useDevice from '../utils/hooks/useDevice';
-import { StyleContext } from '../contexts/style.context';
 
 export default function Contact() {
     const { isMobile, orientation } = useDevice();

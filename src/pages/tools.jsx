@@ -1,8 +1,14 @@
+// LIBRARY //
 import React, { useContext } from 'react';
 import styled from 'styled-components';
+// STYLE //
 import '../App.css'
-import GlassmorphismComponent from '../components/glassmorphism/glassmorphism-component';
+// CONTEXT //
 import { StyleContext } from '../contexts/style.context';
+// PAGE //
+// COMPONENT //
+import GlassmorphismComponent from '../components/glassmorphism/glassmorphism-component';
+// OTHER //
 
 export default function Tools() {
     const { PageContainer, pageContainerStyle, } = useContext(StyleContext);

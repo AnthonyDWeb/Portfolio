@@ -21,14 +21,16 @@ p {
 }
 
 .formation {
-  color: cornflowerblue; 
+  color: cornflowerblue;
   margin: 0 5px;
   font-style: italic;
   font-weight: bold;
 }
+
 .formation:hover {
   text-decoration: underline;
 }
+
 .redirectLink {
   color: crimson;
   margin: 0 5px;
@@ -71,7 +73,7 @@ p {
 
 .slide img {
   height: 70px;
-  padding: 0 30px 0 30px;
+  /* padding: 0 30px 0 30px; */
 }
 
 @keyframes slideshow {
@@ -108,4 +110,25 @@ p {
   margin: 0;
   border: none;
   border-radius: 0;
+}
+
+/* ------------------------------------------------- */
+
+:root {
+  --primary: #6a59ff;
+  --white: #ffffff;
+  --bg: #f5f5f5;
+}
+
+.container {
+  max-width: 124rem;
+  padding: 4rem 1rem;
+  margin: 0 auto;
+  background-color: red;
+}
+
+.heading {
+  padding: 1rem 0;
+  font-size: 3.5rem;
+  text-align: center;
 }

@@ -9,9 +9,10 @@ import Projets from './pages/projets';
 import Tools from './pages/tools';
 import { StyleProvider } from './contexts/style.context';
 import Error from './pages/error';
+import Test from './pages/test';
 
 function App() {
-  const maintenance = false;
+  const maintenance = true;
   return (
     <DeviseProvider>
       <StyleProvider>
@@ -28,6 +29,7 @@ function App() {
             <Contact />
           </>
         }
+        {/* <Test/> */}
       </StyleProvider>
     </DeviseProvider>
   );

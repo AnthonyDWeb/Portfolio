@@ -1,10 +1,16 @@
+// LIBRARY //
 import React, { useContext } from 'react';
 import styled from 'styled-components';
+// STYLE //
 import '../App.css';
 import 'animate.css';
-import CV from '../downloads/CV_Anthony_DELFORGE.pdf';
+// CONTEXT //
 import { StyleContext } from '../contexts/style.context';
+// PAGE //
+// COMPONENT //
+// OTHER //
 import useDevice from '../utils/hooks/useDevice';
+import CV from '../downloads/CV_Anthony_DELFORGE.pdf';
 
 export default function Homepage() {
   const { orientation, isMobile, isTablet, isDesktop, device } = useDevice();

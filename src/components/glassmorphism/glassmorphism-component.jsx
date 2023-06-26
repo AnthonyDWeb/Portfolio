@@ -15,7 +15,6 @@ display: flex; position: relative;
 flex-direction: column;
 align-items: center;
 justify-content: ${props => props.justify && props.justify};
-justify-content: center;
 min-height: ${props => props.height && props.height};
 width: ${props => props.width && props.width};
 max-width: 85%;

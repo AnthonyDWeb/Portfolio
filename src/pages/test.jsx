@@ -1,35 +1,48 @@
-import React, { useContext, useState } from 'react';
-import styled from 'styled-components';
+// LIBRARY //
+import React, { useContext, useEffect, useState } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, EffectCoverflow, EffectCards } from 'swiper';
+// STYLE //
 import '../App.css';
-import 'animate.css';
-import CV from '../downloads/CV_Anthony_DELFORGE.pdf';
-import { StyleContext } from '../contexts/style.context';
-import useDevice from '../utils/hooks/useDevice';
-import GlassmorphismComponent from '../components/glassmorphism/glassmorphism-component';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+// CONTEXT //
+// PAGE //
+// COMPONENT //
+import projectList from '../components/portfolio/data/project-datalist';
+// OTHER //
 
 export default function Test() {
-    const { orientation, isMobile, isTablet, isDesktop, device } = useDevice();
-    const { PageContainer, row, column, titleStyle, title2Style, title3Style } = useContext(StyleContext);
-    const [style, setStyle] = useState(false);
-    const imageSource = require("../assets/profil-image.png")
+    const [data, setData] = useState();
 
+    useEffect(() => {
+        const loadData = () => {
+            const dataload = projectList();
+            setData(dataload)
+        };
+        loadData();
+    }, [])
+    console.log("data", data);
     return (
-            <div className={`card card${style}`} onClick={() => setStyle(!style)} >
-                <h2 style={{transform: "rotate(90deg)", width: "fit-content", position: "absolute", top: 0, left: "-20%"}}>A propos de moi</h2>
-            </div>
-    )
-    return (
-        <>
-            <div className={`card card${style}`} onClick={() => setStyle(!style)} >
-                <h2 style={{transform: "rotate(90deg)", width: "fit-content", position: "absolute", top: 0, left: "-20%"}}>A propos de moi</h2>
-            </div>
-            <div className={`card card${style}`} onClick={() => setStyle(!style)} >
-                <h2 style={{transform: "rotate(90deg)", width: "fit-content", position: "absolute", top: 0, left: "-20%"}}>A propos de moi</h2>
-            </div>
-            <div className={`card card${style}`} onClick={() => setStyle(!style)} >
-                <h2 style={{transform: "rotate(90deg)", width: "fit-content", position: "absolute", top: 0, left: "-20%"}}>A propos de moi</h2>
-            </div>
-        </>
+        <div className="container">
+            <h1 className="heading">Flower Gallery</h1>
+            <Swiper
+                spaceBetween={20}
+                slidesPerView={2}
+                loop={true}
+                navigation
+                pagination={{ clickable: true }}
+                scrollbar={{ draggable: true }}
+                onSlideChange={(swiper) => console.log('slide change', swiper.slides)}
+                onSwiper={(swiper) => console.log(swiper)}
+            >
+                {data?.map(d =>
+                    <SwiperSlide key={d.source} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        <img src={require(`../assets/projects/${d.source}`)} alt="slide_image" style={{ height: "25rem", width: "fit-content", borderRadius: 5 }} />
+                    </SwiperSlide>
+                )}
+            </Swiper>
+        </div>
     )
 }
-
