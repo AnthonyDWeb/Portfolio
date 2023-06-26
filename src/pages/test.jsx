@@ -1,10 +1,13 @@
 // LIBRARY //
 import React, { useContext, useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, EffectCoverflow, EffectCards } from 'swiper';
+import { Navigation, Pagination, EffectCoverflow, EffectCards, EffectCube } from 'swiper';
 // STYLE //
 import '../App.css';
 import 'swiper/css';
+import 'swiper/css/effect-cards';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/effect-cube';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 // CONTEXT //
@@ -28,18 +31,17 @@ export default function Test() {
         <div className="container">
             <h1 className="heading">Flower Gallery</h1>
             <Swiper
-                spaceBetween={20}
-                slidesPerView={2}
+                effect={"cards"}
+                grabCursor={true}
+                centeredSlides={true}
                 loop={true}
-                navigation
-                pagination={{ clickable: true }}
-                scrollbar={{ draggable: true }}
-                onSlideChange={(swiper) => console.log('slide change', swiper.slides)}
-                onSwiper={(swiper) => console.log(swiper)}
+                slidesPerView={3}
+                modules={[EffectCards, Pagination, Navigation]}
+                style={{overflow: "hidden", position: "relative"}}
             >
                 {data?.map(d =>
-                    <SwiperSlide key={d.source} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                        <img src={require(`../assets/projects/${d.source}`)} alt="slide_image" style={{ height: "25rem", width: "fit-content", borderRadius: 5 }} />
+                    <SwiperSlide key={d.source} style={{display: "flex", justifyContent: "center", backgroundColor: "transparent"}}>
+                        <img src={require(`../assets/projects/${d.source}`)} alt="slide_image" style={{ height: "auto", width: "100%", borderRadius: 5 }} />
                     </SwiperSlide>
                 )}
             </Swiper>

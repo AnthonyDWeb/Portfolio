@@ -12,7 +12,7 @@ import Error from './pages/error';
 import Test from './pages/test';
 
 function App() {
-  const maintenance = true;
+  const maintenance = false;
   return (
     <DeviseProvider>
       <StyleProvider>

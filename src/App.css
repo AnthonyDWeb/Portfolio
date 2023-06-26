@@ -48,7 +48,7 @@ p {
 
 
 .wrapper {
-  width: 95vw;
+  /* width: 65vw; */
   height: auto;
   margin: 30px 0;
   display: flex;
@@ -57,7 +57,7 @@ p {
 }
 
 .slider {
-  width: 95vw;
+  /* width: 95vw; */
   position: relative;
   box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -72,8 +72,8 @@ p {
 }
 
 .slide img {
-  height: 70px;
-  /* padding: 0 30px 0 30px; */
+  border-radius: 5;
+  object-fit: cover;
 }
 
 @keyframes slideshow {
@@ -106,7 +106,7 @@ p {
 
 .cardtrue {
   width: 100vw;
-  height: 100vh;
+  /* height: 100vh; */
   margin: 0;
   border: none;
   border-radius: 0;
@@ -121,14 +121,16 @@ p {
 }
 
 .container {
-  max-width: 124rem;
-  padding: 4rem 1rem;
+  max-height: 12rem;
   margin: 0 auto;
-  background-color: red;
+  position: relative;
 }
 
 .heading {
-  padding: 1rem 0;
-  font-size: 3.5rem;
+  /* font-size: 3.5rem; */
   text-align: center;
+  color: #6a59ff;
+  position: relative;
 }
+
+/* ---------------------------------------------------- */
