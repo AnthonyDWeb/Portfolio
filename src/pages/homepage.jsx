@@ -22,7 +22,7 @@ export default function Homepage() {
   const span3TitleClass = "animate__animated animate__backInLeft animate__delay-2s";
   const spanText1 = "Une idée ? Un projet ?";
   const spanText2 = "La création d'un site web ou d'une application mobile ?";
-  const spanText3 = "Donnez vie à tout vos projets !";
+  const spanText3 = "Donnez vie à tous vos projets !";
   const titleEnd = { ...titleStyle, alignSelf: "flex-end" }
 
   // PROFILE
