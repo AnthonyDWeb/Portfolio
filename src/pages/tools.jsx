@@ -19,16 +19,16 @@ export default function Tools() {
         { file: "javascript.png", name: "Javascript" },
         { file: "jquery.png", name: "Jquery" },
         { file: "typescript.png", name: "Typescript" },
-        { file: "react.png", name: "React/ Native" },
-        { file: "expressJS.webp", name: "Express Js" },
-        { file: "nodejs.png", name: "Node Js" },
-        { file: "nestjs.png", name: "Nest Js" },
-        { file: "mongoDB.svg", name: "Mongo DB" },
+        { file: "react.png", name: "React/Native" },
+        { file: "expressJS.webp", name: "ExpressJs" },
+        { file: "nodejs.png", name: "NodeJs" },
+        { file: "nestjs.png", name: "NestJs" },
+        { file: "mongoDB.svg", name: "MongoDB" },
         { file: "mysql.png", name: "Mysql" },
         { file: "postgreSQL.png", name: "PostgreSQL" },
         { file: "java.png", name: "Java" },
-        { file: "swiftui.png", name: "Swift UI" },
-        { file: "androidstudio.png", name: "Android Studio" },
+        { file: "swiftui.png", name: "SwiftUI" },
+        { file: "androidstudio.png", name: "AndroidStudio" },
         { file: "github.svg", name: "Github" },
         { file: "gitlab.png", name: "Gitlab" },
         { file: "figma.png", name: "Figma" },
@@ -37,33 +37,31 @@ export default function Tools() {
         { file: "notion.png", name: "Notion" },
     ];
 
+    const Slide = ({ n }) => {
+        return (
+            <div className="slide">
+                {toolsArr.map(e => {
+                    return (
+                        <div key={`${e.file}${n}`} style={{  padding: 10, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "space-between", maxWidth: 250 }}>
+                            <img src={require(`../assets/toolsIcone/${e.file}`)} width={50} height={50} alt={`icone ${e.name}`} style={{objectFit: "contain"}}/>
+                            <p style={{ textAlign: "center" }}>{e.name}</p>
+                        </div>
+                    )
+                })}
+            </div>
+        )
+    }
+
 
     return (
-        <PageContainer style={pageContainerStyle}  id='tools'>
+        <PageContainer style={pageContainerStyle} id='tools'>
             <GlassmorphismComponent>
                 <h2>Outils</h2>
                 <div className="wrapper">
                     <div className="slider">
-                        <div className="slide">
-                            {toolsArr.map(e => {
-                                return (
-                                    <div key={e.file}>
-                                        <img src={require(`../assets/toolsIcone/${e.file}`)} width={80} height={80} alt={`icone ${e.name}`} />
-                                        <p style={{ textAlign: "center" }}>{e.name}</p>
-                                    </div>
-                                )
-                            })}
-                        </div>
-                        <div className="slide">
-                            {toolsArr.map(e => {
-                                return (
-                                    <div key={`${e.file}2`}>
-                                        <img src={require(`../assets/toolsIcone/${e.file}`)} width={80} height={80} alt={`icone ${e.name}`} />
-                                        <p style={{ textAlign: "center" }}>{e.name}</p>
-                                    </div>
-                                )
-                            })}
-                        </div>
+                        <Slide n={1} />
+                        <Slide n={2} />
+                        <Slide n={3} />
                     </div>
                 </div>
             </GlassmorphismComponent>
