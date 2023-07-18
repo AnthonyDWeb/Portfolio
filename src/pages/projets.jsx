@@ -37,28 +37,30 @@ export default function Projets() {
 
   return (
     <PageContainer style={{...pageContainerStyle}} id='portfolio'>
-      <GlassmorphismComponent width={"50%"}>
+      <GlassmorphismComponent width={"90vw"} height={"60vh"}>
           <h2>Portfolio</h2>
-        <div className="container" style={{width: "100%", height: "fit-content"}}>
-          {/* <Swiper
-            effect={"cards"}
-            grabCursor={true}
-            centeredSlides={true}
-            loop={true}
-            slidesPerView={3}
-            modules={[EffectCards, Pagination, Navigation]}
-            style={{  position: "relative", width: "100%",backgroundColor: "blue", padding: 10,  height: "35vw"  }}
-          > */}
-            {/* {data?.map(d =>
-              <SwiperSlide key={d.source} style={{ display: "flex", justifyContent: "center", backgroundColor: "yellow", width: "100%",}}>
-                <img src={require(`../assets/projects/${d.source}`)} alt="slide_image" style={{  height: "25vw",width: "fit-content", borderRadius: 5, objectFit: "cover" }} />
+        <div className="container" style={{width: "100%",}}>
+          <Swiper
+           effect={'cube'}
+           grabCursor={true}
+           cubeEffect={{
+             shadow: true,
+             slideShadows: false,
+             shadowOffset: 20,
+             shadowScale: 0.94,
+           }}
+           loop={true}
+            modules={[EffectCube, Pagination, Navigation]}
+            style={{  position: "relative", paddingTop: 10, backgroundColor: "rgba(255,255,255,0.2)", borderRadius: 5}}
+          >
+            {data?.map(d =>
+              <SwiperSlide key={d.source} style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%", height: "100%"}}>
+                <img src={require(`../assets/projects/${d.source}`)} alt="slide_image" style={{ borderRadius: 5, width: "50vw", height: "auto", objectFit: "cover" }} />
               </SwiperSlide>
-            )} */}
-          {/* </Swiper> */}
+            )}
+          </Swiper>
         </div>
       </GlassmorphismComponent>
     </PageContainer>
   )
 };
-
-{/* <SwiperSlider data={data} /> */ }
