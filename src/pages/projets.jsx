@@ -33,27 +33,28 @@ export default function Projets() {
       setData(dataload)
     };
     loadData();
-  }, [])
+  }, []);
+
   return (
-    <PageContainer style={pageContainerStyle} id='portfolio'>
-      <GlassmorphismComponent width={"100%"} >
+    <PageContainer style={{...pageContainerStyle}} id='portfolio'>
+      <GlassmorphismComponent width={"50%"}>
           <h2>Portfolio</h2>
-        <div className="container" style={{width: "100%"}}>
-          <Swiper
+        <div className="container" style={{width: "100%", height: "fit-content"}}>
+          {/* <Swiper
             effect={"cards"}
             grabCursor={true}
             centeredSlides={true}
             loop={true}
             slidesPerView={3}
             modules={[EffectCards, Pagination, Navigation]}
-            style={{ overflow: "hidden", position: "relative" }}
-          >
-            {data?.map(d =>
-              <SwiperSlide key={d.source} style={{ display: "flex", justifyContent: "center", backgroundColor: "transparent" }}>
-                <img src={require(`../assets/projects/${d.source}`)} alt="slide_image" style={{ height: "auto", width: "100%", borderRadius: 5 }} />
+            style={{  position: "relative", width: "100%",backgroundColor: "blue", padding: 10,  height: "35vw"  }}
+          > */}
+            {/* {data?.map(d =>
+              <SwiperSlide key={d.source} style={{ display: "flex", justifyContent: "center", backgroundColor: "yellow", width: "100%",}}>
+                <img src={require(`../assets/projects/${d.source}`)} alt="slide_image" style={{  height: "25vw",width: "fit-content", borderRadius: 5, objectFit: "cover" }} />
               </SwiperSlide>
-            )}
-          </Swiper>
+            )} */}
+          {/* </Swiper> */}
         </div>
       </GlassmorphismComponent>
     </PageContainer>
