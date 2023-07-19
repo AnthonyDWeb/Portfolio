@@ -42,8 +42,8 @@ export default function Tools() {
             <div className="slide">
                 {toolsArr.map(e => {
                     return (
-                        <div key={`${e.file}${n}`} style={{  padding: 10, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "space-between", maxWidth: 250 }}>
-                            <img src={require(`../assets/toolsIcone/${e.file}`)} width={50} height={50} alt={`icone ${e.name}`} style={{objectFit: "contain"}}/>
+                        <div key={`${e.file}${n}`} style={{ padding: 10, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "space-between", maxWidth: 250 }}>
+                            <img src={require(`../assets/toolsIcone/${e.file}`)} width={50} height={50} alt={`icone ${e.name}`} style={{ objectFit: "contain" }} />
                             <p style={{ textAlign: "center" }}>{e.name}</p>
                         </div>
                     )
@@ -57,12 +57,10 @@ export default function Tools() {
         <PageContainer style={pageContainerStyle} id='tools'>
             <GlassmorphismComponent>
                 <h2>Outils</h2>
-                <div className="wrapper">
-                    <div className="slider">
-                        <Slide n={1} />
-                        <Slide n={2} />
-                        <Slide n={3} />
-                    </div>
+                <div className="slider">
+                    <Slide n={1} />
+                    <Slide n={2} />
+                    <Slide n={3} />
                 </div>
             </GlassmorphismComponent>
         </PageContainer>

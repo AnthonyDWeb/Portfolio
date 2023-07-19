@@ -11,14 +11,47 @@ p {
   text-align: justify;
 }
 
-.App {
+/* ---------------------------------------------------- */
+
+/* HOMEPAGE */
+
+/* TOOLS */
+
+.slider {
+  position: relative;
+  box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.slide {
+  height: 100px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  background-color: black;
-  height: 100vh;
-  width: 100vw;
+  animation: slideToolsAutoScroll 20s linear infinite;
 }
+
+.slide img {
+  border-radius: 5;
+  object-fit: cover;
+}
+
+@keyframes slideToolsAutoScroll {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* PORTFOLIO */
+
+/* CONTACT */
+
+/* ABOUT ME */
 
 .formation {
   color: cornflowerblue;
@@ -42,72 +75,6 @@ p {
   text-decoration: underline;
 }
 
-.mainContainer {
-  padding: 25px 0
-}
-
-
-.wrapper {
-  height: auto;
-  margin: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-}
-
-.slider {
-  /* width: 95vw; */
-  position: relative;
-  box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.2);
-  display: flex;
-  overflow: hidden;
-  background-color: rgba(255,255,255,0.2);
-
-}
-
-.slide {
-  height: 100px;
-  display: flex;
-  align-items: center;
-  animation: slideshow 20s linear infinite;
-}
-
-.slide img {
-  border-radius: 5;
-  object-fit: cover;
-}
-
-@keyframes slideshow {
-  0% {
-    transform: translateX(0%);
-  }
-
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-
-/* ------------------------------------------------- */
-
-:root {
-  --primary: #6a59ff;
-  --white: #ffffff;
-  --bg: #f5f5f5;
-}
-
-.container {
-  max-height: 12rem;
-  margin: 0 auto;
-  position: relative;
-}
-
-.heading {
-  /* font-size: 3.5rem; */
-  text-align: center;
-  color: #6a59ff;
-  position: relative;
-}
+/* OTHER */
 
 /* ---------------------------------------------------- */

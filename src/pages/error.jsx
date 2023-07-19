@@ -1,5 +1,11 @@
-import React, { useContext } from 'react'
+// LIBRARY //
+import React, { useContext } from 'react';
+// STYLE //
 import { StyleContext } from '../contexts/style.context';
+// CONTEXT //
+// PAGE //
+// COMPONENT //
+// OTHER //
 
 export default function Error() {
     const { PageContainer, titleStyle } = useContext(StyleContext);

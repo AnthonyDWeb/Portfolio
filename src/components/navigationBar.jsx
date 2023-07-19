@@ -7,8 +7,7 @@ export default function NavigationBar() {
     const { orientation, isDesktop } = useContext(DeviseContext);
     const [display, setDisplay] = useState(false);
 
-
-    const arrow = require("../assets/icon-arrow-down.webp");
+    const arrowSrc = require("../assets/icon-arrow-down.webp");
     const arrowStyle = { height: 20, width: 30 }
 
     const MenuButton = ({ title, classname, id }) => {
@@ -34,7 +33,7 @@ export default function NavigationBar() {
                 }
                 {!isDesktop && <Displayer orientation={`${orientation}`} onClick={() => setDisplay(!display)}
                 >
-                    <img src={arrow} style={arrowStyle} className={`arrow ${display}`} alt='' />
+                    <img src={arrowSrc} style={arrowStyle} className={`arrow ${display}`} alt='' />
                 </Displayer>}
             </NavBar>
         </div>
