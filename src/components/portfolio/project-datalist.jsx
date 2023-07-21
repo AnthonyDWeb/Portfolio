@@ -1,5 +1,5 @@
-export default function projectList(props) {
-    const project = [
+// export default function projectList(props) {
+    export const projects = [
         {
             title: "Countries API",
             source: "countriesAPI.png",
@@ -63,5 +63,5 @@ export default function projectList(props) {
             responsive: [],
         },
     ]
-    return project
-}
+    // return projects
+// }

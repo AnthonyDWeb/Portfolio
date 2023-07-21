@@ -20,9 +20,7 @@ export default function Contact() {
     const [isSend,setSend] = useState(false);
     const form = useRef();
 
-    useEffect(() => {
-        isSend && setTimeout(() => setSend(false), 1000);
-    }, [isSend])
+    useEffect(() => { isSend && setTimeout(() => setSend(false), 1000); }, [isSend])
 
     const sendEmail = (e) => {
         e.preventDefault();
@@ -37,13 +35,14 @@ export default function Contact() {
 
     const Form = () => {
         const btnValue = isSend ? "Email envoyé !" : "Envoyer"
+        const isSendStyle = isSend ? {color: "black", backgroundColor: "green", fontWeight: "bold"} : null;
         return (
             <FormContainer ref={form} onSubmit={sendEmail}>
                 <h2 >Me Contacter</h2>
                 <FormField label={"Nom :"} placeholder={"Qui êtes-vous? ..."} type={"text"} name={"user_name"} />
                 <FormField label={"E-mail :"} placeholder={"Votre e-mail..."} type={"email"} name={"user_email"} />
                 <TextArea placeholder={"Votre message..."} />
-                <SubmitButtonContainer type="submit" value={btnValue} style={{color: isSend && "black", backgroundColor: isSend && "green", border: "none", fontWeight: isSend && "bold"}} />
+                <SubmitButtonContainer type="submit" value={btnValue} style={isSendStyle} />
             </FormContainer>
         )
     };
@@ -55,7 +54,7 @@ export default function Contact() {
         return (
             <div style={formfielddiv}>
                 <label style={formfieldlabel}>{label}</label>
-                <GlassmorphismComponent width={isMobile ? orientation === "landscape" ? "65vw" : "55vw" : "80%"} >
+                <GlassmorphismComponent width={isMobile ? orientation === "landscape" ? "65vw" : "55vw" : "80vw"} >
                     <input type={type} name={name} placeholder={placeholder} style={inputStyle} />
                 </GlassmorphismComponent>
             </div>
@@ -64,7 +63,7 @@ export default function Contact() {
     const TextArea = ({ placeholder }) => {
         return (
             <TextAreaContainer>
-                <GlassmorphismComponent width={"100%"}>
+                <GlassmorphismComponent width={"90%"}>
                     <label>Votre message</label>
                     <textarea name="message" placeholder={placeholder} wrap="soft" rows="15" cols="20" style={{ backgroundColor: "transparent", width: "90%", borderRadius: 5, padding: 5, textAlign: "justify", marginTop: 10 }} />
                 </GlassmorphismComponent>
@@ -87,7 +86,7 @@ export default function Contact() {
 
     return (
         <PageContainer style={pageContainerStyle} id='contact'>
-            <GlassmorphismComponent width={"70%"}>
+            <GlassmorphismComponent width={"90vw"}>
                 <Form />
                 <Media />
             </GlassmorphismComponent>

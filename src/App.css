@@ -17,36 +17,6 @@ p {
 
 /* TOOLS */
 
-.slider {
-  position: relative;
-  box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.2);
-  display: flex;
-  overflow: hidden;
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-.slide {
-  height: 100px;
-  display: flex;
-  align-items: center;
-  animation: slideToolsAutoScroll 20s linear infinite;
-}
-
-.slide img {
-  border-radius: 5;
-  object-fit: cover;
-}
-
-@keyframes slideToolsAutoScroll {
-  0% {
-    transform: translateX(0%);
-  }
-
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
 /* PORTFOLIO */
 
 /* CONTACT */
