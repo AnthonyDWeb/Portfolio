@@ -1,12 +1,15 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import styled from 'styled-components';
 import useDevice from "../utils/hooks/useDevice";
 
 export const StyleContext = createContext({});
 export const StyleProvider = props => {
   const { isMobile, isTablet, isDesktop } = useDevice();
-  const [theme, setTheme] = useState();
+  const [isLoad, setLoad] = useState(false);
+  // const [theme, setTheme] = useState();
 
+  useEffect(() => { setTimeout(() => setLoad(true),4500);}, []);
+  console.log("style isload", isLoad)
   // CONTAINER
   const row = { display: "flex", flexDirection: "row", alignItems: "center" };
   const column = { display: "flex", flexDirection: "column" };
@@ -19,7 +22,7 @@ export const StyleProvider = props => {
 
   const projectTitle = { marginBottom: "10px" };
   const contentContainer = { display: "flex", alignItems: "start", width: "100%", };
-  const styleContextValue = { PageContainer, pageContainerStyle, row, column, titleStyle, title2Style, title3Style, projectTitle, contentContainer }
+  const styleContextValue = { PageContainer, pageContainerStyle, row, column, titleStyle, title2Style, title3Style, projectTitle, contentContainer, isLoad, setLoad }
   return <StyleContext.Provider value={styleContextValue} {...props} />
 };
 

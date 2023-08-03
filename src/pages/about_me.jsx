@@ -1,6 +1,6 @@
 // LIBRARY //
 import React, { useContext } from 'react';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 // STYLE //
 import '../App.css';
 // CONTEXT //
@@ -11,9 +11,9 @@ import GlassmorphismComponent from '../components/glassmorphism/glassmorphism-co
 // OTHER //
 
 export default function AboutMe() {
-  const { PageContainer, pageContainerStyle, } = useContext(StyleContext);
-  const fontName = "cursive Bungee Inline";
-  return (
+  const { PageContainer, pageContainerStyle, isLoad } = useContext(StyleContext);
+  // const fontName = "cursive Bungee Inline";
+  return (isLoad &&
     <PageContainer style={pageContainerStyle} id='about_me'>
       <GlassmorphismComponent>
         <h2 >À propos de moi</h2>
@@ -23,16 +23,16 @@ export default function AboutMe() {
           </p>
           <br />
           <p>
-            C'est donc ainsi que j'ai commencé en Mars 2021 la formation 
+            C'est donc ainsi que j'ai commencé en Mars 2021 la formation
             <a target="_blank" rel="noreferrer" className='formation' href="https://simplon.co/formation/foundation/24">Apple Foundation Program</a>
             de 4 semaines au sein de
             <a target="_blank" rel="noreferrer" className='redirectLink' href="https://simplon.co/">Simplon</a>
             ayant pour but d'initier ses apprenants au codage et à la création d'un prototype d'appplication au cours de celle-ci.
           </p>
           <br />
-          <p> J'ai ensuite poursuivi avec une autre formation de 
-          <a target="_blank" rel="noreferrer" className='formation' href="https://www.konexio.eu/competences-code.html">Développeur Web et Mobile Fullstack</a>
-          entre Mai 2021 et Octobre 2021  au sein de
+          <p> J'ai ensuite poursuivi avec une autre formation de
+            <a target="_blank" rel="noreferrer" className='formation' href="https://www.konexio.eu/competences-code.html">Développeur Web et Mobile Fullstack</a>
+            entre Mai 2021 et Octobre 2021  au sein de
             <a target="_blank" rel="noreferrer" className='redirectLink' href="https://www.konexio.eu/index.html">Konexio</a>,
             celle-ci ayant pour but de professionnaliser ses apprenants à travers une formations complète et très intense à laquelle j'ai enchainé avec un stage de 6 mois au sein de
             <a target="_blank" rel="noreferrer" className='redirectLink' href="https://www.orchestra.eu/">Orchestra</a>.

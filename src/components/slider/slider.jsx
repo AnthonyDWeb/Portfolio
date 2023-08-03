@@ -11,7 +11,7 @@ export default function Slider({ data }) {
                     const hasLabel = e?.imgLabel;
                     const imgSrc = require(`../../assets/toolsIcone/${e.imgFileName}`);
                     return (
-                        <div key={`${e.imgSrc}${id}`}>
+                        <div key={`${e.imgFileName}${id}`}>
                             {hasImg && <img src={imgSrc} width={50} height={50} alt={`icone ${e.imgLabel}`} />}
                             {hasLabel && <p>{e.imgLabel}</p>}
                         </div>

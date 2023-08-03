@@ -16,8 +16,8 @@ import linkedin from '../assets/linkedin.png';
 
 export default function Contact() {
     const { isMobile, orientation } = useDevice();
-    const { PageContainer, pageContainerStyle, } = useContext(StyleContext);
-    const [isSend,setSend] = useState(false);
+    const { PageContainer, pageContainerStyle, isLoad } = useContext(StyleContext);
+    const [isSend, setSend] = useState(false);
     const form = useRef();
 
     useEffect(() => { isSend && setTimeout(() => setSend(false), 1000); }, [isSend])
@@ -35,7 +35,7 @@ export default function Contact() {
 
     const Form = () => {
         const btnValue = isSend ? "Email envoyé !" : "Envoyer"
-        const isSendStyle = isSend ? {color: "black", backgroundColor: "green", fontWeight: "bold"} : null;
+        const isSendStyle = isSend ? { color: "black", backgroundColor: "green", fontWeight: "bold" } : null;
         return (
             <FormContainer ref={form} onSubmit={sendEmail}>
                 <h2 >Me Contacter</h2>
@@ -48,13 +48,13 @@ export default function Contact() {
     };
 
     const FormField = ({ label, placeholder, type, name }) => {
-        const formfielddiv = { display: "flex", flexDirection: isMobile && "column", width: "100%", justifyContent: "center", alignItems: isMobile ? "center" : "center", marginBottom: 20 };
+        const formfielddiv = { display: "flex", width: "100%", justifyContent: "center", alignItems: "center", marginBottom: 20 };
         const formfieldlabel = { padding: isMobile && "0 0 5px 30px", width: isMobile && "100%", marginRight: !isMobile && 10 };
         const inputStyle = { background: "none", border: "none", borderRadius: "10px", padding: "5px", width: "100%" };
         return (
             <div style={formfielddiv}>
                 <label style={formfieldlabel}>{label}</label>
-                <GlassmorphismComponent width={isMobile ? orientation === "landscape" ? "65vw" : "55vw" : "80vw"} >
+                <GlassmorphismComponent width={isMobile ? orientation === "landscape" ? "80vw" : "55vw" : "80vw"} >
                     <input type={type} name={name} placeholder={placeholder} style={inputStyle} />
                 </GlassmorphismComponent>
             </div>
@@ -84,7 +84,7 @@ export default function Contact() {
     }
 
 
-    return (
+    return (isLoad &&
         <PageContainer style={pageContainerStyle} id='contact'>
             <GlassmorphismComponent width={"90vw"}>
                 <Form />

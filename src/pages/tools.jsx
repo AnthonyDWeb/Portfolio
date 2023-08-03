@@ -11,7 +11,7 @@ import Slider from '../components/slider/slider';
 // OTHER //
 
 export default function Tools() {
-    const { PageContainer, pageContainerStyle, } = useContext(StyleContext);
+    const { PageContainer, pageContainerStyle, isLoad } = useContext(StyleContext);
     const toolsArr = [
         { imgFileName: "html.png", imgLabel: "HTML" },
         { imgFileName: "css.png", imgLabel: "CSS" },
@@ -37,7 +37,7 @@ export default function Tools() {
         { imgFileName: "notion.png", imgLabel: "Notion" },
     ];
 
-    return (
+    return (isLoad &&
         <PageContainer style={pageContainerStyle} id='tools'>
             <GlassmorphismComponent>
                 <h2>Outils</h2>

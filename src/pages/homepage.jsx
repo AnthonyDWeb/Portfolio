@@ -13,8 +13,8 @@ import useDevice from '../utils/hooks/useDevice';
 import CV from '../downloads/CV_Anthony_DELFORGE.pdf';
 
 export default function Homepage() {
-  const { orientation, isMobile, isTablet, isDesktop, device } = useDevice();
-  const { PageContainer, pageContainerStyle, row, column, titleStyle, title2Style, title3Style } = useContext(StyleContext);
+  const { orientation, isMobile, isTablet, isDesktop } = useDevice();
+  const { PageContainer, pageContainerStyle, row, column, titleStyle, title2Style, title3Style, } = useContext(StyleContext);
 
   // TITLE
   const span1TitleClass = "animate__animated animate__backInLeft animate__delay-1s";
@@ -54,7 +54,7 @@ export default function Homepage() {
             </h2>
           </div>
           <DownloadButton desktop={isDesktop}>
-            <a href={CV} download="CV_Anthony_DELFORGE" style={{ ...title3Style, fontFamily: "VT323, monospace", fontWeight: "bold" }}>Télécharger mon CV</a>
+            <a href={CV} download="CV_Anthony_DELFORGE" style={{ ...title3Style, fontFamily: "VT323, monospace", fontWeight: "bold", color: "white" }}>Télécharger mon CV</a>
           </DownloadButton>
         </div>
       </Profil>
