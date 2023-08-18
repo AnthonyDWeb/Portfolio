@@ -21,14 +21,14 @@ function App() {
 
   const Pages = () => {
     return (
-      <>
+      <div style={{position: "relative"}}>
         <NavigationBar />
         <Homepage />
         <Tools />
         <Projets />
         <AboutMe />
         <Contact />
-      </>
+      </div>
     )
   };
 

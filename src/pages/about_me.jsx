@@ -19,7 +19,7 @@ export default function AboutMe() {
         <h2 style={sectionTitle}>À propos de moi</h2>
         <section style={sectionTitle}>
           <p>
-            Après un cursus initial en biologie inspiré par un besoin continu d'apprentissage et de recherche, je me suis réorienté vers le developpement web et mobile, un métier d'avenir et ayant pour caractéristique un apprentissage continu tout au long de sa carrière ce qui correspond à mes besoins.
+            Après un cursus initial en biologie guidé par un besoin continu d'apprentissage et de recherche, je me suis réorienté vers le developpement web et mobile, un métier d'avenir et ayant pour caractéristique un apprentissage continu tout au long de sa carrière ce qui correspond à mes besoins.
           </p>
           <br />
           <p>

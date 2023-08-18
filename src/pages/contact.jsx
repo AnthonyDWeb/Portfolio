@@ -35,7 +35,7 @@ export default function Contact() {
 
     const Form = () => {
         const btnValue = isSend ? "Email envoyé !" : "Envoyer"
-        const isSendStyle = isSend ? { color: "black", backgroundColor: "green", fontWeight: "bold" } : null;
+        const isSendStyle = isSend ? { color: "black", backgroundColor: "green", fontWeight: "bold" } : {backgroundColor: "rgba(255,255,255,0.3)", borderWidth: 0.1};
         return (
             <FormContainer ref={form} onSubmit={sendEmail}>
                 <h2 style={sectionTitle}>Me Contacter</h2>
@@ -73,23 +73,27 @@ export default function Contact() {
 
 
     // Media
-    const IconesLink = ({ source, link, label }) => <IconeLink href={link} target="_blank"><Icone src={source} />{label}</IconeLink>
+    const IconesLink = ({ source, link, label }) => <IconeLink href={link} target="_blank"><Icone src={source} className='iconsocialnetworks' />{label}</IconeLink>
     const Media = () => {
         return (
-            <div style={{ display: "flex", justifyContent: "space-around", width: "100%", marginTop: 20 }}>
-                <IconesLink source={github} link={"https://github.com/AnthonyDWeb"} label={"AnthonyDWeb"} />
-                <IconesLink source={linkedin} link={"https://www.linkedin.com/in/anthony-delforge-9b0805214"} label={"Anthony Delforge"} />
+            <div style={{ display: "flex", justifyContent: "space-around", width: "100%", marginTop: 20, }}>
+                <GlassmorphismComponent rad={"30%"} background={"rgba(255,255,255,0.3)"}>
+                    <IconesLink source={github} link={"https://github.com/AnthonyDWeb"} label={"AnthonyDWeb"} />
+                </GlassmorphismComponent>
+                <GlassmorphismComponent rad={"30%"} background={"rgba(255,255,255,0.3)"}>
+                    <IconesLink source={linkedin} link={"https://www.linkedin.com/in/anthony-delforge-9b0805214"} label={"Anthony Delforge"} />
+                </GlassmorphismComponent>
             </div>
         )
     }
 
 
     return (isLoad &&
-        <PageContainer style={pageContainerStyle} id='contact'>
-            <GlassmorphismComponent width={"90vw"}>
+        <PageContainer style={{ ...pageContainerStyle}} id='contact'>
+            <div>
                 <Form />
                 <Media />
-            </GlassmorphismComponent>
+            </div>
         </PageContainer>
     )
 
