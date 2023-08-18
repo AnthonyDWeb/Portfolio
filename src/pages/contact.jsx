@@ -16,7 +16,7 @@ import linkedin from '../assets/linkedin.png';
 
 export default function Contact() {
     const { isMobile, orientation } = useDevice();
-    const { PageContainer, pageContainerStyle, isLoad } = useContext(StyleContext);
+    const { PageContainer, pageContainerStyle, isLoad, sectionTitle } = useContext(StyleContext);
     const [isSend, setSend] = useState(false);
     const form = useRef();
 
@@ -38,7 +38,7 @@ export default function Contact() {
         const isSendStyle = isSend ? { color: "black", backgroundColor: "green", fontWeight: "bold" } : null;
         return (
             <FormContainer ref={form} onSubmit={sendEmail}>
-                <h2 >Me Contacter</h2>
+                <h2 style={sectionTitle}>Me Contacter</h2>
                 <FormField label={"Nom :"} placeholder={"Qui êtes-vous? ..."} type={"text"} name={"user_name"} />
                 <FormField label={"E-mail :"} placeholder={"Votre e-mail..."} type={"email"} name={"user_email"} />
                 <TextArea placeholder={"Votre message..."} />

@@ -11,12 +11,12 @@ import SwiperComponent from '../components/swiper/swiper';
 // OTHER //
 
 export default function Projets() {
-  const { PageContainer, pageContainerStyle, isLoad } = useContext(StyleContext);
+  const { PageContainer, pageContainerStyle, sectionTitle, isLoad } = useContext(StyleContext);
 
   return (isLoad &&
     <PageContainer style={{ ...pageContainerStyle }} id='portfolio'>
       <GlassmorphismComponent width={"90vw"} height={"auto"}>
-        <h2>Portfolio</h2>
+        <h2 style={sectionTitle}>Portfolio</h2>
         <SwiperComponent />
       </GlassmorphismComponent>
     </PageContainer>

@@ -14,7 +14,7 @@ import CV from '../downloads/CV_Anthony_DELFORGE.pdf';
 
 export default function Homepage() {
   const { orientation, isMobile, isTablet, isDesktop } = useDevice();
-  const { PageContainer, pageContainerStyle, row, column, titleStyle, title2Style, title3Style, } = useContext(StyleContext);
+  const { PageContainer, pageContainerStyle, row, column, homeTitleStyle, homeTitle2Style, homeTitle3Style, } = useContext(StyleContext);
 
   // TITLE
   const span1TitleClass = "animate__animated animate__backInLeft animate__delay-1s";
@@ -23,7 +23,7 @@ export default function Homepage() {
   const spanText1 = "Une idée ? Un projet ?";
   const spanText2 = "La création d'un site web ou d'une application mobile ?";
   const spanText3 = "Donnez vie à tous vos projets !";
-  const titleEnd = { ...titleStyle, alignSelf: "flex-end" }
+  const titleEnd = { ...homeTitleStyle, alignSelf: "flex-end" }
 
   // PROFILE
   const divContainerClass = "animate__animated animate__backInUp animate__delay-3s";
@@ -34,14 +34,14 @@ export default function Homepage() {
   const imgStyle = { opacity: 0.8, width: imageSize, height: imageSize };
   let profileTitle = column;
   if (isMobile && orientation === "portrait") profileTitle = { ...profileTitle, alignItems: "center", marginTop: 20 }
-  let profileText = { ...title2Style, fontFamily: "VT323, monospace" };
+  let profileText = { ...homeTitle2Style, fontFamily: "VT323, monospace" };
   if (isMobile && orientation === "portrait") profileText = { ...profileText, margin: "0px 10px" }
 
   return (
     <PageContainer style={pageContainerStyle} id="homepage">
       <MainTitle desktop={isDesktop}>
         <span className={span1TitleClass} style={titleEnd}>{spanText1}</span>
-        <span className={span2TitleClass} style={titleStyle}>{spanText2}</span>
+        <span className={span2TitleClass} style={homeTitleStyle}>{spanText2}</span>
         <span className={span3TitleClass} style={titleEnd}>{spanText3}</span>
       </MainTitle>
       <Profil orientation={orientation}>
@@ -54,7 +54,7 @@ export default function Homepage() {
             </h2>
           </div>
           <DownloadButton desktop={isDesktop}>
-            <a href={CV} download="CV_Anthony_DELFORGE" style={{ ...title3Style, fontFamily: "VT323, monospace", fontWeight: "bold", color: "white" }}>Télécharger mon CV</a>
+            <a href={CV} download="CV_Anthony_DELFORGE" style={{ ...homeTitle3Style, fontFamily: "VT323, monospace", fontWeight: "bold", color: "white" }}>Télécharger mon CV</a>
           </DownloadButton>
         </div>
       </Profil>

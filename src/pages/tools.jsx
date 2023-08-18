@@ -11,7 +11,7 @@ import Slider from '../components/slider/slider';
 // OTHER //
 
 export default function Tools() {
-    const { PageContainer, pageContainerStyle, isLoad } = useContext(StyleContext);
+    const { PageContainer, pageContainerStyle, sectionTitle, isLoad } = useContext(StyleContext);
     const toolsArr = [
         { imgFileName: "html.png", imgLabel: "HTML" },
         { imgFileName: "css.png", imgLabel: "CSS" },
@@ -40,7 +40,7 @@ export default function Tools() {
     return (isLoad &&
         <PageContainer style={pageContainerStyle} id='tools'>
             <GlassmorphismComponent>
-                <h2>Outils</h2>
+                <h2 style={sectionTitle}>Outils</h2>
                 <Slider data={toolsArr} />
             </GlassmorphismComponent>
         </PageContainer>

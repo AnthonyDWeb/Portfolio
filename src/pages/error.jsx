@@ -8,10 +8,10 @@ import { StyleContext } from '../contexts/style.context';
 // OTHER //
 
 export default function Error() {
-    const { PageContainer, titleStyle } = useContext(StyleContext);
+    const { PageContainer, homeTitleStyle } = useContext(StyleContext);
     return (
-        <PageContainer style={{height: "40vh" }} id='error'>
-            <h1 style={{...titleStyle, margin: 5, padding: 0, textAlign: "center"}}>Le site est actuellement en maintenance, désolé de la gène occasionné</h1>
+        <PageContainer style={{ height: "40vh" }} id='error'>
+            <h1 style={{ ...homeTitleStyle, margin: 5, padding: 0, textAlign: "center" }}>Le site est actuellement en maintenance, désolé de la gène occasionné</h1>
         </PageContainer>
     )
 };
