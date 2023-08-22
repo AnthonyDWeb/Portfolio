@@ -6,10 +6,10 @@ export const StyleContext = createContext({});
 export const StyleProvider = props => {
   const { isMobile, isTablet, isDesktop } = useDevice();
   const [isLoad, setLoad] = useState(false);
+  const [showMore, setShow] = useState(false);
   // const [theme, setTheme] = useState();
 
   useEffect(() => { setTimeout(() => setLoad(true), 4500); }, []);
-  console.log("style isload", isLoad)
   // CONTAINER
   const row = { display: "flex", flexDirection: "row", alignItems: "center" };
   const column = { display: "flex", flexDirection: "column" };
@@ -22,7 +22,7 @@ export const StyleProvider = props => {
   const homeTitle3Style = { fontSize: isMobile ? "2.5vw" : isTablet ? "2vw" : "1.5vw", };
   const sectionTitle = { marginBottom: "20px" };
 
-  const styleContextValue = { PageContainer, pageContainerStyle, row, column, homeTitleStyle, homeTitle2Style, homeTitle3Style, sectionTitle, contentContainer, isLoad, setLoad };
+  const styleContextValue = { PageContainer, pageContainerStyle, row, column, homeTitleStyle, homeTitle2Style, homeTitle3Style, sectionTitle, contentContainer, isLoad, setLoad, showMore, setShow };
   return <StyleContext.Provider value={styleContextValue} {...props} />
 };
 

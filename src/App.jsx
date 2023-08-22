@@ -1,6 +1,7 @@
 // LIBRARY //
 import './App.css';
 // STYLE //
+import 'animate.css';
 // CONTEXT //
 import { DeviseProvider } from './contexts/devise';
 import { StyleProvider } from './contexts/style.context';
@@ -21,13 +22,13 @@ function App() {
 
   const Pages = () => {
     return (
-      <div style={{position: "relative"}}>
+      <div style={{ position: "relative" }}>
         <NavigationBar />
         <Homepage />
-        <Tools />
-        <Projets />
-        <AboutMe />
-        <Contact />
+          <Tools />
+          <Projets />
+          <AboutMe />
+          <Contact />
       </div>
     )
   };

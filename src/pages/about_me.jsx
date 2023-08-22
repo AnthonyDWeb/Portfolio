@@ -14,7 +14,7 @@ export default function AboutMe() {
   const { PageContainer, pageContainerStyle, sectionTitle, isLoad } = useContext(StyleContext);
   // const fontName = "cursive Bungee Inline";
   return (isLoad &&
-    <PageContainer style={pageContainerStyle} id='about_me'>
+    <PageContainer style={pageContainerStyle} id='about_me' className={"animate__animated animate__backIn"}>
       <GlassmorphismComponent>
         <h2 style={sectionTitle}>À propos de moi</h2>
         <section style={sectionTitle}>

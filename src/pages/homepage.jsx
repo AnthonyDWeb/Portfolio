@@ -14,7 +14,7 @@ import CV from '../downloads/CV_Anthony_DELFORGE.pdf';
 
 export default function Homepage() {
   const { orientation, isMobile, isTablet, isDesktop } = useDevice();
-  const { PageContainer, pageContainerStyle, row, column, homeTitleStyle, homeTitle2Style, homeTitle3Style, } = useContext(StyleContext);
+  const { PageContainer, pageContainerStyle, row, column, homeTitleStyle, homeTitle2Style, homeTitle3Style } = useContext(StyleContext);
 
   // TITLE
   const span1TitleClass = "animate__animated animate__backInLeft animate__delay-1s";

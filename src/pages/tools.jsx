@@ -38,7 +38,7 @@ export default function Tools() {
     ];
 
     return (isLoad &&
-        <PageContainer style={pageContainerStyle} id='tools'>
+        <PageContainer style={pageContainerStyle} id='tools' className={"animate__animated animate__backIn"}>
             <GlassmorphismComponent>
                 <h2 style={sectionTitle}>Outils</h2>
                 <Slider data={toolsArr} />

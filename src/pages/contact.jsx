@@ -35,13 +35,13 @@ export default function Contact() {
 
     const Form = () => {
         const btnValue = isSend ? "Email envoyé !" : "Envoyer"
-        const isSendStyle = isSend ? { color: "black", backgroundColor: "green", fontWeight: "bold" } : {backgroundColor: "rgba(255,255,255,0.3)", borderWidth: 0.1};
+        const isSendStyle = isSend ? { color: "black", backgroundColor: "green", fontWeight: "bold" } : { backgroundColor: "rgba(255,255,255,0.3)", borderWidth: 0.1 };
         return (
             <FormContainer ref={form} onSubmit={sendEmail}>
                 <h2 style={sectionTitle}>Me Contacter</h2>
                 <FormField label={"Nom :"} placeholder={"Qui êtes-vous? ..."} type={"text"} name={"user_name"} />
                 <FormField label={"E-mail :"} placeholder={"Votre e-mail..."} type={"email"} name={"user_email"} />
-                <TextArea placeholder={"Votre message..."} />
+                <TextAreaContainer name="message" placeholder={"Votre message"} wrap="soft" rows="15" cols="20" style={{ width: isMobile && "90%" }} />
                 <SubmitButtonContainer type="submit" value={btnValue} style={isSendStyle} />
             </FormContainer>
         )
@@ -60,28 +60,21 @@ export default function Contact() {
             </div>
         )
     };
-    const TextArea = ({ placeholder }) => {
-        return (
-            <TextAreaContainer>
-                <GlassmorphismComponent width={"90%"}>
-                    <label>Votre message</label>
-                    <textarea name="message" placeholder={placeholder} wrap="soft" rows="15" cols="20" style={{ backgroundColor: "transparent", width: "90%", borderRadius: 5, padding: 5, textAlign: "justify", marginTop: 10 }} />
-                </GlassmorphismComponent>
-            </TextAreaContainer>
-        )
-    };
+
 
 
     // Media
     const IconesLink = ({ source, link, label }) => <IconeLink href={link} target="_blank"><Icone src={source} className='iconsocialnetworks' />{label}</IconeLink>
     const Media = () => {
+        const githubLabel = isMobile ? <span style={{color: "red", textAlign: "center"}}>Mon<br/>Github</span> : "AnthonyDWeb";
+        const linkedinLabel = isMobile ? <span style={{color: "red"}}>Anthony<br/>Delforge</span> : "Anthony Delforge";
         return (
             <div style={{ display: "flex", justifyContent: "space-around", width: "100%", marginTop: 20, }}>
                 <GlassmorphismComponent rad={"30%"} background={"rgba(255,255,255,0.3)"}>
-                    <IconesLink source={github} link={"https://github.com/AnthonyDWeb"} label={"AnthonyDWeb"} />
+                    <IconesLink source={github} link={"https://github.com/AnthonyDWeb"} label={githubLabel} />
                 </GlassmorphismComponent>
                 <GlassmorphismComponent rad={"30%"} background={"rgba(255,255,255,0.3)"}>
-                    <IconesLink source={linkedin} link={"https://www.linkedin.com/in/anthony-delforge-9b0805214"} label={"Anthony Delforge"} />
+                    <IconesLink source={linkedin} link={"https://www.linkedin.com/in/anthony-delforge-9b0805214"} label={linkedinLabel} />
                 </GlassmorphismComponent>
             </div>
         )
@@ -89,7 +82,7 @@ export default function Contact() {
 
 
     return (isLoad &&
-        <PageContainer style={{ ...pageContainerStyle}} id='contact'>
+        <PageContainer style={{ ...pageContainerStyle }} id='contact' className={"animate__animated animate__backIn"}>
             <div>
                 <Form />
                 <Media />
@@ -106,8 +99,8 @@ textarea::placeholder { color: white};
 input::placeholder { color: white};
 `;
 
-const TextAreaContainer = styled.div`
-display: flex; width: 100%; justify-content: center; align-items: center; margin-bottom: 20px;
+const TextAreaContainer = styled.textarea`
+background-color: transparent; width: 100%; border-radius: 5px; padding: 5px; text-align: justify; margin-top: 10px;
 `;
 
 const SubmitButtonContainer = styled.input`
