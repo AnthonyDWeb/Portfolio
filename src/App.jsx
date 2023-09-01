@@ -6,40 +6,22 @@ import 'animate.css';
 import { DeviseProvider } from './contexts/devise';
 import { StyleProvider } from './contexts/style.context';
 // PAGE //
-import Homepage from './pages/homepage';
-import AboutMe from './pages/about_me';
-import Contact from './pages/contact';
-import Projets from './pages/projets';
-import Tools from './pages/tools';
-import Error from './pages/error';
+import Pages from './pages';
 // COMPONENT //
-import ParticulesBackground from './components/background-particules/background.particules';
-import NavigationBar from './components/navigationBar';
+import Error from './pages/error';
+import { ThemeProvider } from './contexts/theme.context';
 // OTHER //
 
 function App() {
   const maintenance = false;
 
-  const Pages = () => {
-    return (
-      <div style={{ position: "relative" }}>
-        <NavigationBar />
-        <Homepage />
-          <Tools />
-          <Projets />
-          <AboutMe />
-          <Contact />
-      </div>
-    )
-  };
-
-
   return (
     <DeviseProvider>
-      <StyleProvider>
-        <ParticulesBackground />
-        {maintenance ? <Error /> : <Pages />}
-      </StyleProvider>
+      <ThemeProvider>
+        <StyleProvider>
+          {maintenance ? <Error /> : <Pages />}
+        </StyleProvider>
+      </ThemeProvider>
     </DeviseProvider>
   );
 }

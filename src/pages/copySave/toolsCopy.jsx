@@ -3,11 +3,11 @@ import React, { useContext } from 'react';
 // STYLE //
 import '../App.css'
 // CONTEXT //
-import { StyleContext } from '../contexts/style.context';
+import { StyleContext } from '../../contexts/style.context';
 // PAGE //
 // COMPONENT //
-import GlassmorphismComponent from '../components/glassmorphism/glassmorphism-component';
-import Slider from '../components/slider/slider';
+import GlassmorphismComponent from '../../components/glassmorphism/glassmorphism-component';
+import Slider from '../../components/slider/slider';
 // OTHER //
 
 export default function Tools() {

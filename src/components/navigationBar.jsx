@@ -2,25 +2,38 @@ import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 import 'animate.css';
 import { DeviseContext } from '../contexts/devise';
+import GlassmorphismComponent from './glassmorphism/glassmorphism-component';
+import { ThemeContext } from '../contexts/theme.context';
 
 export default function NavigationBar() {
     const { orientation, isDesktop } = useContext(DeviseContext);
+    const { setTheme } = useContext(ThemeContext);
     const [display, setDisplay] = useState(false);
 
     const arrowSrc = require("../assets/icon-arrow-down.webp");
     const arrowStyle = { height: 20, width: 30 }
-
+    const ThemeButton = ({t}) => <p style={{ position: "relative", textAlign: "center", }} onClick={() => setTheme(t)} className='link'>{t}</p> 
     const MenuButton = ({ title, classname, id }) => {
+        const themeButton = id === "#theme";
         return (
-            <div className="linkContainer" style={{ margin: "5px 0", textAlign: "center" }}>
-                <a href={id} className={`link ${classname}`} onClick={() => setDisplay(!display)}>{title}</a>
+            <div className="linkContainer" style={{ margin: "5px 0", textAlign: "center", position: "relative" }}>
+                <a href={id} className={`link ${classname}`} onClick={() => themeButton && setDisplay(!display)}>{title}</a>
+                {(display && themeButton) &&
+                    <div style={{ position: "absolute", right: "-10%", zIndex: 8, top: "130%" }}>
+                        <GlassmorphismComponent background={"rgba(0,0,0,0.7)"}>
+                            <ThemeButton t={"Clair"}/>
+                            <ThemeButton t={"Sombre"}/>
+                            <ThemeButton t={"Spécial"}/>
+                        </GlassmorphismComponent>
+                    </div>
+                }
             </div>
         )
     };
 
-
+    console.log("setdisplay", display);
     return (
-        <div className={`animate__animated animate__fadeIn  animate__delay-3s`} style={{ position: "fixed", zIndex: 10 }}>
+        <div className={`animate__animated animate__fadeIn  animate__delay-3s`} style={{ position: "fixed", zIndex: 12 }}>
             <NavBar orientation={`${orientation}`} desktop={isDesktop}>
                 {(display || isDesktop) &&
                     <NavList orientation={`${orientation}`} desktop={isDesktop}>
@@ -29,6 +42,7 @@ export default function NavigationBar() {
                         <MenuButton title={"Portfolio"} id={"#portfolio"} />
                         <MenuButton title={"A propos de moi"} id={"#about_me"} />
                         <MenuButton title={"Contact"} id={"#contact"} />
+                        <MenuButton title={"Thème"} id={"#theme"} classname={display && "isHover"} />
                     </NavList>
                 }
                 {!isDesktop && <Displayer orientation={`${orientation}`} onClick={() => setDisplay(!display)}
@@ -72,6 +86,11 @@ border: none;
         background-color: whitesmoke;
         box-shadow: 0px 0px 5px 0px whitesmoke;
     }
+}
+.isHover {
+    color: black;
+    background-color: whitesmoke;
+    box-shadow: 0px 0px 5px 0px whitesmoke;
 }
 `;
 
