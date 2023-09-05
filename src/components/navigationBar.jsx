@@ -7,7 +7,7 @@ import { ThemeContext } from '../contexts/theme.context';
 
 export default function NavigationBar() {
     const { orientation, isDesktop } = useContext(DeviseContext);
-    const { setTheme } = useContext(ThemeContext);
+    const { theme,setTheme } = useContext(ThemeContext);
     const [display, setDisplay] = useState(false);
 
     const arrowSrc = require("../assets/icon-arrow-down.webp");
@@ -42,7 +42,7 @@ export default function NavigationBar() {
                         <MenuButton title={"Portfolio"} id={"#portfolio"} />
                         <MenuButton title={"A propos de moi"} id={"#about_me"} />
                         <MenuButton title={"Contact"} id={"#contact"} />
-                        <MenuButton title={"Thème"} id={"#theme"} classname={display && "isHover"} />
+                        <MenuButton title={`Thème (${theme})`} id={"#theme"} classname={display && "isHover"} />
                     </NavList>
                 }
                 {!isDesktop && <Displayer orientation={`${orientation}`} onClick={() => setDisplay(!display)}
