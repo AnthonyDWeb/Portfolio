@@ -15,21 +15,18 @@ import NavigationBar from '../components/navigationBar';
 // OTHER //
 
 export default function Pages() {
-    const { theme } = useContext(ThemeContext);
-    console.log("theme ->", theme);
-    const darkMode = theme === "Sombre";
-    const lightMode = theme === "Clair";
-    const colorTheme = darkMode ? "rgba(44, 41, 43, 0.89)" : lightMode && "green";
+    const { theme, themeColor } = useContext(ThemeContext);
+
     return (
         <>
             {theme === "Spécial" && <ParticulesBackground />}
-            <div style={{ position: "relative", backgroundColor: colorTheme }}>
+            <div style={{ position: "relative", backgroundColor: themeColor?.background, minHeight: "100vh" }}>
                 <NavigationBar />
-                <Homepage />
+                {/* <Homepage /> */}
                 <Tools />
-                <Projets />
-                <AboutMe />
-                <Contact />
+                {/* <Projets /> */}
+                {/* <AboutMe /> */}
+                {/* <Contact /> */}
             </div>
         </>
     )

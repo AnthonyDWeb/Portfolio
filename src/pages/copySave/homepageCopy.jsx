@@ -20,10 +20,10 @@ export default function Homepage() {
   const span1TitleClass = "animate__animated animate__backInLeft animate__delay-1s";
   const span2TitleClass = "animate__animated animate__backInRight animate__delay-2s";
   const span3TitleClass = "animate__animated animate__backInLeft animate__delay-2s";
-  const spanText1 = "Une idée ? Un projet ?";
-  const spanText2 = "La création d'un site web ou d'une application mobile ?";
-  const spanText3 = "Donnez vie à tous vos projets !";
-  const titleEnd = { ...homeTitleStyle, alignSelf: "flex-end" }
+  const animatedTitle1 = "Une idée ? Un projet ?";
+  const animatedTitle2 = "La création d'un site web ou d'une application mobile ?";
+  const animatedTitle3 = "Donnez vie à tous vos projets !";
+  const titleStyleEnd = { ...homeTitleStyle, alignSelf: "flex-end" }
 
   // PROFILE
   const divContainerClass = "animate__animated animate__backInUp animate__delay-3s";
@@ -40,9 +40,9 @@ export default function Homepage() {
   return (
     <PageContainer style={pageContainerStyle} id="homepage">
       <MainTitle desktop={isDesktop}>
-        <span className={span1TitleClass} style={titleEnd}>{spanText1}</span>
-        <span className={span2TitleClass} style={homeTitleStyle}>{spanText2}</span>
-        <span className={span3TitleClass} style={titleEnd}>{spanText3}</span>
+        <span className={span1TitleClass} style={titleStyleEnd}>{animatedTitle1}</span>
+        <span className={span2TitleClass} style={homeTitleStyle}>{animatedTitle2}</span>
+        <span className={span3TitleClass} style={titleStyleEnd}>{animatedTitle3}</span>
       </MainTitle>
       <Profil orientation={orientation}>
         <div className={divContainerClass} style={{ ...column, alignItems: "center" }}>

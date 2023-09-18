@@ -1,56 +1,52 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 
 export const ThemeContext = createContext({});
 export const ThemeProvider = props => {
     const [theme, setTheme] = useState();
     const dark = "Sombre"; const light = "Clair"; const special = "Spécial";
+    const themeColor = {};
 
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches && theme !== dark) setTheme(dark)
-    if (window.matchMedia('(prefers-color-scheme: light)').matches && theme !== light) setTheme(light)
-
-    window.matchMedia(`(prefers-color-scheme: dark)`).addEventListener('change', event => {
-        const newTheme = event.matches ? dark : light;
-        if (theme !== newTheme) setTheme(newTheme);
-    });
-
-    if (theme === undefined) setTheme(light);
-
-    const themeColor = {
-        mainTitle: "",
-        title: "",
-        text: "",
-        link: "",
-    };
+    useEffect(() => {
+        window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', event => {
+            const newTheme = event.matches ? dark : light;
+            if (theme !== newTheme) setTheme(newTheme);
+        });
+    }, [theme]);
 
     switch (theme) {
         case dark:
+            themeColor.navbar = "rgba(0, 0, 0, 0.4)";
+            themeColor.background = "#141414";
             themeColor.mainTitle = "white";
             themeColor.title = "white";
             themeColor.text = "white";
             themeColor.link = "white";
             break;
         case light:
+            themeColor.navbar = "rgba(0, 0, 0, 0.4)";
+            themeColor.navText = "black";
+            themeColor.background = "#FDF8F8";
             themeColor.mainTitle = "black";
             themeColor.title = "black";
             themeColor.text = "black";
             themeColor.link = "black";
             break;
         case special:
+            themeColor.navbar = "rgba(0, 0, 0, 0.4)";
             themeColor.mainTitle = "white";
             themeColor.title = "white";
             themeColor.text = "white";
             themeColor.link = "white";
             break;
+        case undefined:
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches && theme !== dark) setTheme(dark);
+            if (window.matchMedia('(prefers-color-scheme: light)').matches && theme !== light) setTheme(light);
+            if (!window.matchMedia) setTheme(light);
+            break;
 
         default:
             break;
     }
-
-
-
-    // ------------------------------------------------------------
-    // PENSEZ A CHECKER POURQUOI "TOO MANY RE RENDER". //
-    // ------------------------------------------------------------
 
     console.log("theme Color", themeColor)
 

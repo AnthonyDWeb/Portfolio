@@ -6,43 +6,40 @@ import '../App.css';
 import 'animate.css';
 // CONTEXT //
 import { StyleContext } from '../contexts/style.context';
+import { ThemeContext } from '../contexts/theme.context';
 // PAGE //
 // COMPONENT //
 // OTHER //
 import useDevice from '../utils/hooks/useDevice';
 import CV from '../downloads/CV_Anthony_DELFORGE.pdf';
+import { animatedTitleClass1, animatedTitleClass2, animatedTitleClass3, animatedTitle1, animatedTitle2, animatedTitle3 } from '../utils/other/constante';
 
 export default function Homepage() {
   const { orientation, isMobile, isTablet, isDesktop } = useDevice();
+  const { theme, themeColor } = useContext(ThemeContext);
   const { PageContainer, pageContainerStyle, row, column, homeTitleStyle, homeTitle2Style, homeTitle3Style } = useContext(StyleContext);
 
   // TITLE
-  const span1TitleClass = "animate__animated animate__backInLeft animate__delay-1s";
-  const span2TitleClass = "animate__animated animate__backInRight animate__delay-2s";
-  const span3TitleClass = "animate__animated animate__backInLeft animate__delay-2s";
-  const spanText1 = "Une idée ? Un projet ?";
-  const spanText2 = "La création d'un site web ou d'une application mobile ?";
-  const spanText3 = "Donnez vie à tous vos projets !";
-  const titleEnd = { ...homeTitleStyle, alignSelf: "flex-end" }
+  const titleStyle = { ...homeTitleStyle, color: themeColor.mainTitle };
+  const titleStyleEnd = { ...titleStyle, alignSelf: "flex-end" }
 
   // PROFILE
   const divContainerClass = "animate__animated animate__backInUp animate__delay-3s";
-  const divContainerStyle = (isMobile && orientation === "portrait")
-    ? { ...column, alignItems: "center" }
-    : { ...row, justifyContent: "center" };
+  const portraitMob = (isMobile && orientation === "portrait");
+  const divContainerStyle = portraitMob ? { ...column, alignItems: "center" } : { ...row, justifyContent: "center" };
   const imageSize = isMobile ? 150 : isTablet ? 200 : 250;
   const imgStyle = { opacity: 0.8, width: imageSize, height: imageSize };
   let profileTitle = column;
   if (isMobile && orientation === "portrait") profileTitle = { ...profileTitle, alignItems: "center", marginTop: 20 }
-  let profileText = { ...homeTitle2Style, fontFamily: "VT323, monospace" };
+  let profileText = { ...homeTitle2Style, fontFamily: "VT323, monospace", color: themeColor.mainTitle };
   if (isMobile && orientation === "portrait") profileText = { ...profileText, margin: "0px 10px" }
 
   return (
     <PageContainer style={pageContainerStyle} id="homepage">
       <MainTitle desktop={isDesktop}>
-        <span className={span1TitleClass} style={titleEnd}>{spanText1}</span>
-        <span className={span2TitleClass} style={homeTitleStyle}>{spanText2}</span>
-        <span className={span3TitleClass} style={titleEnd}>{spanText3}</span>
+        <span className={animatedTitleClass1} style={titleStyleEnd}>{animatedTitle1}</span>
+        <span className={animatedTitleClass2} style={titleStyle}>{animatedTitle2}</span>
+        <span className={animatedTitleClass3} style={titleStyleEnd}>{animatedTitle3}</span>
       </MainTitle>
       <Profil orientation={orientation}>
         <div className={divContainerClass} style={{ ...column, alignItems: "center" }}>
@@ -71,7 +68,7 @@ display: flex; align-items: center; flex-direction: column; margin-top: ${props 
 }
 `;
 const DownloadButton = styled.button`
-background: linear-gradient(to left, blue, red); border: none; border-radius: 10px; padding: 10px; margin: 10px; width: fit-content;
+background: linear-gradient(to left, blue, red); border: none; border-radius: 10px; padding: 10px; margin: 0px; width: fit-content;
 >a { color: black; }
 :hover { 
   background: linear-gradient(to left, red, blue); 
