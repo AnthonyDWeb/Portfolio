@@ -15,7 +15,7 @@ export const ThemeProvider = props => {
 
     switch (theme) {
         case dark:
-            themeColor.navbar = "rgba(0, 0, 0, 0.4)";
+            themeColor.navbar = "#141414";
             themeColor.background = "#141414";
             themeColor.mainTitle = "white";
             themeColor.title = "white";
@@ -23,8 +23,8 @@ export const ThemeProvider = props => {
             themeColor.link = "white";
             break;
         case light:
-            themeColor.navbar = "rgba(0, 0, 0, 0.4)";
-            themeColor.navText = "black";
+            themeColor.navbar = "rgba(0, 0, 0, 0.8)";
+            themeColor.navText = "#FDF8F8";
             themeColor.background = "#FDF8F8";
             themeColor.mainTitle = "black";
             themeColor.title = "black";

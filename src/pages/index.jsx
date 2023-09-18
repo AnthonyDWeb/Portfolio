@@ -22,11 +22,11 @@ export default function Pages() {
             {theme === "Spécial" && <ParticulesBackground />}
             <div style={{ position: "relative", backgroundColor: themeColor?.background, minHeight: "100vh" }}>
                 <NavigationBar />
-                {/* <Homepage /> */}
+                <Homepage />
                 <Tools />
-                {/* <Projets /> */}
-                {/* <AboutMe /> */}
-                {/* <Contact /> */}
+                <Projets />
+                <AboutMe />
+                <Contact />
             </div>
         </>
     )

@@ -9,6 +9,7 @@ export default function NavigationBar() {
     const { orientation, isDesktop } = useContext(DeviseContext);
     const { theme, setTheme, themeColor } = useContext(ThemeContext);
     const [display, setDisplay] = useState(false);
+    const [btnHover, setBtnHover] = useState();
 
     const arrowSrc = require("../assets/icon-arrow-down.webp");
     const arrowStyle = { height: 20, width: 30 };
@@ -21,9 +22,12 @@ export default function NavigationBar() {
                 <a
                     href={id}
                     className={`link ${classname}`}
-                    style={{ color: themeColor.navText }}
+                    style={{ color: btnHover === title ? "black" : themeColor.navText }}
                     onClick={() => themeButton && setDisplay(!display)}
+                    desktop={true}
                     background={`${themeColor.background}`}
+                    onMouseEnter={() => setBtnHover(title)}
+                    onMouseLeave={() => setBtnHover(undefined)}
                 >
                     {title}
                 </a>
@@ -44,11 +48,11 @@ export default function NavigationBar() {
                     <NavList orientation={`${orientation}`} desktop={isDesktop}>
                         {!display &&
                             <>
-                                <MenuButton title={"Acceuil"} id={"#homepage"} />
-                                <MenuButton title={"Outils"} id={"#tools"} />
-                                <MenuButton title={"Portfolio"} id={"#portfolio"} />
-                                <MenuButton title={"A propos de moi"} id={"#about_me"} />
-                                <MenuButton title={"Contact"} id={"#contact"} />
+                                <MenuButton title={"Acceuil"} id={"#homepage"} classname={`${btnHover}isHover`}/>
+                                <MenuButton title={"Outils"} id={"#tools"} classname={`${btnHover}isHover`}/>
+                                <MenuButton title={"Portfolio"} id={"#portfolio"} classname={`${btnHover}isHover`}/>
+                                <MenuButton title={"A propos de moi"} id={"#about_me"} classname={`${btnHover}isHover`}/>
+                                <MenuButton title={"Contact"} id={"#contact"} classname={`${btnHover}isHover`}/>
                             </>
                         }
                         <MenuButton title={`Thème (${theme})`} id={"#theme"} classname={display && "isHover"} />
