@@ -18,6 +18,7 @@ export const ThemeProvider = props => {
             themeColor.navbar = "#141414";
             themeColor.background = "#141414";
             themeColor.mainTitle = "white";
+            themeColor.glasscard = "rgba(255,255,255,0.081)";
             themeColor.title = "white";
             themeColor.text = "white";
             themeColor.link = "white";
@@ -27,13 +28,16 @@ export const ThemeProvider = props => {
             themeColor.navText = "#FDF8F8";
             themeColor.background = "#FDF8F8";
             themeColor.mainTitle = "black";
+            themeColor.glasscard = "lightgray";
             themeColor.title = "black";
             themeColor.text = "black";
+            themeColor.text2 = "black";
             themeColor.link = "black";
             break;
         case special:
             themeColor.navbar = "rgba(0, 0, 0, 0.4)";
             themeColor.mainTitle = "white";
+            themeColor.glasscard = "rgba(255,255,255,0.081)";
             themeColor.title = "white";
             themeColor.text = "white";
             themeColor.link = "white";

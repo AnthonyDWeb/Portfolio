@@ -13,10 +13,13 @@ import GlassmorphismComponent from '../components/glassmorphism/glassmorphism-co
 import useDevice from '../utils/hooks/useDevice';
 import github from '../assets/toolsIcone/github.svg';
 import linkedin from '../assets/linkedin.png';
+import { ThemeContext } from '../contexts/theme.context';
 
 export default function Contact() {
     const { isMobile, orientation } = useDevice();
     const { PageContainer, pageContainerStyle, isLoad, sectionTitle } = useContext(StyleContext);
+    const { theme, themeColor } = useContext(ThemeContext);
+
     const [isSend, setSend] = useState(false);
     const form = useRef();
 
@@ -36,26 +39,27 @@ export default function Contact() {
     const Form = () => {
         const btnValue = isSend ? "Email envoyé !" : "Envoyer"
         const isSendStyle = isSend ? { color: "black", backgroundColor: "green", fontWeight: "bold" } : { backgroundColor: "rgba(255,255,255,0.3)", borderWidth: 0.1 };
+        console.log("classname:", `theme${theme}`)
         return (
             <FormContainer ref={form} onSubmit={sendEmail}>
                 <h2 style={sectionTitle}>Me Contacter</h2>
                 <FormField label={"Nom :"} placeholder={"Qui êtes-vous? ..."} type={"text"} name={"user_name"} />
                 <FormField label={"E-mail :"} placeholder={"Votre e-mail..."} type={"email"} name={"user_email"} />
-                <TextAreaContainer name="message" placeholder={"Votre message"} wrap="soft" rows="15" cols="20" style={{ width: isMobile && "90%" }} />
+                <TextAreaContainer name="message" wrap="soft" rows="15" cols="20" style={{ width: isMobile && "90%", color: themeColor.text, backgroundColor: themeColor.glasscard }} />
                 <SubmitButtonContainer type="submit" value={btnValue} style={isSendStyle} />
             </FormContainer>
         )
     };
 
     const FormField = ({ label, placeholder, type, name }) => {
-        const formfielddiv = { display: "flex", width: "100%", justifyContent: "center", alignItems: "center", marginBottom: 20 };
+        const formfielddiv = { display: "flex", width: "100%", justifyContent: "center", alignItems: "center", marginBottom: 20, color: themeColor.text };
         const formfieldlabel = { padding: isMobile && "0 0 5px 30px", width: isMobile && "100%", marginRight: !isMobile && 10 };
-        const inputStyle = { background: "none", border: "none", borderRadius: "10px", padding: "5px", width: "100%" };
+        const inputStyle = { background: "none", borderRadius: "10px", padding: "5px", width: "100%", color: themeColor.text, border: "none" };
         return (
             <div style={formfielddiv}>
                 <label style={formfieldlabel}>{label}</label>
                 <GlassmorphismComponent width={isMobile ? orientation === "landscape" ? "80vw" : "55vw" : "80vw"} >
-                    <input type={type} name={name} placeholder={placeholder} style={inputStyle} />
+                    <input type={type} name={name} style={inputStyle} />
                 </GlassmorphismComponent>
             </div>
         )
@@ -66,8 +70,8 @@ export default function Contact() {
     // Media
     const IconesLink = ({ source, link, label }) => <IconeLink href={link} target="_blank"><Icone src={source} className='iconsocialnetworks' />{label}</IconeLink>
     const Media = () => {
-        const githubLabel = isMobile ? <span style={{color: "crimson", textAlign: "center"}}>Mon<br/>Github</span> : "AnthonyDWeb";
-        const linkedinLabel = isMobile ? <span style={{color: "crimson"}}>Anthony<br/>Delforge</span> : "Anthony Delforge";
+        const githubLabel = isMobile ? <span style={{ color: "crimson", textAlign: "center" }}>Mon<br />Github</span> : "AnthonyDWeb";
+        const linkedinLabel = isMobile ? <span style={{ color: "crimson" }}>Anthony<br />Delforge</span> : "Anthony Delforge";
         return (
             <div style={{ display: "flex", justifyContent: "space-around", width: "100%", marginTop: 20, }}>
                 <GlassmorphismComponent rad={"30%"} background={"rgba(255,255,255,0.3)"}>

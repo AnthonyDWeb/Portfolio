@@ -1,12 +1,17 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { DeviseContext } from '../../contexts/devise';
+import { ThemeContext } from '../../contexts/theme.context';
 
 
 export default function GlassmorphismComponent({ children, height, width, space, justify, blur, shadow, background, rad }) {
     const { orientation, device } = useContext(DeviseContext);
+    const { theme, themeColor } = useContext(ThemeContext);
+
+    const cardStle = { background: themeColor.glasscard, border: theme === "Clair" && `solid 1px ${themeColor.text}` };
+    // const cardStle = {background: theme === "Clair" ? "lightgra" : "rgba(255,255,255,0.081)"};
     return (
-        <Component className={`glassComponent-${device}-${orientation}`} height={height} width={width} space={space} justify={justify} blur={blur} shadow={shadow} background={background} radius={rad}>{children}</Component>
+        <Component className={`glassComponent-${device}-${orientation}`} height={height} width={width} space={space} justify={justify} blur={blur} shadow={shadow} background={background} radius={rad} style={cardStle}>{children}</Component>
     )
 }
 
@@ -21,7 +26,6 @@ min-width: ${props => props.width && props.width};
 max-width: 90vw;
 margin: ${props => props.space ? props.space : "0px"};
 padding: ${props => props.space ? props.space : "10px"};
-background: rgba(255,255,255,0.081);
 border-top: solid 1px rgba(255,255,255,0.5);
 border-left: solid 1px rgba(255,255,255,0.5);
 border-radius: ${props => props.radius ? props.radius : "15px"};

@@ -5,6 +5,7 @@ import React, { useContext } from 'react';
 import '../App.css';
 // CONTEXT //
 import { StyleContext } from '../contexts/style.context';
+import { ThemeContext } from '../contexts/theme.context';
 // PAGE //
 // COMPONENT //
 import GlassmorphismComponent from '../components/glassmorphism/glassmorphism-component';
@@ -12,17 +13,19 @@ import GlassmorphismComponent from '../components/glassmorphism/glassmorphism-co
 
 export default function AboutMe() {
   const { PageContainer, pageContainerStyle, sectionTitle, isLoad } = useContext(StyleContext);
+  const { themeColor } = useContext(ThemeContext);
+
   // const fontName = "cursive Bungee Inline";
   return (isLoad &&
     <PageContainer style={pageContainerStyle} id='about_me' className={"animate__animated animate__backIn"}>
       <GlassmorphismComponent>
         <h2 style={sectionTitle}>À propos de moi</h2>
         <section style={sectionTitle}>
-          <p>
+          <p style={{color: themeColor.text2}}>
             Après un cursus initial en biologie guidé par un besoin continu d'apprentissage et de recherche, je me suis réorienté vers le developpement web et mobile, un métier d'avenir et ayant pour caractéristique un apprentissage continu tout au long de sa carrière ce qui correspond à mes besoins.
           </p>
           <br />
-          <p>
+          <p style={{color: themeColor.text2}}>
             C'est donc ainsi que j'ai commencé en Mars 2021 la formation
             <a target="_blank" rel="noreferrer" className='formation' href="https://simplon.co/formation/foundation/24">Apple Foundation Program</a>
             de 4 semaines au sein de
@@ -30,7 +33,7 @@ export default function AboutMe() {
             ayant pour but d'initier ses apprenants au codage et à la création d'un prototype d'appplication au cours de celle-ci.
           </p>
           <br />
-          <p> J'ai ensuite poursuivi avec une autre formation de
+          <p style={{color: themeColor.text2}}> J'ai ensuite poursuivi avec une autre formation de
             <a target="_blank" rel="noreferrer" className='formation' href="https://www.konexio.eu/competences-code.html">Développeur Web et Mobile Fullstack</a>
             entre Mai 2021 et Octobre 2021  au sein de
             <a target="_blank" rel="noreferrer" className='redirectLink' href="https://www.konexio.eu/index.html">Konexio</a>,
@@ -38,14 +41,14 @@ export default function AboutMe() {
             <a target="_blank" rel="noreferrer" className='redirectLink' href="https://www.orchestra.eu/">Orchestra</a>.
           </p>
           <br />
-          <p>
+          <p style={{color: themeColor.text2}}>
             Afin de me perfectionner et d'approfondir mes connaissances sur la création d'application mobile, j'ai suivi la formation
             <a target="_blank" rel="noreferrer" className='formation' href="https://www.gpi2d.greta.fr/fichesformation/developpeur-dapplications-mobiles/">Développeur d’applications mobiles</a>
             du
             <a target="_blank" rel="noreferrer" className='redirectLink' href="https://www.greta-iledefrance.fr/">Greta</a> d'Octobre 2022 à Décembre 2022.
           </p>
           <br />
-          <p>
+          <p style={{color: themeColor.text2}}>
             Plus personellement, j'ai un intérêt prononcé pour les projets liés au secteur du jeu (web ou mobile), de l'apprentissage, de la santé physique (Sport, remise en forme, conseils/motivations) ainsi que les scienses.
           </p>
         </section>
