@@ -25,7 +25,6 @@ export default function SwiperComponent(props) {
             <Swiper effect='cube' grabCursor={true} cubeEffect={effects} loop={true} pagination={{ clickable: true }} navigation>
                 {projects?.map(d => {
                     const imgSrc = require(`../../assets/projects/${d.source}`);
-                    console.log("img size TEST :", imgHeight);
                     return (
                         <SwiperSlide key={d.source}>
                             <img src={imgSrc} alt="slide_image"/>

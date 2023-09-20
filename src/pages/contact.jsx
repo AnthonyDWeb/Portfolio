@@ -39,7 +39,6 @@ export default function Contact() {
     const Form = () => {
         const btnValue = isSend ? "Email envoyé !" : "Envoyer"
         const isSendStyle = isSend ? { color: "black", backgroundColor: "green", fontWeight: "bold" } : { backgroundColor: "rgba(255,255,255,0.3)", borderWidth: 0.1 };
-        console.log("classname:", `theme${theme}`)
         return (
             <FormContainer ref={form} onSubmit={sendEmail}>
                 <h2 style={sectionTitle}>Me Contacter</h2>

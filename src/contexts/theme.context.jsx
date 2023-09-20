@@ -19,8 +19,9 @@ export const ThemeProvider = props => {
             themeColor.background = "#141414";
             themeColor.mainTitle = "white";
             themeColor.glasscard = "rgba(255,255,255,0.081)";
-            themeColor.title = "white";
+            themeColor.navlist = "white";
             themeColor.text = "white";
+            themeColor.navtext = "#141414";
             themeColor.link = "white";
             break;
         case light:
@@ -31,15 +32,17 @@ export const ThemeProvider = props => {
             themeColor.glasscard = "lightgray";
             themeColor.title = "black";
             themeColor.text = "black";
-            themeColor.text2 = "black";
+            themeColor.navlist = "lightgray";
             themeColor.link = "black";
             break;
         case special:
             themeColor.navbar = "rgba(0, 0, 0, 0.4)";
+            themeColor.navtext = "#141414";
+            themeColor.text = "white";
             themeColor.mainTitle = "white";
             themeColor.glasscard = "rgba(255,255,255,0.081)";
             themeColor.title = "white";
-            themeColor.text = "white";
+            themeColor.navlist = "white";
             themeColor.link = "white";
             break;
         case undefined:
@@ -52,7 +55,7 @@ export const ThemeProvider = props => {
             break;
     }
 
-    console.log("theme Color", themeColor)
+    // console.log("theme Color", themeColor)
 
     const ThemeContextValue = { theme, setTheme, dark, light, special, themeColor };
     return <ThemeContext.Provider value={ThemeContextValue} {...props} />

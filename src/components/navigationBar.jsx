@@ -9,11 +9,13 @@ export default function NavigationBar() {
     const { orientation, isDesktop } = useContext(DeviseContext);
     const { theme, setTheme, themeColor } = useContext(ThemeContext);
     const [display, setDisplay] = useState(false);
+    const [displayTheme, setDisplayTheme] = useState(false);
     const [btnHover, setBtnHover] = useState();
 
     const arrowSrc = require("../assets/icon-arrow-down.webp");
     const arrowStyle = { height: 20, width: 30 };
 
+    console.log("display ->", display)
 
     const MenuButton = ({ title, classname, id }) => {
         const themeButton = id === "#theme";
@@ -22,8 +24,8 @@ export default function NavigationBar() {
                 <a
                     href={id}
                     className={`link ${classname}`}
-                    style={{ color: btnHover === title ? "black" : themeColor.navText }}
-                    onClick={() => themeButton && setDisplay(!display)}
+                    style={{ color: btnHover === title ? "black" : themeColor.navtext }}
+                    onClick={() => themeButton && setDisplayTheme(!displayTheme)}
                     desktop={true}
                     background={`${themeColor.background}`}
                     onMouseEnter={() => setBtnHover(title)}
@@ -36,27 +38,27 @@ export default function NavigationBar() {
     };
     const ThemeButton = ({ t }) => {
         const isTheme = (t === theme);
-        const handle = () => { if (!isTheme) { setTheme(t); setDisplay(!display) } };
+        const handle = () => { if (!isTheme) { setTheme(t); setDisplayTheme(!displayTheme) } };
         const tStyle = { position: "relative", textAlign: "center", opacity: (t === theme) ? 0.3 : 1 }
         return <p style={tStyle} onClick={() => handle()} className='link'>{t}</p>
     };
 
     return (
         <div className={`animate__animated animate__fadeIn  animate__delay-3s`} style={{ position: "fixed", zIndex: 12 }}>
-            <NavBar orientation={`${orientation}`} desktop={isDesktop} style={{ backgroundColor: themeColor.navbar }}>
+            <NavBar orientation={`${orientation}`} desktop={isDesktop} style={{ backgroundColor: isDesktop ? themeColor.navbar : "transparent" }}>
                 {(display || isDesktop) &&
-                    <NavList orientation={`${orientation}`} desktop={isDesktop}>
-                        {!display &&
+                    <NavList orientation={`${orientation}`} desktop={isDesktop} theme={themeColor.navlist}>
+                        {!displayTheme &&
                             <>
-                                <MenuButton title={"Acceuil"} id={"#homepage"} classname={`${btnHover}isHover`}/>
-                                <MenuButton title={"Outils"} id={"#tools"} classname={`${btnHover}isHover`}/>
-                                <MenuButton title={"Portfolio"} id={"#portfolio"} classname={`${btnHover}isHover`}/>
-                                <MenuButton title={"A propos de moi"} id={"#about_me"} classname={`${btnHover}isHover`}/>
-                                <MenuButton title={"Contact"} id={"#contact"} classname={`${btnHover}isHover`}/>
+                                <MenuButton title={"Acceuil"} id={"#homepage"} classname={`${btnHover}isHover`} />
+                                <MenuButton title={"Outils"} id={"#tools"} classname={`${btnHover}isHover`} />
+                                <MenuButton title={"Portfolio"} id={"#portfolio"} classname={`${btnHover}isHover`} />
+                                <MenuButton title={"A propos de moi"} id={"#about_me"} classname={`${btnHover}isHover`} />
+                                <MenuButton title={"Contact"} id={"#contact"} classname={`${btnHover}isHover`} />
                             </>
                         }
                         <MenuButton title={`Thème (${theme})`} id={"#theme"} classname={display && "isHover"} />
-                        {display &&
+                        {displayTheme &&
                             <>
                                 <ThemeButton t={"Clair"} />
                                 <ThemeButton t={"Sombre"} />
@@ -66,7 +68,7 @@ export default function NavigationBar() {
                     </NavList>
                 }
                 {!isDesktop &&
-                    <Displayer orientation={`${orientation}`} onClick={() => setDisplay(!display)}>
+                    <Displayer orientation={`${orientation}`} theme={themeColor.navlist} onClick={() => setDisplay(!display)}>
                         <img src={arrowSrc} style={arrowStyle} className={`arrow ${display}`} alt='' />
                     </Displayer>
                 }
@@ -89,7 +91,7 @@ const NavList = styled.div`
 display: flex;  z-index: 2;  
 justify-content: ${props => props.desktop ? "right" : "space-around"}; 
 align-items: center; position:"relative"; padding: 0px;
-background-color: ${props => props.desktop ? "transparent" : "whitesmoke"};
+background-color: ${props => props.desktop ? "transparent" : props.theme};
 flex-direction: ${props => props.orientation === "portrait" && "column"};
 height: ${props => props.orientation === "portrait" && "100vh"}; 
 width: ${props => props.desktop ? "95%" : "100%"};
@@ -118,7 +120,7 @@ const Displayer = styled.button`
 display: flex; 
 align-items: center; 
 justify-content: center; 
-background-color: whitesmoke; 
+background-color:  ${props => !props.desktop &&   props.theme};;
 margin-top: ${props => props.orientation !== "portrait" && "0px"};
 margin-left: ${props => props.orientation === "portrait" && "-5px"};
 border-radius: ${props => props.orientation === "portrait" ? "0% 90% 90% 0%" : "0 0 90% 90%"};

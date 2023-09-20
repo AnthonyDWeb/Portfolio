@@ -17,6 +17,8 @@ import NavigationBar from '../components/navigationBar';
 export default function Pages() {
     const { theme, themeColor } = useContext(ThemeContext);
 
+// check responsible button navbar menu
+
     return (
         <>
             {theme === "Spécial" && <ParticulesBackground />}
