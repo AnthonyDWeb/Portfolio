@@ -18,8 +18,8 @@ export const StyleProvider = props => {
   const contentContainer = { display: "flex", alignItems: "start", width: "100%", };
 
   // TITLE
-  const homeTitleStyle = { fontSize: isMobile ? "4vw" : isTablet ? "3vw" : "3vw", marginBottom: "30px" };
-  const homeTitle2Style = { fontSize: isMobile ? "3.5vw" : isTablet ? "2.5vw" : "3vw", margin: "10px 30px", };
+  const homeTitleStyle = { fontSize: isMobile ? "4vw" : isTablet ? "3vw" : "3vw", marginTop: "10px" };
+  const homeTitle2Style = { fontSize: isMobile ? "3.5vw" : isTablet ? "2.5vw" : "3vw", margin: "5px 30px", };
   const homeTitle3Style = { fontSize: isMobile ? "2.5vw" : isTablet ? "2vw" : "1.5vw", };
   const sectionTitle = { marginBottom: "20px", color: themeColor.text};
 

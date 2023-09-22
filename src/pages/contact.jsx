@@ -86,10 +86,10 @@ export default function Contact() {
 
     return (isLoad &&
         <PageContainer style={{ ...pageContainerStyle }} id='contact' className={"animate__animated animate__backIn"}>
-            <div>
+            <GlassmorphismComponent width={"90vw"}>
                 <Form />
-                <Media />
-            </div>
+            </GlassmorphismComponent>
+            <Media />
         </PageContainer>
     )
 

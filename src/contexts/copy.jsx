@@ -2,7 +2,7 @@ import React, { createContext, useEffect, useState } from "react";
 
 export const ThemeContext = createContext({});
 export const ThemeProvider = props => {
-    const [theme, setTheme] = useState("Sombre");
+    const [theme, setTheme] = useState("Spécial");
     const dark = "Sombre"; const light = "Clair"; const special = "Spécial";
     const themeColor = {};
 

@@ -25,10 +25,10 @@ export default function Slider({ data }) {
     }
 
     return (
-        <div className="slider">
+        <div className="sliderTools">
             <Slide id={1} />
             <Slide id={2} />
             <Slide id={3} />
         </div>
     )
-}
+};

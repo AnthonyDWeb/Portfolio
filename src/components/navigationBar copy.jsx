@@ -5,16 +5,18 @@ import { DeviseContext } from '../contexts/devise';
 // import GlassmorphismComponent from './glassmorphism/glassmorphism-component';
 import { ThemeContext } from '../contexts/theme.context';
 import Toggle from './toggle';
-import GlassmorphismComponent from './glassmorphism/glassmorphism-component';
 
 export default function NavigationBar() {
-    const { orientation } = useContext(DeviseContext);
+    const { orientation, isDesktop } = useContext(DeviseContext);
     const { theme, setTheme, themeColor } = useContext(ThemeContext);
+    const [display, setDisplay] = useState(false);
+    const [displayTheme, setDisplayTheme] = useState(false);
     const [btnHover, setBtnHover] = useState();
 
     const arrowSrc = require("../assets/icon-arrow-down.webp");
     const arrowStyle = { height: 20, width: 30 };
 
+    console.log("display ->", display)
 
     const MenuButton = ({ title, classname, id }) => {
         return (
@@ -23,6 +25,7 @@ export default function NavigationBar() {
                     href={id}
                     className={`link ${classname}`}
                     style={{ color: btnHover === title ? "black" : themeColor.navtext }}
+                    desktop={true}
                     background={`${themeColor.background}`}
                     onMouseEnter={() => setBtnHover(title)}
                     onMouseLeave={() => setBtnHover(undefined)}
@@ -34,10 +37,10 @@ export default function NavigationBar() {
     };
 
     return (
-        <div style={{ display: "flex", justifyContent: "center", padding: 3 }}>
-            <GlassmorphismComponent height={"fit-content"} addStyle={{ position: "fixed", zIndex: 12 }} addClass={"animate__animated animate__fadeIn  animate__delay-3s"} width={"90vw"}>
-                <NavBar orientation={`${orientation}`} >
-                    <NavList orientation={`${orientation}`} >
+        <div className={`animate__animated animate__fadeIn  animate__delay-3s`} style={{ position: "fixed", zIndex: 12 }}>
+            <NavBar orientation={`${orientation}`} desktop={isDesktop} style={{ backgroundColor: isDesktop ? themeColor.navbar : "transparent" }}>
+                {(display || isDesktop) &&
+                    <NavList orientation={`${orientation}`} desktop={isDesktop} theme={themeColor.navlist}>
                         <MenuButton title={"Acceuil"} id={"#homepage"} classname={`${btnHover}isHover`} />
                         <MenuButton title={"Outils"} id={"#tools"} classname={`${btnHover}isHover`} />
                         <MenuButton title={"Portfolio"} id={"#portfolio"} classname={`${btnHover}isHover`} />
@@ -45,19 +48,24 @@ export default function NavigationBar() {
                         <MenuButton title={"Contact"} id={"#contact"} classname={`${btnHover}isHover`} />
                         <Toggle theme={theme} action={() => setTheme(theme === "Spécial" ? "Sombre" : "Spécial")} />
                     </NavList>
-                </NavBar >
-            </GlassmorphismComponent >
+                }
+                {!isDesktop &&
+                    <Displayer orientation={`${orientation}`} theme={themeColor.navlist} onClick={() => setDisplay(!display)}>
+                        <img src={arrowSrc} style={arrowStyle} className={`arrow ${display}`} alt='' />
+                    </Displayer>
+                }
+            </NavBar>
         </div>
     )
 }
 
 
 const NavBar = styled.nav`
-display: flex; align-items: center; justify-content: center;
+display: flex; align-items: center; 
 flex-direction: ${props => props.orientation !== "portrait" && "column"};
 height: ${props => props.orientation === "portrait" && "100vh"};
-width: ${props => props.orientation === "portrait" ? "180px" : "100%"};
-background-color: ${props => props.theme && props.theme};
+width: ${props => props.orientation === "portrait" ? "180px" : "100vw"};
+background-color: ${props => props.desktop && "rgba(0,0,0,1)"};
 padding: 5px 0;
 `;
 
@@ -65,6 +73,8 @@ const NavList = styled.div`
 display: flex;  z-index: 2;  
 justify-content: ${props => props.desktop ? "right" : "space-around"}; 
 align-items: center; position:"relative"; padding: 0px;
+background-color: ${props => props.desktop ? "transparent" : props.theme};
+// backdrop-filter: blur("15px");
 flex-direction: ${props => props.orientation === "portrait" && "column"};
 height: ${props => props.orientation === "portrait" && "100vh"}; 
 width: ${props => props.desktop ? "95%" : "100%"};

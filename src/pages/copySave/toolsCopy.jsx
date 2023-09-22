@@ -12,6 +12,7 @@ import Slider from '../../components/slider/slider';
 
 export default function Tools() {
     const { PageContainer, pageContainerStyle, sectionTitle, isLoad } = useContext(StyleContext);
+    
     const toolsArr = [
         { imgFileName: "html.png", imgLabel: "HTML" },
         { imgFileName: "css.png", imgLabel: "CSS" },
