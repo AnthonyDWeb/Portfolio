@@ -37,10 +37,11 @@
   }
   
   .switch input:checked + .slider {
-    box-shadow: 0 0 20px rgba(9, 117, 241, 0.8);
-    border: 2px solid #0974f1;
+    box-shadow: 0 0 20px rgba(55, 255, 139, 0.8);
+    border: 2px solid #37FF8B;
   }
   
   .switch input:checked + .slider:before {
+    background-color: #37FF8B;
     transform: translateX(1.5em);
   }

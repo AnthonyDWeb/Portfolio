@@ -39,21 +39,14 @@ export default function NavigationBar() {
     return (
         <div className={`animate__animated animate__fadeIn  animate__delay-3s`} style={{ position: "fixed", zIndex: 12 }}>
             <NavBar orientation={`${orientation}`} desktop={isDesktop} style={{ backgroundColor: isDesktop ? themeColor.navbar : "transparent" }}>
-                {(display || isDesktop) &&
-                    <NavList orientation={`${orientation}`} desktop={isDesktop} theme={themeColor.navlist}>
-                        <MenuButton title={"Acceuil"} id={"#homepage"} classname={`${btnHover}isHover`} />
-                        <MenuButton title={"Outils"} id={"#tools"} classname={`${btnHover}isHover`} />
-                        <MenuButton title={"Portfolio"} id={"#portfolio"} classname={`${btnHover}isHover`} />
-                        <MenuButton title={"A propos de moi"} id={"#about_me"} classname={`${btnHover}isHover`} />
-                        <MenuButton title={"Contact"} id={"#contact"} classname={`${btnHover}isHover`} />
-                        <Toggle theme={theme} action={() => setTheme(theme === "Spécial" ? "Sombre" : "Spécial")} />
-                    </NavList>
-                }
-                {!isDesktop &&
-                    <Displayer orientation={`${orientation}`} theme={themeColor.navlist} onClick={() => setDisplay(!display)}>
-                        <img src={arrowSrc} style={arrowStyle} className={`arrow ${display}`} alt='' />
-                    </Displayer>
-                }
+                <NavList orientation={`${orientation}`} desktop={isDesktop} theme={themeColor.navlist}>
+                    <MenuButton title={"Acceuil"} id={"#homepage"} />
+                    <MenuButton title={"Outils"} id={"#tools"}  />
+                    <MenuButton title={"Portfolio"} id={"#portfolio"}  />
+                    <MenuButton title={"A propos de moi"} id={"#about_me"}  />
+                    <MenuButton title={"Contact"} id={"#contact"}  />
+                    <Toggle theme={theme} action={() => setTheme(theme === "Spécial" ? "Sombre" : "Spécial")} />
+                </NavList>
             </NavBar>
         </div>
     )

@@ -7,71 +7,72 @@ import 'animate.css';
 // CONTEXT //
 import { StyleContext } from '../contexts/style.context';
 import { ThemeContext } from '../contexts/theme.context';
+import { DeviseContext } from '../contexts/devise';
 // PAGE //
 // COMPONENT //
+import BugButton from '../components/bug-Button';
+import DownloadIcone from '../components/icons/download';
+import HighlighText from '../components/HighlighText';
 // OTHER //
-import useDevice from '../utils/hooks/useDevice';
+import { mainTitleClass1, mainTitleClass2, mainTitleClass3, mainTitle1, mainTitle2, mainTitle3, profilClass, profilTitle1, profilTitle2, btnText } from '../utils/other/constante';
 import CV from '../downloads/CV_Anthony_DELFORGE.pdf';
-import { animatedTitleClass1, animatedTitleClass2, animatedTitleClass3, animatedTitle1, animatedTitle2, animatedTitle3 } from '../utils/other/constante';
 
 export default function Homepage() {
-  const { orientation, isMobile, isTablet, isDesktop } = useDevice();
-  const { theme, themeColor } = useContext(ThemeContext);
-  const { PageContainer, pageContainerStyle, row, column, homeTitleStyle, homeTitle2Style, homeTitle3Style } = useContext(StyleContext);
-
-  // TITLE
-  const titleStyle = { ...homeTitleStyle, color: themeColor.mainTitle };
-  const titleStyleEnd = { ...titleStyle, alignSelf: "flex-end" }
-
-  // PROFILE
-  const divContainerClass = "animate__animated animate__backInUp animate__delay-3s";
-  const portraitMob = (isMobile && orientation === "portrait");
-  const divContainerStyle = portraitMob ? { ...column, alignItems: "center" } : { ...row, justifyContent: "center" };
-  const imageSize = isMobile ? 150 : isTablet ? 200 : 250;
-  const imgStyle = { opacity: 0.8, width: imageSize, height: imageSize };
-  let profileTitle = column;
-  if (isMobile && orientation === "portrait") profileTitle = { ...profileTitle, alignItems: "center", marginTop: 20 }
-  let profileText = { ...homeTitle2Style, fontFamily: "VT323, monospace", color: themeColor.mainTitle };
-  if (isMobile && orientation === "portrait") profileText = { ...profileText, margin: "0px 10px" }
+  // const { orientation, isDesktop } = useDevice();
+  const { orientation, device } = useContext(DeviseContext);
+  const { themeColor } = useContext(ThemeContext);
+  const { PageContainer } = useContext(StyleContext);
 
   return (
-    <PageContainer style={pageContainerStyle} id="homepage">
-      <MainTitle desktop={isDesktop}>
-        <span className={animatedTitleClass1} style={titleStyleEnd}>{animatedTitle1}</span>
-        <span className={animatedTitleClass2} style={titleStyle}>{animatedTitle2}</span>
-        <span className={animatedTitleClass3} style={titleStyleEnd}>{animatedTitle3}</span>
+    <PageContainer id="homepage">
+      <MainTitle device={device} themeColor={themeColor.text}>
+        <span className={`${mainTitleClass1} end`}>{mainTitle1}</span>
+        <span className={mainTitleClass2}>{mainTitle2}</span>
+        <span className={`${mainTitleClass3} end`}>{mainTitle3}</span>
       </MainTitle>
-      <Profil orientation={orientation}>
-        <div className={divContainerClass} style={{ ...column, alignItems: "center" }}>
-          <div style={divContainerStyle}>
-            <img src={require('../assets/profil-image.png')} alt="profil" style={imgStyle} className='profil-image' />
-            <h2 style={profileTitle}>
-              <span style={profileText}>Anthony Delforge</span>
-              <span style={profileText}>Développeur Web et Mobile Full-Stack</span>
-            </h2>
+      <Profil orientation={orientation} device={device} className={profilClass} themeColor={themeColor.text}>
+        <div className='profil-container'>
+          <img src={require("../assets/profil-image.png")} alt="profil" className='profil-image' />
+          <div className='profil-title'>
+            <HighlighText text={profilTitle1} />
+            <HighlighText text={profilTitle2} />
           </div>
-          <DownloadButton desktop={isDesktop}>
-            <a href={CV} download="CV_Anthony_DELFORGE" style={{ ...homeTitle3Style, fontFamily: "VT323, monospace", fontWeight: "bold", color: "white" }}>Télécharger mon CV</a>
-          </DownloadButton>
+        </div>
+        <div className='profil-btn-container'>
+          <BugButton addBefore={<DownloadIcone />} addstyle={{fontSize: device !== "desktop" && "3vw"}}>
+            <a href={CV} download="CV_Anthony_DELFORGE" style={{ color: themeColor.text}}>{btnText}</a>
+          </BugButton>
         </div>
       </Profil>
     </PageContainer>
   )
 }
 
-const MainTitle = styled.h1`display: flex; flex-direction: column; width: 90%`;
-const Profil = styled.section`
-display: flex; align-items: center; flex-direction: column; margin-top: ${props => props.orientation && "10px"};
-.profil-image {
-  border-radius: 50%;
-  box-shadow: -5px -5px 15px 5px red, 5px 5px 15px 8px blue;
-}
+const MainTitle = styled.h1`
+display: flex; flex-direction: column; width: 90%; font-size: ${props => props.device === "mobile" ? "4vw" : "3vw"}; margin-top: 30px;
+>span { color: ${props => props.themeColor && props.themeColor}; }
+>span.end {align-self: flex-end;}
 `;
-const DownloadButton = styled.button`
-background: linear-gradient(to left, blue, red); border: none; border-radius: 10px; padding: 10px; margin: 0px; width: fit-content;
->a { color: black; }
-:hover { 
-  background: linear-gradient(to left, red, blue); 
-  >a { color: whitesmoke; }
+
+const Profil = styled.section`
+display: flex; align-items: center; flex-direction: column; 
+margin-top: ${props => props.device === "desktop" ? "0px" : "20px"};
+.profil-container {
+  display: flex; align-items: center; justify-content: center; 
+  flex-direction: ${props => props.device === "desktop" ? "row" : "column"};
+}
+.profil-image {
+  border-radius: 50%; opacity: 0.8; box-shadow: -5px -5px 15px 5px red, 5px 5px 15px 8px blue;
+  width: ${props => props.device === "desktop" ? "15%" : props.device === "mobile" ? "40%" : "30%"};
+  
+}
+.profil-title {
+  display: flex; flex-direction: column; margin-left: ${props => props.device === "desktop" && "30px"};
+  margin-top: ${props => props.device !== "desktop" && "20px"};
+  align-items: ${props => props.device === "desktop" ? "flex-start" : "center"};
+}
+.profil-btn-container {
+  display: flex; width: 100%; justify-content: center; 
+  margin-top: ${props => props.device !== "desktop" && "20px"}
 }
 `;

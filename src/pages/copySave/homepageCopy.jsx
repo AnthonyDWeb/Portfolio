@@ -14,16 +14,16 @@ import CV from '../downloads/CV_Anthony_DELFORGE.pdf';
 
 export default function Homepage() {
   const { orientation, isMobile, isTablet, isDesktop } = useDevice();
-  const { PageContainer, pageContainerStyle, row, column, homeTitleStyle, homeTitle2Style, homeTitle3Style } = useContext(StyleContext);
+  const { PageContainer, pageContainerStyle, row, column, mainTitleStyle, profileTitleSTyle, homeTitle3Style } = useContext(StyleContext);
 
   // TITLE
   const span1TitleClass = "animate__animated animate__backInLeft animate__delay-1s";
   const span2TitleClass = "animate__animated animate__backInRight animate__delay-2s";
   const span3TitleClass = "animate__animated animate__backInLeft animate__delay-2s";
-  const animatedTitle1 = "Une idée ? Un projet ?";
-  const animatedTitle2 = "La création d'un site web ou d'une application mobile ?";
-  const animatedTitle3 = "Donnez vie à tous vos projets !";
-  const titleStyleEnd = { ...homeTitleStyle, alignSelf: "flex-end" }
+  const mainTitle1 = "Une idée ? Un projet ?";
+  const mainTitle2 = "La création d'un site web ou d'une application mobile ?";
+  const mainTitle3 = "Donnez vie à tous vos projets !";
+  const titleStyleEnd = { ...mainTitleStyle, alignSelf: "flex-end" }
 
   // PROFILE
   const divContainerClass = "animate__animated animate__backInUp animate__delay-3s";
@@ -34,15 +34,15 @@ export default function Homepage() {
   const imgStyle = { opacity: 0.8, width: imageSize, height: imageSize };
   let profileTitle = column;
   if (isMobile && orientation === "portrait") profileTitle = { ...profileTitle, alignItems: "center", marginTop: 20 }
-  let profileText = { ...homeTitle2Style, fontFamily: "VT323, monospace" };
+  let profileText = { ...profileTitleSTyle, fontFamily: "VT323, monospace" };
   if (isMobile && orientation === "portrait") profileText = { ...profileText, margin: "0px 10px" }
 
   return (
     <PageContainer style={pageContainerStyle} id="homepage">
       <MainTitle desktop={isDesktop}>
-        <span className={span1TitleClass} style={titleStyleEnd}>{animatedTitle1}</span>
-        <span className={span2TitleClass} style={homeTitleStyle}>{animatedTitle2}</span>
-        <span className={span3TitleClass} style={titleStyleEnd}>{animatedTitle3}</span>
+        <span className={span1TitleClass} style={titleStyleEnd}>{mainTitle1}</span>
+        <span className={span2TitleClass} style={mainTitleStyle}>{mainTitle2}</span>
+        <span className={span3TitleClass} style={titleStyleEnd}>{mainTitle3}</span>
       </MainTitle>
       <Profil orientation={orientation}>
         <div className={divContainerClass} style={{ ...column, alignItems: "center" }}>

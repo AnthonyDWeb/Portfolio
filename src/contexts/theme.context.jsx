@@ -15,41 +15,20 @@ export const ThemeProvider = props => {
 
     switch (theme) {
         case dark:
-            themeColor.navbar = "#141414";
             themeColor.background = "#141414";
-            themeColor.mainTitle = "white";
-            themeColor.glasscard = "rgba(0,0,0,0.1)";
-            themeColor.navlist = "white";
+            themeColor.glasscard = "#141414";
+            themeColor.navbar = "#141414";
             themeColor.text = "white";
-            themeColor.navtext = "white";
-            themeColor.link = "white";
-            break;
-        case light:
-            themeColor.navbar = "rgba(0, 0, 0, 0.8)";
-            themeColor.navText = "#FDF8F8";
-            themeColor.background = "#FDF8F8";
-            themeColor.mainTitle = "black";
-            themeColor.glasscard = "lightgray";
-            themeColor.title = "black";
-            themeColor.text = "black";
-            themeColor.navlist = "lightgray";
-            themeColor.link = "black";
             break;
         case special:
-            themeColor.navbar = "rgba(0, 0, 0, 0.5)";
-            themeColor.navtext = "white";
             themeColor.text = "white";
-            themeColor.mainTitle = "white";
             themeColor.glasscard = "rgba(255,255,255,0.08)";
-            themeColor.title = "white";
-            themeColor.navlist = "white";
+            themeColor.navbar = "rgba(255,255,255,0.8)";
             themeColor.link = "white";
             break;
         default:
             break;
-    }
-
-    // console.log("theme Color", themeColor)
+    };
 
     const ThemeContextValue = { theme, setTheme, dark, light, special, themeColor };
     return <ThemeContext.Provider value={ThemeContextValue} {...props} />
