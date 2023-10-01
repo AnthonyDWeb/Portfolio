@@ -27,6 +27,6 @@ flex-direction: column;
 justify-content: center; 
 align-items: center; 
 overflow: hidden; 
-padding-top: 20px;
+padding: ${props => props.mobile ? "30px 0 20px 0" : "50px 0 20px 0"};
 `;
 

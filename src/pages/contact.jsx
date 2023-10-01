@@ -17,8 +17,8 @@ import { ThemeContext } from '../contexts/theme.context';
 
 export default function Contact() {
     const { isMobile, orientation } = useDevice();
-    const { PageContainer, pageContainerStyle, isLoad, sectionTitle } = useContext(StyleContext);
-    const { theme, themeColor } = useContext(ThemeContext);
+    const { PageContainer, pageContainerStyle, isLoad } = useContext(StyleContext);
+    const { themeColor } = useContext(ThemeContext);
 
     const [isSend, setSend] = useState(false);
     const form = useRef();
@@ -38,10 +38,10 @@ export default function Contact() {
 
     const Form = () => {
         const btnValue = isSend ? "Email envoyé !" : "Envoyer"
-        const isSendStyle = isSend ? { color: "black", backgroundColor: "green", fontWeight: "bold" } : { backgroundColor: "rgba(255,255,255,0.3)", borderWidth: 0.1 };
+        const isSendStyle = isSend ? { color: themeColor.text, backgroundColor: "green", fontWeight: "bold" } : { color: themeColor.text, backgroundColor: "rgba(255,255,255,0.3)", borderWidth: 0.1 };
         return (
             <FormContainer ref={form} onSubmit={sendEmail}>
-                <h2 style={sectionTitle}>Me Contacter</h2>
+                <h2 style={{ color: themeColor.text, marginBottom: 10 }}>Me Contacter</h2>
                 <FormField label={"Nom :"} placeholder={"Qui êtes-vous? ..."} type={"text"} name={"user_name"} />
                 <FormField label={"E-mail :"} placeholder={"Votre e-mail..."} type={"email"} name={"user_email"} />
                 <TextAreaContainer name="message" wrap="soft" rows="15" cols="20" style={{ width: isMobile && "90%", color: themeColor.text, backgroundColor: themeColor.glasscard }} />
@@ -52,7 +52,7 @@ export default function Contact() {
 
     const FormField = ({ label, placeholder, type, name }) => {
         const formfielddiv = { display: "flex", width: "100%", justifyContent: "center", alignItems: "center", marginBottom: 20, color: themeColor.text };
-        const formfieldlabel = { padding: isMobile && "0 0 5px 30px", width: isMobile && "100%", marginRight: !isMobile && 10 };
+        const formfieldlabel = { padding: isMobile && "0 10px 0 10px", width: isMobile && "100%", marginRight: !isMobile && 10 };
         const inputStyle = { background: "none", borderRadius: "10px", padding: "5px", width: "100%", color: themeColor.text, border: "none" };
         return (
             <div style={formfielddiv}>
@@ -86,7 +86,7 @@ export default function Contact() {
 
     return (isLoad &&
         <PageContainer style={{ ...pageContainerStyle }} id='contact' className={"animate__animated animate__backIn"}>
-            <GlassmorphismComponent width={"90vw"}>
+            <GlassmorphismComponent>
                 <Form />
             </GlassmorphismComponent>
             <Media />

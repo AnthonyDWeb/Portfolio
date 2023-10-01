@@ -19,12 +19,12 @@ import CV from '../downloads/CV_Anthony_DELFORGE.pdf';
 
 export default function Homepage() {
   // const { orientation, isDesktop } = useDevice();
-  const { orientation, device } = useContext(DeviseContext);
+  const { orientation, device, isMobile } = useContext(DeviseContext);
   const { themeColor } = useContext(ThemeContext);
   const { PageContainer } = useContext(StyleContext);
 
   return (
-    <PageContainer id="homepage">
+    <PageContainer id="homepage" mobile={isMobile}>
       <MainTitle device={device} themeColor={themeColor.text}>
         <span className={`${mainTitleClass1} end`}>{mainTitle1}</span>
         <span className={mainTitleClass2}>{mainTitle2}</span>

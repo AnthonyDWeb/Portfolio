@@ -29,7 +29,7 @@ export default function NavigationBar() {
                 background={(display || !isMobile) ? "transparent" : themeColor.navbar}
                 addStyle={{ marginRight: (isMobile && !display) && "10px" }}
             >
-                <NavList themeColor={themeColor.text} device={device} mobile={isMobile} display={display} background={themeColor.background}>
+                <NavList themeColor={themeColor.text} device={device} mobile={isMobile} display={display} background={!display && themeColor.background}>
                     {isMobile &&
                         <div style={{ display: "flex", width: display && "100%", justifyContent: display && "flex-end" }}>
                             <ButtonMenu display={display} action={() => setDiplay(!display)} />
@@ -52,28 +52,34 @@ export default function NavigationBar() {
 }
 
 
-const NavBar = styled.nav`display: flex;  padding-top: 5px; position: fixed; z-index: 12;
+const NavBar = styled.nav`display: flex;  padding-top: 10px;
+position: fixed; left: 5%;
+z-index: 12;
 justify-content: ${props => (props.device !== "mobile" || props.display) ? "center" : "flex-end"};
-width: 100%; border-radius: 20px; height: fit-content;
 backdrop-filter: blur(${props => (!props.mobile || props.display) ? "15px" : "0px"});
-// background-color: ${props => props.background && props.background}
+border-radius: 20px;
+// background-color: ${props => props.background && props.background};
+width: 90vw;
+margin: auto;
 `;
 
 const NavList = styled.div`
 display: flex;  z-index: 2; position: relative;  border: none;
 padding: ${props => (!props.mobile || props.display) ? "0px" : "0 3px"};
-width: ${props => (!props.mobile || props.display) ? "90vw" : "5vw"};
+width: ${props => (!props.mobile || props.display) ? "100%" : "5vw"};
 flex-direction: ${props => props.device == "mobile" && "column"};
-background-color: ${props => props.background && props.background};
+height:100%;
 justify-content: space-around;
+// backdrop-filter: blur(${props => (!props.mobile || props.display) ? "15px" : "0px"});
 align-items: center;
 .linkContainer {margin: 5px 0px; text-align: center; position: relative;}
 .link {
     color: ${props => props.themeColor && props.themeColor};
     font-weight: bold; padding: 5px 8px 5px 8px; border: none; border-radius: 10px;
     :hover {
-        color: black; cursor: pointer; background-color: #37FF8B; box-shadow: 0px 0px 15px 0px #37FF8B;
+        color: black; cursor: pointer; background-color: #37FF8B; 
         filter: drop-shadow(0 0 23px #37FF8B); -webkit-text-stroke: 0.3px #37FF8B;
+        box-shadow: 0px 0px 15px 0px #37FF8B;
     }
 }
 `;

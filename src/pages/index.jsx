@@ -24,9 +24,9 @@ export default function Pages() {
                 <NavigationBar />
                 <Homepage />
                 <Tools />
-                {/* <Projets /> */}
-                {/* <AboutMe /> */}
-                {/* <Contact /> */}
+                <Projets />
+                <AboutMe />
+                <Contact />
             </div>
         </>
     )
