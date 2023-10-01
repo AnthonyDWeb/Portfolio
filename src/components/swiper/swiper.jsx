@@ -10,7 +10,7 @@ import 'swiper/css/effect-cube';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 // OTHER
-import { projects } from '../portfolio/project-datalist';
+import { projects } from '../../utils/other/project-datalist';
 import useDevice from '../../utils/hooks/useDevice';
 SwiperCore.use([EffectCube, Navigation, Pagination]);
 

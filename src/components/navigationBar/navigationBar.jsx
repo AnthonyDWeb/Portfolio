@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 import 'animate.css';
-import { DeviseContext } from '../contexts/devise';
-import { ThemeContext } from '../contexts/theme.context';
-import Toggle from './toggle';
-import GlassmorphismComponent from './glassmorphism/glassmorphism-component';
-import ButtonMenu from './menu-Button';
+import { DeviseContext } from '../../contexts/devise';
+import { ThemeContext } from '../../contexts/theme.context';
+import Toggle from '../toggle';
+import GlassmorphismComponent from '../glassmorphism/glassmorphism-component';
+import ButtonMenu from '../menu-Button';
 
 export default function NavigationBar() {
     const { device, isMobile } = useContext(DeviseContext);

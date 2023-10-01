@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 import 'animate.css';
-import { DeviseContext } from '../contexts/devise';
+import { DeviseContext } from '../../contexts/devise';
 // import GlassmorphismComponent from './glassmorphism/glassmorphism-component';
-import { ThemeContext } from '../contexts/theme.context';
-import Toggle from './toggle';
+import { ThemeContext } from '../../contexts/theme.context';
+import Toggle from '../toggle';
 
 export default function NavigationBar() {
     const { orientation, isDesktop } = useContext(DeviseContext);

@@ -11,7 +11,7 @@ import Projets from '../pages/projets';
 import Tools from '../pages/tools';
 // COMPONENT //
 import ParticulesBackground from '../components/background-particules/background.particules';
-import NavigationBar from '../components/navigationBar';
+import NavigationBar from '../components/navigationBar/navigationBar';
 // OTHER //
 
 export default function Pages() {
