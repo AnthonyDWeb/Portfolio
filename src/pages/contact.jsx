@@ -51,7 +51,7 @@ export default function Contact() {
     };
 
     const FormField = ({ label, placeholder, type, name }) => {
-        const formfielddiv = { display: "flex", width: "100%", justifyContent: "center", alignItems: "center", marginBottom: 20, color: themeColor.text };
+        const formfielddiv = { display: "flex", width: "100%", justifyContent: "center", alignItems: "center", marginBottom: 20, color: themeColor.text, flexWrap: "wrap", };
         const formfieldlabel = { padding: isMobile && "0 10px 0 10px", width: isMobile && "100%", marginRight: !isMobile && 10 };
         const inputStyle = { background: "none", borderRadius: "10px", padding: "5px", width: "100%", color: themeColor.text, border: "none" };
         return (
