@@ -8,7 +8,7 @@ import GlassmorphismComponent from '../glassmorphism/glassmorphism-component';
 import ButtonMenu from '../menu-Button';
 
 export default function NavigationBar() {
-    const { device, isMobile, screenSize } = useContext(DeviseContext);
+    const { device, isMobile } = useContext(DeviseContext);
     const { theme, setTheme, themeColor } = useContext(ThemeContext);
     const [display, setDiplay] = useState(false);
 
@@ -66,7 +66,7 @@ const NavList = styled.div`
 display: flex;  z-index: 2; position: relative;  border: none;
 padding: ${props => (!props.mobile || props.display) ? "0px" : "0 3px"};
 width: ${props => (!props.mobile || props.display) ? "100%" : "5vw"};
-flex-direction: ${props => props.device == "mobile" && "column"};
+flex-direction: ${props => props.device === "mobile" && "column"};
 height:100%;
 justify-content: space-around;
 align-items: center;

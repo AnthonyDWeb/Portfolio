@@ -16,7 +16,7 @@ import linkedin from '../assets/linkedin.png';
 import { ThemeContext } from '../contexts/theme.context';
 
 export default function Contact() {
-    const { isMobile, orientation } = useDevice();
+    const { isMobile } = useDevice();
     const { PageContainer, pageContainerStyle, isLoad } = useContext(StyleContext);
     const { theme,themeColor } = useContext(ThemeContext);
 
