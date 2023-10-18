@@ -68,8 +68,8 @@ export default function Contact() {
     const IconesLink = ({ source, link, label, className }) => <IconeLink href={link} target="_blank" theme={themeColor}><Icone src={source} className="iconsocialnetworks" />{label}</IconeLink>;
 
     const Media = () => {
-        const githubLabel = isMobile ? <span style={{ color: "crimson", textAlign: "center" }}>Mon<br />Github</span> : "AnthonyDWeb";
-        const linkedinLabel = isMobile ? <span style={{ color: "crimson" }}>Anthony<br />Delforge</span> : "Anthony Delforge";
+        const githubLabel = isMobile ? <span style={{ textAlign: "center" }}>Mon<br />Github</span> : "AnthonyDWeb";
+        const linkedinLabel = isMobile ? <span>Anthony<br />Delforge</span> : "Anthony Delforge";
         return (
             <div style={{ display: "flex", justifyContent: "space-around", width: "100%", marginTop: 20, }}>
                 <IconesLink source={github} link={"https://github.com/AnthonyDWeb"} label={githubLabel} />
