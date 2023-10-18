@@ -33,6 +33,7 @@ display: flex; position: relative;
 flex-direction: column;
 align-items: center;
 justify-content: ${props => props.justify && props.justify};
+justify-content: flex-start;
 min-height: ${props => props.height && props.height};
 min-width: ${props => props.width && props.width};
 max-width: ${props => props.mobile ? "80vw" : "90vw"};

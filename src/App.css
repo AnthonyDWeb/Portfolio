@@ -18,6 +18,14 @@ p {
   text-align: justify;
 }
 
+a {
+  color: rgb(55, 255, 139);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 
 /* ---------------------------------------------------- */
 
@@ -28,15 +36,16 @@ p {
 /* PORTFOLIO */
 
 /* CONTACT */
+
 .iconsocialnetworks {
   height: 30px;
   width: 30px;
 }
 
+
 /* ABOUT ME */
 
 .formation {
-  color: cornflowerblue;
   margin: 0 5px;
   font-style: italic;
   font-weight: bold;
@@ -47,15 +56,11 @@ p {
 }
 
 .redirectLink {
-  color: crimson;
   margin: 0 5px;
   font-style: italic;
   font-weight: bold;
 }
 
-.redirectLink:hover {
-  text-decoration: underline;
-}
 
 /* OTHER */
 

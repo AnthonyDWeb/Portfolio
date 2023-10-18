@@ -18,7 +18,7 @@ import { ThemeContext } from '../contexts/theme.context';
 export default function Contact() {
     const { isMobile, orientation } = useDevice();
     const { PageContainer, pageContainerStyle, isLoad } = useContext(StyleContext);
-    const { themeColor } = useContext(ThemeContext);
+    const { theme,themeColor } = useContext(ThemeContext);
 
     const [isSend, setSend] = useState(false);
     const form = useRef();
@@ -36,49 +36,44 @@ export default function Contact() {
             });
     };
 
+    const Field = ({ label, placeholder, type, name }) => {
+        return (
+            <FormFields theme={themeColor} type={type} isSpecial={theme === "Spécial"}>
+                {name === "message" ?
+                    <TextAreaContainer name="message" wrap="soft" rows="15" cols="20" placeholder={placeholder} />
+                    :
+                    <input type={type} name={name} placeholder={placeholder} />
+                }
+            </FormFields>
+        )
+    }
+
     const Form = () => {
         const btnValue = isSend ? "Email envoyé !" : "Envoyer"
-        const isSendStyle = isSend ? { color: themeColor.text, backgroundColor: "green", fontWeight: "bold" } : { color: themeColor.text, backgroundColor: "rgba(255,255,255,0.3)", borderWidth: 0.1 };
         return (
-            <FormContainer ref={form} onSubmit={sendEmail}>
+            <GlassmorphismComponent width={"80vw"}>
                 <h2 style={{ color: themeColor.text, marginBottom: 10 }}>Me Contacter</h2>
-                <FormField label={"Nom :"} placeholder={"Qui êtes-vous? ..."} type={"text"} name={"user_name"} />
-                <FormField label={"E-mail :"} placeholder={"Votre e-mail..."} type={"email"} name={"user_email"} />
-                <TextAreaContainer name="message" wrap="soft" rows="15" cols="20" style={{ width: isMobile && "90%", color: themeColor.text, backgroundColor: themeColor.glasscard }} />
-                <SubmitButtonContainer type="submit" value={btnValue} style={isSendStyle} />
-            </FormContainer>
+                <FormContainer ref={form} onSubmit={sendEmail}>
+                    <Field label={"Nom :"} placeholder={"Qui êtes-vous? ..."} type={"text"} name={"user_name"} />
+                    <Field label={"E-mail :"} placeholder={"Votre e-mail ..."} type={"email"} name={"user_email"} />
+                    <Field label={"Message :"} placeholder={"Votre message ..."} type={""} name={"message"} />
+                    <SubmitButtonContainer type="submit" value={btnValue} theme={themeColor} />
+                </FormContainer>
+            </GlassmorphismComponent>
         )
     };
-
-    const FormField = ({ label, placeholder, type, name }) => {
-        const formfielddiv = { display: "flex", width: "100%", justifyContent: "center", alignItems: "center", marginBottom: 20, color: themeColor.text, flexWrap: "wrap", };
-        const formfieldlabel = { padding: isMobile && "0 10px 0 10px", width: isMobile && "100%", marginRight: !isMobile && 10 };
-        const inputStyle = { background: "none", borderRadius: "10px", padding: "5px", width: "100%", color: themeColor.text, border: "none" };
-        return (
-            <div style={formfielddiv}>
-                <label style={formfieldlabel}>{label}</label>
-                <GlassmorphismComponent width={isMobile ? orientation === "landscape" ? "80vw" : "55vw" : "80vw"} >
-                    <input type={type} name={name} style={inputStyle} />
-                </GlassmorphismComponent>
-            </div>
-        )
-    };
-
 
 
     // Media
-    const IconesLink = ({ source, link, label }) => <IconeLink href={link} target="_blank"><Icone src={source} className='iconsocialnetworks' />{label}</IconeLink>
+    const IconesLink = ({ source, link, label, className }) => <IconeLink href={link} target="_blank" theme={themeColor}><Icone src={source} className="iconsocialnetworks" />{label}</IconeLink>;
+
     const Media = () => {
         const githubLabel = isMobile ? <span style={{ color: "crimson", textAlign: "center" }}>Mon<br />Github</span> : "AnthonyDWeb";
         const linkedinLabel = isMobile ? <span style={{ color: "crimson" }}>Anthony<br />Delforge</span> : "Anthony Delforge";
         return (
             <div style={{ display: "flex", justifyContent: "space-around", width: "100%", marginTop: 20, }}>
-                <GlassmorphismComponent rad={"30%"} background={"rgba(255,255,255,0.3)"}>
-                    <IconesLink source={github} link={"https://github.com/AnthonyDWeb"} label={githubLabel} />
-                </GlassmorphismComponent>
-                <GlassmorphismComponent rad={"30%"} background={"rgba(255,255,255,0.3)"}>
-                    <IconesLink source={linkedin} link={"https://www.linkedin.com/in/anthony-delforge-9b0805214"} label={linkedinLabel} />
-                </GlassmorphismComponent>
+                <IconesLink source={github} link={"https://github.com/AnthonyDWeb"} label={githubLabel} />
+                <IconesLink source={linkedin} link={"https://www.linkedin.com/in/anthony-delforge-9b0805214"} label={linkedinLabel}/>
             </div>
         )
     }
@@ -86,9 +81,7 @@ export default function Contact() {
 
     return (isLoad &&
         <PageContainer style={{ ...pageContainerStyle }} id='contact' className={"animate__animated animate__backIn"}>
-            <GlassmorphismComponent>
-                <Form />
-            </GlassmorphismComponent>
+            <Form />
             <Media />
         </PageContainer>
     )
@@ -98,8 +91,18 @@ export default function Contact() {
 
 const FormContainer = styled.form`
 display: flex; flex-direction: column; width: 100%; justify-content: center; align-items: center;
-textarea::placeholder { color: white};
-input::placeholder { color: white};
+`;
+const FormFields = styled.div`
+display: flex; align-items: center; flex-wrap: wrap; width: 100%; margin-bottom: 1rem;
+& textArea, input {
+    min-width: ${props => props.type === "email" ? "60%" : "40%"}; color: ${props => props.theme.text};
+    &::placeholder { color: ${props => props.theme.text}};
+}
+& input {
+    flex-grow: 0; flex-basis: 200px; border-radius: 8px; padding: 5px 10px; outline: none; background: none;
+    border-color: ${props => props.isSpecial && props.theme.text}
+}
+& textArea { text-align: justify; border-color: ${props => props.isSpecial && props.theme.text}}
 `;
 
 const TextAreaContainer = styled.textarea`
@@ -107,11 +110,9 @@ background-color: transparent; width: 100%; border-radius: 5px; padding: 5px; te
 `;
 
 const SubmitButtonContainer = styled.input`
-background-color: transparent; border: 1px solid; border-radius: 5px; padding: 5px; margin: 10px; width: fit-content;
-:hover {
-    color: black;
-    background-color: white;
-    cursor: pointer;
+cursor: pointer; background: none; padding: 5px 8px; border-radius: 5px; color: ${props => props.theme.text}; border: 1px solid ${props => props.theme.text};
+&:hover {
+    background-color: ${props => props.theme.text}; color: ${props => props.theme.navbar}; font-weight: bold;
 }
 `;
 
@@ -119,8 +120,8 @@ const IconeLink = styled.a`
 display: flex;
 flex-direction: column;
 align-items: center;
-color: red;
 margin: 5px;
+
 `;
 
 const Icone = styled.img`

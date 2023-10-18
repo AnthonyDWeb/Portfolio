@@ -15,19 +15,21 @@ import useDevice from '../../utils/hooks/useDevice';
 SwiperCore.use([EffectCube, Navigation, Pagination]);
 
 export default function SwiperComponent(props) {
-    // screenSize, isMobile, isTablet, isDesktop, orientation,
-    const {  device } = useDevice();
+    const { device } = useDevice();
     const effects = { shadow: true, slideShadows: false, shadowOffset: 20, shadowScale: 0.94 };
-    // console.log(`screenSize: ${screenSize.height}/${screenSize.width} - device: ${device} - orientation: ${orientation}`);
-    const imgHeight = device === "mobile" ? "500px" : "";
+
+
     return (
         <div className="container">
-            <Swiper effect='cube' grabCursor={true} cubeEffect={effects} loop={true} pagination={{ clickable: true }} navigation>
+            <Swiper effect='cube' grabCursor={true} cubeEffect={effects} loop={false} pagination={{ clickable: true }} slidesPerView={3}>
                 {projects?.map(d => {
                     const imgSrc = require(`../../assets/projects/${d.source}`);
                     return (
                         <SwiperSlide key={d.source}>
-                            <img src={imgSrc} alt="slide_image"/>
+                            <a href={d.link} target="_blank"><img src={imgSrc} alt="slide_image" /></a>
+                            <h4 style={{ color: "white", margin: "0.5rem 0" }}>{d.title}</h4>
+                                <p style={{ color: 'white', marginBottom: "0.5rem" }}><span style={{ marginRight: "0.5rem", textDecoration: "underline" }}>Technologie:</span><br />{d.technology}</p>
+                                <p style={{ color: 'white', marginBottom: "0.5rem" }}><span style={{ marginRight: "0.5rem", textDecoration: "underline" }}>Description:</span><br />{d.description}</p>
                         </SwiperSlide>
                     )
                 })}
