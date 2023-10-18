@@ -8,7 +8,7 @@ import GlassmorphismComponent from '../glassmorphism/glassmorphism-component';
 import ButtonMenu from '../menu-Button';
 
 export default function NavigationBar() {
-    const { device, isMobile } = useContext(DeviseContext);
+    const { device, isMobile, screenSize } = useContext(DeviseContext);
     const { theme, setTheme, themeColor } = useContext(ThemeContext);
     const [display, setDiplay] = useState(false);
 
@@ -58,7 +58,6 @@ z-index: 12;
 justify-content: ${props => (props.device !== "mobile" || props.display) ? "center" : "flex-end"};
 backdrop-filter: blur(${props => (!props.mobile || props.display) ? "15px" : "0px"});
 border-radius: 20px;
-// background-color: ${props => props.background && props.background};
 width: 90vw;
 margin: auto;
 `;
@@ -70,7 +69,6 @@ width: ${props => (!props.mobile || props.display) ? "100%" : "5vw"};
 flex-direction: ${props => props.device == "mobile" && "column"};
 height:100%;
 justify-content: space-around;
-// backdrop-filter: blur(${props => (!props.mobile || props.display) ? "15px" : "0px"});
 align-items: center;
 .linkContainer {margin: 5px 0px; text-align: center; position: relative;}
 .link {
