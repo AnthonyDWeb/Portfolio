@@ -18,19 +18,18 @@ import { mainTitleClass1, mainTitleClass2, mainTitleClass3, mainTitle1, mainTitl
 import CV from '../downloads/CV_Anthony_DELFORGE.pdf';
 
 export default function Homepage() {
-  // const { orientation, isDesktop } = useDevice();
   const { orientation, device, isMobile } = useContext(DeviseContext);
-  const { themeColor } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
   const { PageContainer } = useContext(StyleContext);
 
   return (
     <PageContainer id="homepage" mobile={isMobile}>
-      <MainTitle device={device} themeColor={themeColor.text}>
+      <MainTitle device={device} theme={theme.text}>
         <span className={`${mainTitleClass1} end`}>{mainTitle1}</span>
         <span className={mainTitleClass2}>{mainTitle2}</span>
         <span className={`${mainTitleClass3} end`}>{mainTitle3}</span>
       </MainTitle>
-      <Profil orientation={orientation} device={device} className={profilClass} themeColor={themeColor.text}>
+      <Profil orientation={orientation} device={device} className={profilClass} theme={theme.text}>
         <div className='profil-container'>
           <img src={require("../assets/profil-image.png")} alt="profil" className='profil-image' />
           <div className='profil-title'>
@@ -39,8 +38,8 @@ export default function Homepage() {
           </div>
         </div>
         <div className='profil-btn-container'>
-          <BugButton addBefore={<DownloadIcone />} addstyle={{fontSize: device !== "desktop" && "3vw"}}>
-            <a href={CV} download="CV_Anthony_DELFORGE" style={{ color: themeColor.text}}>{btnText}</a>
+          <BugButton addBefore={<DownloadIcone />} addstyle={{ fontSize: device !== "desktop" && "3vw" }}>
+            <a href={CV} download="CV_Anthony_DELFORGE" style={{ color: theme.text }}>{btnText}</a>
           </BugButton>
         </div>
       </Profil>
@@ -50,7 +49,7 @@ export default function Homepage() {
 
 const MainTitle = styled.h1`
 display: flex; flex-direction: column; width: 90%; font-size: ${props => props.device === "mobile" ? "4vw" : "3vw"}; margin-top: 30px;
->span { color: ${props => props.themeColor && props.themeColor}; }
+>span { color: ${props => props.theme && props.theme}; }
 >span.end {align-self: flex-end;}
 `;
 

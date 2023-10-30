@@ -1,6 +1,7 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
   scroll-behavior: smooth;
   text-decoration: none;
   font-family: 'Berkshire Swash', cursive;
@@ -26,6 +27,10 @@ a {
   }
 }
 
+.body-page {
+  position: relative;
+  min-height: 100vh;
+}
 
 /* ---------------------------------------------------- */
 
@@ -65,3 +70,38 @@ a {
 /* OTHER */
 
 /* ---------------------------------------------------- */
+
+:root {
+  --card-width: 50vw;
+  --card-height: 30vw;
+}
+
+/* .card {
+  width: var(--card-width);
+  height: var(--card-height);
+} */
+
+/* .front,
+.back {
+  width: var(--card-width);
+  height: var(--card-height);
+  border-radius: 2rem;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.front {
+  width: var(--card-width);
+  height: var(--card-height);
+}
+
+.back {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #d6d3d3;
+  transform: rotateY(180deg);
+  gap: 5rem;
+  padding: 0 1rem;
+} */

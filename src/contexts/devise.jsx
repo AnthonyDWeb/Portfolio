@@ -9,7 +9,7 @@ export const DeviseProvider = props => {
     const device = isMobile ? "mobile" : isTablet ? "tablet" : isDesktop && "desktop";
 
     useEffect(() => {
-        const handleResize = () => setDimensions({ width: window.screen.width, height: window.screen.height });
+        const handleResize = () => setDimensions({ width: window.innerWidth, height: window.innerHeight});
         window.addEventListener('resize', (handleResize));
         return () => window.removeEventListener('resize', handleResize);
     }, [])

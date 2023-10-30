@@ -18,7 +18,7 @@ import { ThemeContext } from '../contexts/theme.context';
 export default function Contact() {
     const { isMobile } = useDevice();
     const { PageContainer, pageContainerStyle, isLoad } = useContext(StyleContext);
-    const { theme,themeColor } = useContext(ThemeContext);
+    const { theme, } = useContext(ThemeContext);
 
     const [isSend, setSend] = useState(false);
     const form = useRef();
@@ -36,9 +36,9 @@ export default function Contact() {
             });
     };
 
-    const Field = ({ label, placeholder, type, name }) => {
+    const Field = ({ placeholder, type, name }) => {
         return (
-            <FormFields theme={themeColor} type={type} isSpecial={theme === "Spécial"}>
+            <FormFields theme={theme} type={type} isSpecial={theme.default === "special"}>
                 {name === "message" ?
                     <TextAreaContainer name="message" wrap="soft" rows="15" cols="20" placeholder={placeholder} />
                     :
@@ -52,12 +52,12 @@ export default function Contact() {
         const btnValue = isSend ? "Email envoyé !" : "Envoyer"
         return (
             <GlassmorphismComponent width={"80vw"}>
-                <h2 style={{ color: themeColor.text, marginBottom: 10 }}>Me Contacter</h2>
+                <h2 style={{ color: theme.text, marginBottom: 10 }}>Me Contacter</h2>
                 <FormContainer ref={form} onSubmit={sendEmail}>
                     <Field label={"Nom :"} placeholder={"Qui êtes-vous? ..."} type={"text"} name={"user_name"} />
                     <Field label={"E-mail :"} placeholder={"Votre e-mail ..."} type={"email"} name={"user_email"} />
                     <Field label={"Message :"} placeholder={"Votre message ..."} type={""} name={"message"} />
-                    <SubmitButtonContainer type="submit" value={btnValue} theme={themeColor} />
+                    <SubmitButtonContainer type="submit" value={btnValue} theme={theme} />
                 </FormContainer>
             </GlassmorphismComponent>
         )
@@ -65,7 +65,7 @@ export default function Contact() {
 
 
     // Media
-    const IconesLink = ({ source, link, label, className }) => <IconeLink href={link} target="_blank" theme={themeColor}><Icone src={source} className="iconsocialnetworks" />{label}</IconeLink>;
+    const IconesLink = ({ source, link, label, className }) => <IconeLink href={link} target="_blank" theme={theme}><Icone src={source} className="iconsocialnetworks" />{label}</IconeLink>;
 
     const Media = () => {
         const githubLabel = isMobile ? <span style={{ textAlign: "center" }}>Mon<br />Github</span> : "AnthonyDWeb";
@@ -73,7 +73,7 @@ export default function Contact() {
         return (
             <div style={{ display: "flex", justifyContent: "space-around", width: "100%", marginTop: 20, }}>
                 <IconesLink source={github} link={"https://github.com/AnthonyDWeb"} label={githubLabel} />
-                <IconesLink source={linkedin} link={"https://www.linkedin.com/in/anthony-delforge-9b0805214"} label={linkedinLabel}/>
+                <IconesLink source={linkedin} link={"https://www.linkedin.com/in/anthony-delforge-9b0805214"} label={linkedinLabel} />
             </div>
         )
     }

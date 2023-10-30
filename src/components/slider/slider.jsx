@@ -3,7 +3,7 @@ import "./slider.css";
 import { ThemeContext } from '../../contexts/theme.context';
 
 export default function Slider({ data }) {
-    const { themeColor } = useContext(ThemeContext);
+    const { theme } = useContext(ThemeContext);
 
 
     const Slide = ({ id }) => {
@@ -16,7 +16,7 @@ export default function Slider({ data }) {
                     return (
                         <div key={`${e.imgFileName}${id}`}>
                             {hasImg && <img src={imgSrc} width={50} height={50} alt={`icone ${e.imgLabel}`} />}
-                            {hasLabel && <p style={{color: themeColor.text}}>{e.imgLabel}</p>}
+                            {hasLabel && <p style={{ color: theme.text }}>{e.imgLabel}</p>}
                         </div>
                     )
                 })}

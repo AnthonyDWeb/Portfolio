@@ -9,7 +9,7 @@ import ButtonMenu from '../menu-Button';
 
 export default function NavigationBar() {
     const { device, isMobile } = useContext(DeviseContext);
-    const { theme, setTheme, themeColor } = useContext(ThemeContext);
+    const { theme, setTheme } = useContext(ThemeContext);
     const [display, setDiplay] = useState(false);
 
     const MenuButton = ({ title, classname, id }) => {
@@ -20,16 +20,22 @@ export default function NavigationBar() {
             </div>
         )
     };
+
+    const toggleChange = () => {
+        const isDefault = !theme.default;
+        const newTheme = {...theme, default: isDefault};
+        setTheme(newTheme);
+    }
     return (
-        <NavBar className='animate__animated animate__fadeIn  animate__delay-3s' device={device} mobile={isMobile} display={display} background={themeColor.navbar}>
+        <NavBar className='animate__animated animate__fadeIn  animate__delay-3s' device={device} mobile={isMobile} display={display} background={theme.navbar}>
             <GlassmorphismComponent
                 height={(!isMobile || display) ? "auto" : "5vw"}
                 width={(!isMobile || display) ? "90vw" : "5vw"}
                 rad={(isMobile && !display) ? "50%" : undefined}
-                background={(display || !isMobile) ? "transparent" : themeColor.navbar}
+                background={(display || !isMobile) ? "transparent" : theme.navbar}
                 addStyle={{ marginRight: (isMobile && !display) && "10px" }}
             >
-                <NavList themeColor={themeColor.text} device={device} mobile={isMobile} display={display} background={!display && themeColor.background}>
+                <NavList theme={theme} device={device} mobile={isMobile} display={display} background={!display && theme.background}>
                     {isMobile &&
                         <div style={{ display: "flex", width: display && "100%", justifyContent: display && "flex-end" }}>
                             <ButtonMenu display={display} action={() => setDiplay(!display)} />
@@ -42,7 +48,8 @@ export default function NavigationBar() {
                             <MenuButton title={"Portfolio"} id={"#portfolio"} />
                             <MenuButton title={"A propos de moi"} id={"#about_me"} />
                             <MenuButton title={"Contact"} id={"#contact"} />
-                            <Toggle mobile={isMobile} theme={theme} action={() => setTheme(theme === "Spécial" ? "Sombre" : "Spécial")} />
+                            <MenuButton title={`theme: ${theme.default}`} id={"#contact"} />
+                            <Toggle mobile={isMobile} theme={theme} action={() => setTheme({...theme, default: !theme.default})} />
                         </>
                     }
                 </NavList>
@@ -72,7 +79,7 @@ justify-content: space-around;
 align-items: center;
 .linkContainer {margin: 5px 0px; text-align: center; position: relative;}
 .link {
-    color: ${props => props.themeColor && props.themeColor};
+    color: ${props => props.theme && props.theme.text};
     font-weight: bold; padding: 5px 8px 5px 8px; border: none; border-radius: 10px;
     :hover {
         color: black; cursor: pointer; background-color: #37FF8B; 

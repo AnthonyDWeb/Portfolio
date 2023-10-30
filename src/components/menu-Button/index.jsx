@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './index.css';
 
 function ButtonMenu({display, action}) {
-    const [open, setOpening] = useState(false)
     return (
             <button className={`menu__icon ${display}`} onClick={()=> action()}>
                 <span></span>
@@ -12,4 +11,4 @@ function ButtonMenu({display, action}) {
     )
 }
 
-export default ButtonMenu
+export default ButtonMenu;
