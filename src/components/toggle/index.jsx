@@ -1,10 +1,10 @@
 import React from 'react';
 import './toggleStyle.css'
 
-function Toggle({ mobile, theme, action }) {
+function Toggle({ checked, action }) {
     return (
-        <label className="switch" style={{marginTop: mobile && 10}}>
-            <input type="checkbox" defaultChecked={theme === "Spécial"} onClick={() => action()} />
+        <label className="switch">
+            <input type="checkbox" defaultChecked={checked} onClick={() => action()} />
             <span className="slider"></span>
         </label>
     )

@@ -1,14 +1,14 @@
 import React from 'react';
 import './index.css';
 
-function ButtonMenu({display, action}) {
+function MenuButton({ display, action }) {
     return (
-            <button className={`menu__icon ${display}`} onClick={()=> action()}>
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+        <button className={`menu__icon ${display}`} onClick={() => action()}>
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     )
 }
 
-export default ButtonMenu;
+export default MenuButton;
