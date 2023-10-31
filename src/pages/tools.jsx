@@ -40,7 +40,7 @@ export default function Tools() {
 
     return (isLoad &&
         <PageContainer id='tools' className={"animate__animated animate__backIn"}>
-            <GlassmorphismComponent>
+            <GlassmorphismComponent addStyle={{borderRadius:"0px", maxWidth: "100vw"}}>
                 <h2 style={{color: "white"}}>Outils</h2>
                 <Slider data={toolsArr} />
             </GlassmorphismComponent>

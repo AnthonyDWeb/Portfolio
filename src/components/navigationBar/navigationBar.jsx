@@ -50,7 +50,7 @@ width: ${props => !props.mobile ? "90vw" : props.display ? "90vw" : "fit-content
 margin: 2vh auto;
 border-radius: 20px;
 background-color: ${props => props.theme && props.theme.background};
-backdrop-filter: blur(${props => props.display && "15px"});
+backdrop-filter: blur(${props => (props.display || !props.theme.default) && "15px"});
 transition: all 1s ease;
 
 .navCard {

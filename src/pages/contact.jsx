@@ -51,7 +51,7 @@ export default function Contact() {
     const Form = () => {
         const btnValue = isSend ? "Email envoyé !" : "Envoyer"
         return (
-            <GlassmorphismComponent width={"80vw"}>
+            <GlassmorphismComponent addStyle={{width: "90vw"}}>
                 <h2 style={{ color: theme.text, marginBottom: 10 }}>Me Contacter</h2>
                 <FormContainer ref={form} onSubmit={sendEmail}>
                     <Field label={"Nom :"} placeholder={"Qui êtes-vous? ..."} type={"text"} name={"user_name"} />

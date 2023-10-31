@@ -18,6 +18,7 @@ export const ThemeProvider = props => {
         case false:
             theme.background = "transparent";
             theme.glasscard = "rgba(255,255,255,0.08)";
+            theme.border = "#37FF8B";
             break;
         default:
             break;

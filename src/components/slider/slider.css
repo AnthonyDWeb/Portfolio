@@ -1,9 +1,8 @@
 .sliderTools {
     position: relative;
-    box-shadow: 0 10px 20px -10px rgba(0, 0, 0, 0.2);
     display: flex;
     overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.2);
+    margin-top: 1vh;
   }
   
   .slide {

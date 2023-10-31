@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { ThemeContext } from '../../contexts/theme.context';
 
 
 export default function GlassmorphismComponent({ children, addStyle, action, addClass }) {
-    return <Component className={addClass} style={addStyle} onClick={() => action && action()}>{children}</Component>;
+    const { theme } = useContext(ThemeContext);
+    return <Component className={addClass} style={addStyle} theme={theme} onClick={() => action && action()}>{children}</Component>;
 }
 
 const Component = styled.div`
@@ -14,12 +16,10 @@ display: flex;
 flex-direction: column; 
 align-items: center; 
 justify-content: flex-start;
-max-width: 100vw; 
+max-width: 90vw; 
 padding: 10px 5vw; 
-border: solid 1px rgba(0,0,0,0.1);
-border-radius: 15px; 
-background-color: transparent;
+border-radius: 15px;
 background-color: rgba(255,255,255,0.1);
 backdrop-filter: 15px; 
-box-shadow: 5px 5px 15px rgb(0,0,0);
+box-shadow: ${props => props.theme.default ? "5px 5px 15px rgb(0,0,0)" : `0px 0px 15px ${props.theme.border}`};
 `;
