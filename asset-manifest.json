@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.40e1e1b2.css",
-    "main.js": "./static/js/main.cca60c18.js",
+    "main.css": "./static/css/main.0b258d15.css",
+    "main.js": "./static/js/main.6827d40e.js",
     "static/js/787.86e5f866.chunk.js": "./static/js/787.86e5f866.chunk.js",
     "static/media/profil-image.png": "./static/media/profil-image.c60b6c39e528cf8c8c3e.png",
     "static/media/pokeDex.png": "./static/media/pokeDex.53004d49dadf1a7135b1.png",
@@ -30,14 +30,15 @@
     "static/media/postgreSQL.png": "./static/media/postgreSQL.ceb4666c7f8c4ba5412a.png",
     "static/media/expressJS.webp": "./static/media/expressJS.99035517c7babc14d65d.webp",
     "static/media/github.svg": "./static/media/github.5463bf542b33d9f87619dbd24b8b6bc8.svg",
+    "static/media/icon-arrow-down.webp": "./static/media/icon-arrow-down.a6469cae61c3de246c8c.webp",
     "static/media/mongoDB.svg": "./static/media/mongoDB.1aca075d5cce0819fea7.svg",
     "index.html": "./index.html",
-    "main.40e1e1b2.css.map": "./static/css/main.40e1e1b2.css.map",
-    "main.cca60c18.js.map": "./static/js/main.cca60c18.js.map",
+    "main.0b258d15.css.map": "./static/css/main.0b258d15.css.map",
+    "main.6827d40e.js.map": "./static/js/main.6827d40e.js.map",
     "787.86e5f866.chunk.js.map": "./static/js/787.86e5f866.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.40e1e1b2.css",
-    "static/js/main.cca60c18.js"
+    "static/css/main.0b258d15.css",
+    "static/js/main.6827d40e.js"
   ]
 }
