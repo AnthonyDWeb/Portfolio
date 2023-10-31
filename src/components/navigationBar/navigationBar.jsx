@@ -46,7 +46,7 @@ const NavBar = styled.nav`
 position: fixed; 
 right: 5%;
 z-index: 12;
-width: ${props => props.display ? "90vw" : "fit-content"};
+width: ${props => !props.mobile ? "90vw" : props.display ? "90vw" : "fit-content"};
 margin: 2vh auto;
 border-radius: 20px;
 background-color: ${props => props.theme && props.theme.background};
@@ -60,7 +60,7 @@ transition: all 1s ease;
     width: 100%;
     padding: 1vh 2vw;
     transition: all 1s ease;
-    border-radius: ${props => !props.display && "50%"};
+    border-radius: ${props => (!props.display && props.mobile) && "50%"};
 
 }
 .menu__icon {
@@ -72,20 +72,21 @@ transition: all 1s ease;
 const NavList = styled.div`
 position: relative;
 width: 100%;
-display: ${props => props.display ? "flex" : "none"};
-flex-direction: column;
+display: ${props => (props.display || !props.mobile) ? "flex" : "none"};
+flex-direction: ${props => props.mobile && "column"};
 align-items: center;
+justify-content: ${props => !props.mobile && "space-around"};
 transition: all 1s ease;
 
 .linkContainer {
     position: relative;
-    margin-bottom: 10px; 
+    margin-bottom: ${props => props.mobile && "10px"}; 
     text-align: center; 
 }
 .link {
     color: ${props => props.theme && props.theme.text};
     font-weight: bold; 
-    padding: 5px 8px 5px 8px; 
+    padding: 5px 8px; 
     border: none; 
     border-radius: 10px;
     :hover {
