@@ -17,7 +17,9 @@ import { FlipCard } from '../components/filpCard/flipCard';
 export default function Projets() {
   const { PageContainer, pageContainerStyle, isLoad } = useContext(StyleContext);
   const { theme } = useContext(ThemeContext);
-  const { width } = useDevice();
+  const { width, device } = useDevice();
+
+  const nbImages = device === "desktop" ? 3 : 1;
 
   const Front = ({ e }) => <img className='front' src={require(`../assets/projects/${e.source}`)} alt="" />;
   const Back = ({ e }) => {
@@ -29,13 +31,15 @@ export default function Projets() {
     )
   }
 
+  // FIX ISSUE SIZE IMAGES
+
   return (isLoad &&
     <PageContainer style={{ ...pageContainerStyle }} id='portfolio' className={"animate__animated animate__backIn"}>
-      <GlassmorphismComponent>
+      <GlassmorphismComponent addStyle={{maxWidth: "100vw"}}>
         <h2 style={{ color: theme.text }}>Portfolio</h2>
-        <SwiperGalery show={3} width={width * 0.9} margin={20} data={projects}>
+        <SwiperGalery show={nbImages} width={width * 0.9} margin={20} data={projects}>
           {projects.map(e =>
-            <FlipCard key={e.title} width={(width * 0.9 / 3)} >
+            <FlipCard key={e.title} width={(width * 0.9 / nbImages)} >
               <Front e={e} />
               <Back e={e} />
             </FlipCard>

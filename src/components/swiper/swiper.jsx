@@ -82,6 +82,7 @@ display: flex;
 flex-direction: column; 
 align-items: center;
 width: 100%;
+// background-color: green;
 `;
 
 const SwiperContainer = styled.div`
@@ -90,6 +91,7 @@ justify-content: center;
 justify-content: space-between;
 align-items: center;
 width: 100%;
+// background-color: blue;
 `;
 
 const SwiperWrapper = styled.div`
@@ -98,8 +100,10 @@ align-items: center;
 justify-content: flex-start;
 position: relative;
 height: fit-content;
-max-width: 90%;
+max-width: 95%;
 overflow: scroll;
+// background-color: red;
+padding: 5vh 0;
 
 &::-webkit-scrollbar {
     display: none;
@@ -113,6 +117,8 @@ align-center: center;
 height: fit-content;
 border-radius: 50%;
 padding: 0.5rem;
+// background-color: yellow;
+
 `;
 
 const Arrow = styled.img`

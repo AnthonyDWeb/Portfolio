@@ -13,12 +13,14 @@ export function FlipCard({ children, width }) {
 
 const CardContainer = styled.div`
 display: flex;
-perspective: ${props => props.width && (props.width * 1.2)}px;
+perspective: 70vw;
 
 &:hover > .card {
     cursor: pointer;
     transform: rotateY(180deg);
 }`;
+
+//  check width image and with container !!!
 
 const Card = styled.div`
     margin: 10px;
@@ -32,6 +34,7 @@ const Card = styled.div`
     & >.back {
     width: ${props => props.width && (props.width - 20)}px;
     height: ${props => props.height ? `${props.height}px` : "50vh"};
+    max-height: ${props => props.height ? `${props.height}px` : "50vh"};
     border-radius: 2rem;
     position: absolute;
     backface-visibility: hidden;
