@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 
-export default function SwiperGalery({ children, width, data, show }) {
+export default function SwiperGalery({ children, width, data, show, margin }) {
     const [selected, setSelection] = useState(0);
     const elRef = useRef();
     const posRef = useRef(0);
-    const scroll = (width / show);
+    const scroll = (width / show) + margin;
+    console.log("scroll", scroll);
     const arrowImg = require("../../assets/icon-arrow-down.webp");
 
 
@@ -15,7 +16,6 @@ export default function SwiperGalery({ children, width, data, show }) {
             const onWheel = e => {
                 if (e.deltaY === 0) return;
                 e.preventDefault();
-                console.log("wheel e.deltaY ", e.deltaY);
                 if (e.deltaY > 0 && posRef.current < 7) {
                     posRef.current = posRef.current + 1;
                 } else if (e.deltaY < 0 && posRef.current > 0) {
@@ -35,11 +35,14 @@ export default function SwiperGalery({ children, width, data, show }) {
 
     const scrollChange = (value) => {
         const el = elRef.current;
+        if (selected >= 0 && value > 0 && selected < 7) setSelection(selected + 1);
+        if (selected > 0 && value < 0) setSelection(selected - 1);
         el.scrollTo({
             left: el.scrollLeft + value,
             behavior: "smooth"
         });
     };
+
     const handlePagination = (value) => {
         const el = elRef.current;
         const scrollvalue = (value !== 0 && value !== data.length - 1) ? value - 1 : value;
@@ -50,7 +53,6 @@ export default function SwiperGalery({ children, width, data, show }) {
         posRef.current = value;
         setSelection(value);
     };
-
     const Bullets = () => {
         return data.map((e, i) => {
             const isSelected = selected === i;
@@ -82,7 +84,6 @@ display: flex;
 flex-direction: column; 
 align-items: center;
 width: 100%;
-// background-color: green;
 `;
 
 const SwiperContainer = styled.div`
@@ -91,7 +92,6 @@ justify-content: center;
 justify-content: space-between;
 align-items: center;
 width: 100%;
-// background-color: blue;
 `;
 
 const SwiperWrapper = styled.div`
@@ -102,7 +102,6 @@ position: relative;
 height: fit-content;
 max-width: 95%;
 overflow: scroll;
-// background-color: red;
 padding: 5vh 0;
 
 &::-webkit-scrollbar {
@@ -117,12 +116,11 @@ align-center: center;
 height: fit-content;
 border-radius: 50%;
 padding: 0.5rem;
-// background-color: yellow;
 
 `;
 
 const Arrow = styled.img`
-width: 2vw;
+width: 40px;
 aspect-ratio: 1/1;
 background-image: url("../../assets/icon-arrow-down.webp");
     &.left {
@@ -138,13 +136,14 @@ display: flex;
 justify-content: center;
 align-items: center;
 height: 20px;
-width: 50%;
+height: 20px;
+min-width: 50%;
 border-radius: 10px;
 background-color: rgba(0, 0, 0, 0.611);
 
 & .bullet {
 width: 8px;
-margin-inline: 1rem;
+margin-inline: 10px;
 aspect-ratio: 1/1;
 border-radius: 50%;
 cursor: pointer;

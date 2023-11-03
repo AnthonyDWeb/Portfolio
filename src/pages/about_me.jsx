@@ -12,15 +12,14 @@ import GlassmorphismComponent from '../components/glassmorphism/glassmorphism-co
 // OTHER //
 
 export default function AboutMe() {
-  const { PageContainer, pageContainerStyle, sectionTitle, isLoad } = useContext(StyleContext);
+  const { PageContainer, isLoad } = useContext(StyleContext);
   const { theme } = useContext(ThemeContext);
 
-  // const fontName = "cursive Bungee Inline";
   return (isLoad &&
-    <PageContainer style={pageContainerStyle} id='about_me' className={"animate__animated animate__backIn"}>
+    <PageContainer id='about_me' className={"animate__animated animate__backIn"}>
       <GlassmorphismComponent>
         <h2 style={{ color: theme.text, marginBottom: 10 }}>À propos de moi</h2>
-        <section style={sectionTitle}>
+        <section>
           <p style={{ color: theme.text }}>
             Après un cursus initial en biologie guidé par un besoin continu d'apprentissage et de recherche, je me suis réorienté vers le developpement web et mobile, un métier d'avenir et ayant pour caractéristique un apprentissage continu tout au long de sa carrière ce qui correspond à mes besoins.
           </p>

@@ -49,7 +49,7 @@ export default function Contact() {
     }
 
     const Form = () => {
-        const btnValue = isSend ? "Email envoyé !" : "Envoyer"
+        const btnValue = isSend ? "Email envoyé !" : "Envoyer";
         return (
             <GlassmorphismComponent addStyle={{width: "90vw"}}>
                 <h2 style={{ color: theme.text, marginBottom: 10 }}>Me Contacter</h2>

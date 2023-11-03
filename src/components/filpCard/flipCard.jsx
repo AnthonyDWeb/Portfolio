@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-export function FlipCard({ children, width }) {
+export function FlipCard({ children, width, height, device }) {
     return (
-        <CardContainer width={width}>
-            <Card className="card" width={width}>
+        <CardContainer device={device}>
+            <Card className="card" height={height} width={width} device={device}>
                 {children}
             </Card>
         </CardContainer>
@@ -13,29 +13,30 @@ export function FlipCard({ children, width }) {
 
 const CardContainer = styled.div`
 display: flex;
-perspective: 70vw;
+perspective: 190vw;
 
 &:hover > .card {
     cursor: pointer;
-    transform: rotateY(180deg);
+    transform: ${props => props.device === "desktop" && 'rotateY(180deg)'};
 }`;
 
 //  check width image and with container !!!
 
 const Card = styled.div`
     margin: 10px;
-    width: ${props => props.width && (props.width - 20)}px;
-    height: ${props => props.height ? `${props.height}px` : "50vh"};
+    width: ${props => props.width ? `${props.width}px` : "60vw"};
+    height: ${props => props.height ? `${props.height}px` : "60vh"};
     position: relative;
     transition: transform 1.5s ease;
     transform-style: preserve-3d;
 
-    & >.front,
-    & >.back {
-    width: ${props => props.width && (props.width - 20)}px;
-    height: ${props => props.height ? `${props.height}px` : "50vh"};
-    max-height: ${props => props.height ? `${props.height}px` : "50vh"};
-    border-radius: 2rem;
+    &  .front,
+    &  .back {
+    color: black;
+    width: ${props => props.width ? `${props.width}px` : "60vw"};
+    height: ${props => props.height ? `${props.height}px` : "60vh"};
+    max-height: 90vh;
+    border-radius: 1rem;
     position: absolute;
     backface-visibility: hidden;
     }

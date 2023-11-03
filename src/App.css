@@ -38,10 +38,55 @@ a {
 
 /* TOOLS */
 
-/* PORTFOLIO */
+/* PROJECTS */
+.title-arrow {
+  cursor: pointer;
+  height: 8vh;
+  width: 16vw;
+  margin-bottom: -5px;
+  transition: all 1s ease;
+  
+  &.false {
+    transform: rotate(180deg);
+  }
+  
+}
+
+.project-container {
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
+  color: white; 
+  width: 70vw;
+
+  & p {
+    text-align: justify;
+
+    &.detail {
+      font-size: small;
+      cursor: pointer;
+      opacity: 0.7;
+      color: rgb(55, 255, 139);
+
+      &.true {
+        margin-bottom: 1vh;
+      }
+    }
+  }
+  & img {
+    width: 100%;
+    border-radius: 5px;
+    margin: 2vh 0;
+    box-shadow: 15px 10px 1px rgba(0, 0, 0, 0.4);
+  }
+  & .border-container {
+    width: 50vw;
+    margin-top: 2vh;
+    border-bottom: 1px solid white;
+  }
+}
 
 /* CONTACT */
-
 .iconsocialnetworks {
   height: 30px;
   width: 30px;
@@ -49,7 +94,6 @@ a {
 
 
 /* ABOUT ME */
-
 .formation {
   margin: 0 5px;
   font-style: italic;
@@ -70,8 +114,3 @@ a {
 /* OTHER */
 
 /* ---------------------------------------------------- */
-
-:root {
-  --card-width: 50vw;
-  --card-height: 30vw;
-}
