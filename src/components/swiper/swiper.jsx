@@ -43,22 +43,22 @@ export default function SwiperGalery({ children, width, data, show, margin }) {
         });
     };
 
-    const handlePagination = (value) => {
-        const el = elRef.current;
-        const scrollvalue = (value !== 0 && value !== data.length - 1) ? value - 1 : value;
-        el.scrollTo({
-            left: scrollvalue * scroll,
-            behavior: "smooth"
-        });
-        posRef.current = value;
-        setSelection(value);
-    };
     const Bullets = () => {
         return data.map((e, i) => {
             const isSelected = selected === i;
             const spanClass = `bullet ${isSelected && "selected"}`
             return <span key={`bullet-${i}`} className={spanClass} onClick={() => handlePagination(i)} />
         })
+    };
+
+    const handlePagination = (value) => {
+        const el = elRef.current;
+        el.scrollTo({
+            left: value * scroll,
+            behavior: "smooth"
+        });
+        posRef.current = value;
+        setSelection(value);
     };
 
     return (
