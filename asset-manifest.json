@@ -1,21 +1,20 @@
 {
   "files": {
-    "main.css": "./static/css/main.0b258d15.css",
-    "main.js": "./static/js/main.6827d40e.js",
-    "static/js/787.86e5f866.chunk.js": "./static/js/787.86e5f866.chunk.js",
+    "main.css": "./static/css/main.cb6e53f5.css",
+    "main.js": "./static/js/main.b2d1aed5.js",
+    "static/js/787.1ed0c42c.chunk.js": "./static/js/787.1ed0c42c.chunk.js",
     "static/media/profil-image.png": "./static/media/profil-image.c60b6c39e528cf8c8c3e.png",
     "static/media/pokeDex.png": "./static/media/pokeDex.53004d49dadf1a7135b1.png",
     "static/media/puissance4.png": "./static/media/puissance4.6c681edf0cc5b0e2f5a3.png",
-    "static/media/cuizine.png": "./static/media/cuizine.46444d2a1aa9038ea4eb.png",
+    "static/media/cuizine.png": "./static/media/cuizine.9871387713fd1c009057.png",
     "static/media/CV_Anthony_DELFORGE.pdf": "./static/media/CV_Anthony_DELFORGE.8a7ded29dd76c86d75d4.pdf",
     "static/media/react.png": "./static/media/react.8a6fc0a24a800d1e0f4a.png",
-    "static/media/randomfight.png": "./static/media/randomfight.d6c892f6f6c20474df1c.png",
+    "static/media/randomfight.png": "./static/media/randomfight.fb12b8e4021e95d35057.png",
     "static/media/androidstudio.png": "./static/media/androidstudio.8d3d843f14ee8921dc04.png",
-    "static/media/gameHelp.png": "./static/media/gameHelp.8b2738cf2b2a80790ccf.png",
-    "static/media/countriesAPI.png": "./static/media/countriesAPI.1431f11f98e181200c63.png",
-    "static/media/fightcalculator.png": "./static/media/fightcalculator.62bc99f5475fde3efeaf.png",
+    "static/media/countriesAPI.png": "./static/media/countriesAPI.b3f0279d9c8b027693f2.png",
+    "static/media/fightcalculator.png": "./static/media/fightcalculator.dc4d8cef645c00244b9c.png",
     "static/media/typescript.png": "./static/media/typescript.1e3902edbe4c3f2970d8.png",
-    "static/media/backery.png": "./static/media/backery.9d2ee25897e76a6a12ad.png",
+    "static/media/backery.png": "./static/media/backery.3cf685f0d10bbcba8003.png",
     "static/media/wheatherApp.png": "./static/media/wheatherApp.c9f3f03110cefe475bbf.png",
     "static/media/jquery.png": "./static/media/jquery.f37592fd91f831fc0b5a.png",
     "static/media/nestjs.png": "./static/media/nestjs.9cfa484aa7810965da94.png",
@@ -33,12 +32,12 @@
     "static/media/icon-arrow-down.webp": "./static/media/icon-arrow-down.a6469cae61c3de246c8c.webp",
     "static/media/mongoDB.svg": "./static/media/mongoDB.1aca075d5cce0819fea7.svg",
     "index.html": "./index.html",
-    "main.0b258d15.css.map": "./static/css/main.0b258d15.css.map",
-    "main.6827d40e.js.map": "./static/js/main.6827d40e.js.map",
-    "787.86e5f866.chunk.js.map": "./static/js/787.86e5f866.chunk.js.map"
+    "main.cb6e53f5.css.map": "./static/css/main.cb6e53f5.css.map",
+    "main.b2d1aed5.js.map": "./static/js/main.b2d1aed5.js.map",
+    "787.1ed0c42c.chunk.js.map": "./static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0b258d15.css",
-    "static/js/main.6827d40e.js"
+    "static/css/main.cb6e53f5.css",
+    "static/js/main.b2d1aed5.js"
   ]
 }
