@@ -51,7 +51,7 @@ export default function Contact() {
     const Form = () => {
         const btnValue = isSend ? "Email envoyé !" : "Envoyer";
         return (
-            <GlassmorphismComponent addStyle={{width: "90vw"}}>
+            <GlassmorphismComponent addStyle={{ width: "90vw" }}>
                 <h2 style={{ color: theme.text, marginBottom: 10 }}>Me Contacter</h2>
                 <FormContainer ref={form} onSubmit={sendEmail}>
                     <Field label={"Nom :"} placeholder={"Qui êtes-vous? ..."} type={"text"} name={"user_name"} />
@@ -93,20 +93,21 @@ const FormContainer = styled.form`
 display: flex; flex-direction: column; width: 100%; justify-content: center; align-items: center;
 `;
 const FormFields = styled.div`
-display: flex; align-items: center; flex-wrap: wrap; width: 100%; margin-bottom: 1rem;
+display: flex; align-items: center; flex-wrap: wrap; width: 100%; margin-bottom: 1rem; 
+height: auto;
 & textArea, input {
-    min-width: ${props => props.type === "email" ? "60%" : "40%"}; color: ${props => props.theme.text};
+    min-width: ${props => props.type === "email" ? "60%" : "40%"}; color: ${props => props.theme.text}; height: auto;
     &::placeholder { color: ${props => props.theme.text}};
 }
 & input {
-    flex-grow: 0; flex-basis: 200px; border-radius: 8px; padding: 5px 10px; outline: none; background: none;
+    flex-grow: 0; flex-basis: 200px; border-radius: 8px; padding: 5px 10px; outline: none; background: none; height: auto;
     border-color: ${props => props.isSpecial && props.theme.text}
 }
 & textArea { text-align: justify; border-color: ${props => props.isSpecial && props.theme.text}}
 `;
 
 const TextAreaContainer = styled.textarea`
-background-color: transparent; width: 100%; border-radius: 5px; padding: 5px; text-align: justify; margin-top: 10px;
+background-color: transparent; width: 100%; border-radius: 5px; padding: 5px; text-align: justify; margin-top: 10px; height: auto;
 `;
 
 const SubmitButtonContainer = styled.input`
