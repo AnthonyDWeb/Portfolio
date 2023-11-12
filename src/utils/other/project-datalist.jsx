@@ -68,7 +68,7 @@
             colab: [],
             description: `Il s'agit d'une petite application web ayant pour but de calculer le nombre de combats a faire pour obtenir un certain nombre de points enfonction du nombre de vies et des points des joueurs sur leur jeux mobile.`,
             technology: "Html, CSS3, Javascript",
-            link: "https://anthonydweb.github.io/fightCalculatort",
+            link: "https://anthonydweb.github.io/fightCalculator",
             responsive: [],
         },
         {
