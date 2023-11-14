@@ -25,9 +25,9 @@ export default function Projets() {
 
   const Title = () => {
     return (
-      <div style={{ display: "flex", alignItems: "center" }}>
+      <div style={{ display: "flex", alignItems: "center", marginBottom: "10px" }}>
         <h2 style={{ color: theme.text }}>Portfolio</h2>
-        {device !== "desktop" &&
+        {device === "mobile" &&
           <img className={`title-arrow ${display.card}`} src={arrowImg} alt="" onClick={() => setDisplay({ ...display, card: !display.card })} />
         }
       </div>
