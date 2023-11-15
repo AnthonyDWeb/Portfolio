@@ -6,7 +6,7 @@
             colab: [],
             description: `Site reproduisant l'API "restCountries" et affichant certaine information d'un pays (capital et nom du pays) lors de la recherche par pays ou capital ou une liste des pays d'un continent lors d'une recherche par continents ("region").`,
             technology: "Html, CSS3, Javascript, Heroku",
-            link: "https://anthonydweb.github.io/countries_api/",
+            link: "https://anthonydweb.github.io/countries/",
             responsive: ["mobile","tablette","Ipad"],
         },
         {
