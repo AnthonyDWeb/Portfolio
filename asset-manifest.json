@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "./static/css/main.1ca78383.css",
-    "main.js": "./static/js/main.3c3b90ed.js",
+    "main.js": "./static/js/main.b9fa229c.js",
     "static/js/787.1ed0c42c.chunk.js": "./static/js/787.1ed0c42c.chunk.js",
     "static/media/profil-image.png": "./static/media/profil-image.c60b6c39e528cf8c8c3e.png",
     "static/media/pokeDex.png": "./static/media/pokeDex.53004d49dadf1a7135b1.png",
     "static/media/puissance4.png": "./static/media/puissance4.2f97e8f54f373f9cd046.png",
     "static/media/cuizine.png": "./static/media/cuizine.9871387713fd1c009057.png",
     "static/media/CV_Anthony_DELFORGE.pdf": "./static/media/CV_Anthony_DELFORGE.8a7ded29dd76c86d75d4.pdf",
+    "static/media/countriesAPI.png": "./static/media/countriesAPI.870b30f25b166597eaa3.png",
     "static/media/react.png": "./static/media/react.8a6fc0a24a800d1e0f4a.png",
     "static/media/randomfight.png": "./static/media/randomfight.e628b774745e901b77ce.png",
-    "static/media/countriesAPI.png": "./static/media/countriesAPI.4ec3f43aeae1c0fc25f3.png",
     "static/media/androidstudio.png": "./static/media/androidstudio.8d3d843f14ee8921dc04.png",
+    "static/media/wheatherApp.png": "./static/media/wheatherApp.8bf88eba090924925b7d.png",
     "static/media/fightcalculator.png": "./static/media/fightcalculator.b382b8b2529e6ebe9270.png",
     "static/media/typescript.png": "./static/media/typescript.1e3902edbe4c3f2970d8.png",
     "static/media/backery.png": "./static/media/backery.eb9f0ae94e32f883aa49.png",
-    "static/media/wheatherApp.png": "./static/media/wheatherApp.c9f3f03110cefe475bbf.png",
     "static/media/jquery.png": "./static/media/jquery.f37592fd91f831fc0b5a.png",
     "static/media/nestjs.png": "./static/media/nestjs.9cfa484aa7810965da94.png",
     "static/media/mysql.png": "./static/media/mysql.7d8d571e5629923eaf74.png",
@@ -33,11 +33,11 @@
     "static/media/mongoDB.svg": "./static/media/mongoDB.1aca075d5cce0819fea7.svg",
     "index.html": "./index.html",
     "main.1ca78383.css.map": "./static/css/main.1ca78383.css.map",
-    "main.3c3b90ed.js.map": "./static/js/main.3c3b90ed.js.map",
+    "main.b9fa229c.js.map": "./static/js/main.b9fa229c.js.map",
     "787.1ed0c42c.chunk.js.map": "./static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1ca78383.css",
-    "static/js/main.3c3b90ed.js"
+    "static/js/main.b9fa229c.js"
   ]
 }
