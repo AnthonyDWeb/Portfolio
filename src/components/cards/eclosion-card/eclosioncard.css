@@ -1,0 +1,84 @@
+.img-container {
+    position: relative;
+    margin-left: 3vw;
+
+    .img-profil {
+        width: 20vw;
+        width: 20vw;
+        height: 30vw;
+        opacity: 0.5;
+        cursor: pointer;
+        position: relative;
+        box-shadow: 0 0 15px light-dark(rgba(0, 0, 0, 0.444), rgb(140, 253, 99));
+        border: light-dark(rgba(0, 0, 0, 0.444), rgba(255, 255, 255, 0.444)) 1px solid;
+
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            padding: 0;
+        }
+
+    }
+
+    .img-profil,
+    .img-profil::before,
+    .img-profil::after {
+        border-radius: 8px;
+        transition: all .8s ease;
+        background: url("../../../assets/images/pixel-ia-me.png") no-repeat center / cover;
+    }
+
+
+    .img-btn-cv {
+        position: absolute;
+        opacity: 0;
+        visibility: hidden;
+        bottom: 2.5%;
+        left: 50%;
+        transform: translateX(-50%);
+        border: none;
+        padding: 10px 15px;
+        border-radius: 8px;
+        background-color: var(--gray);
+        transition: all 0.5s ease-in-out;
+        .img-btn-link {
+            color: var(--medium-light);
+            text-decoration: none;
+        }
+
+        &:hover {
+            background-color: light-dark(var(--secondary-color), var(--primary-color));
+            box-shadow: 0 0 25px light-dark(var(--secondary-color), var(--primary-color));
+            .img-btn-link {
+                color: var(--medium-dark);  
+            }
+        }
+    }
+
+    &:hover {
+        .img-profil {
+            opacity: 1;
+            border-color: transparent;
+            transform: rotateZ(-45deg);
+            box-shadow: 0 0 15px red;
+
+            &::before {
+                transform: rotateZ(90deg);
+                box-shadow: 0 0 15px white;
+            }
+
+            &::after {
+                transform: rotateZ(45deg);
+                box-shadow: 0 0 15px blue;
+            }
+        }
+
+        .img-btn-cv {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+}

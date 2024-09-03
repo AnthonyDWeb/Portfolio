@@ -1,47 +1,64 @@
 /* The switch - the box around the slider */
 .switch {
-    font-size: 17px;
-    position: relative;
-    display: inline-block;
-    width: 3.5em;
-    height: 2em;
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 2.5em;
+  height: 1.5em;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  border: 2px solid var(--dark);
+  border-radius: 50px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  &:hover {
+    background-color: var(--dark);
+
+    &.slider:before {
+      background-color: var(--light);
+    }
   }
-  
-  /* Hide default HTML checkbox */
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1em;
+  width: 1em;
+  left: 0.1em;
+  bottom: 0.17em;
+  background-color: var(--dark);
+  border-radius: inherit;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.320, 1);
+
+}
+
+.switch input:checked+.slider {
+  border: 2px solid var(--light);
+
+  &:hover {
+    box-shadow: 0 0 10px var(--primary-color);
+    border-color: var(--primary-color);
+
+    &.slider:before {
+      background-color: var(--primary-color);
+    }
   }
-  
-  /* The slider */
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    inset: 0;
-    border: 2px solid white;
-    border-radius: 50px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 1.4em;
-    width: 1.4em;
-    left: 0.2em;
-    bottom: 0.2em;
-    background-color: white;
-    border-radius: inherit;
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
-  }
-  
-  .switch input:checked + .slider {
-    box-shadow: 0 0 20px rgba(55, 255, 139, 0.8);
-    border: 2px solid #37FF8B;
-  }
-  
-  .switch input:checked + .slider:before {
-    background-color: #37FF8B;
-    transform: translateX(1.5em);
-  }
+}
+
+.switch input:checked+.slider:before {
+  background-color: var(--light);
+  transform: translateX(1em);
+}

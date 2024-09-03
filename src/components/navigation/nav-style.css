@@ -1,0 +1,191 @@
+:root {
+    --hamburger-size: 30px;
+}
+
+.nav {
+    z-index: 15;
+    width: 100%;
+    display: grid;
+    position: fixed;
+    justify-content: flex-end;
+
+    .navbar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin: 1vh 1.5vh;
+        padding: 0.5vh 0.5vh;
+        border-radius: 50%;
+        background-color: transparent;
+        height: var(--hamburger-size);
+        width: var(--hamburger-size);
+        overflow: hidden;
+        transition: all 0.6s ease;
+
+
+        &:hover {
+            border-color: light-dark(var(--dark), var(--primary-color));
+        }
+
+        .hamburger {
+            height: var(--hamburger-size);
+            width: var(--hamburger-size);
+        }
+
+        .navcontainer {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            .navlinks,
+            .nav-theme {
+                opacity: 0;
+                width: 0;
+                height: 0;
+                transition: all 0.6s ease;
+                transition-delay: 0.1s;
+            }
+
+            .navlinks {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+
+                a {
+                    text-align: center;
+                    font-weight: bold;
+                    margin: 2px 0;
+                    padding: 5px 15px;
+                    border-radius: 10px;
+                    text-decoration: none;
+                    transition-delay: 0.3s;
+                    color: light-dark(var(--dark), var(--light));
+
+                    &:hover {
+                        transition-delay: 0s;
+                        color: light-dark(var(--light), var(--dark));
+                        background-color: light-dark(var(--dark), var(--primary-color));
+                        box-shadow: 0 0 1em 0.5em light-dark(transparent, var(--primary-color));
+                    }
+
+                }
+            }
+
+            .nav-theme {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        &.open {
+            width: 60vw;
+            height: fit-content;
+            border-radius: 10px;
+
+            &:hover {
+                border-color: light-dark(var(--dark), var(--primary-color));
+            }
+
+            .navlinks,
+            .nav-theme {
+                opacity: 1;
+                width: max-content;
+                height: max-content;
+            }
+        }
+    }
+}
+
+@media screen and (width < 768px) {
+    .nav {
+        .navbar {
+            &.open {
+                height: 100%;
+                border-color: light-dark(var(--dark), var(--light));
+            }
+        }
+    }
+}
+
+@media screen and (width >=768px) {
+    :root {
+        --hamburger-size: 35px;
+    }
+
+    .nav {
+        .navbar {
+            max-height: 40px;
+            border-radius: 12px;
+            justify-content: space-between;
+            flex-direction: row-reverse;
+
+            &:not(.open) {
+                border: none;
+                background-color: transparent;
+            }
+
+            .hamburger {
+                padding: 1px 2.5px 0 0;
+            }
+
+            .navcontainer {
+                flex-direction: row;
+
+                .navlinks {
+                    flex: 1;
+                    line-height: 1.5;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    border-bottom: 1px solid transparent;
+                }
+            }
+
+
+            &.open {
+                width: 90vw;
+                border-bottom: transparent;
+
+                .navcontainer {
+                    width: 100%;
+
+                    .navlinks {
+                        margin: 0 5vw;
+                        border-bottom: light-dark(rgba(0, 0, 0, 0.222), rgba(255, 255, 255, 0.222)) 1px solid;
+
+                    }
+
+                    .nav-theme {
+                        margin: 0.5vh;
+                    }
+
+                }
+
+                &:hover {
+                    .navcontainer>.navlinks {
+                        border-color: light-dark(black, var(--primary-color));
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (width >=1024px) {
+    :root {
+        --hamburger-size: 45px;
+    }
+
+    .nav {
+        .navbar {
+            &.open {
+                width: 75vw;
+
+                .hamburger {
+                    height: 35px;
+                    width: 35px;
+                }
+            }
+        }
+    }
+}

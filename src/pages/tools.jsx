@@ -1,49 +1,57 @@
 // LIBRARY //
-import React, { useContext } from 'react';
+import React, { useEffect, useRef } from 'react';
 // STYLE //
-import '../App.css'
 // CONTEXT //
-import { StyleContext } from '../contexts/style.context';
 // PAGE //
 // COMPONENT //
-import GlassmorphismComponent from '../components/glassmorphism/glassmorphism-component';
-import Slider from '../components/slider/slider';
+import Intersection from '../components/Insersection/intersection';
+import Glasscard from '../components/cards/glass-card/glasscard';
 // OTHER //
 
-export default function Tools() {
-    const { PageContainer, isLoad } = useContext(StyleContext);
+export default function Tools({device}) {
+  const refs = useRef([]);
 
-    const toolsArr = [
-        { imgFileName: "html.png", imgLabel: "HTML" },
-        { imgFileName: "css.png", imgLabel: "CSS" },
-        { imgFileName: "bootstrap.png", imgLabel: "Bootstrap" },
-        { imgFileName: "javascript.png", imgLabel: "Javascript" },
-        { imgFileName: "jquery.png", imgLabel: "Jquery" },
-        { imgFileName: "typescript.png", imgLabel: "Typescript" },
-        { imgFileName: "react.png", imgLabel: "React/Native" },
-        { imgFileName: "expressJS.webp", imgLabel: "ExpressJs" },
-        { imgFileName: "nodejs.png", imgLabel: "NodeJs" },
-        { imgFileName: "nestjs.png", imgLabel: "NestJs" },
-        { imgFileName: "mongoDB.svg", imgLabel: "MongoDB" },
-        { imgFileName: "mysql.png", imgLabel: "Mysql" },
-        { imgFileName: "postgreSQL.png", imgLabel: "PostgreSQL" },
-        { imgFileName: "java.png", imgLabel: "Java" },
-        { imgFileName: "swiftui.png", imgLabel: "SwiftUI" },
-        { imgFileName: "androidstudio.png", imgLabel: "AndroidStudio" },
-        { imgFileName: "github.svg", imgLabel: "Github" },
-        { imgFileName: "gitlab.png", imgLabel: "Gitlab" },
-        { imgFileName: "figma.png", imgLabel: "Figma" },
-        { imgFileName: "trello.png", imgLabel: "Trello" },
-        { imgFileName: "slack.png", imgLabel: "Slack" },
-        { imgFileName: "notion.png", imgLabel: "Notion" },
-    ];
+  const toolsArr = [
+    { imgFileName: "bootstrap.png", imgLabel: "Bootstrap" },
+    { imgFileName: "jquery.png", imgLabel: "Jquery" },
+    { imgFileName: "typescript.png", imgLabel: "Typescript" },
+    { imgFileName: "react.png", imgLabel: "React/Native" },
+    { imgFileName: "expressJS.webp", imgLabel: "ExpressJs" },
+    { imgFileName: "nodejs.png", imgLabel: "NodeJs" },
+    { imgFileName: "nestjs.png", imgLabel: "NestJs" },
+    { imgFileName: "mongoDB.svg", imgLabel: "MongoDB" },
+    { imgFileName: "mysql.png", imgLabel: "Mysql" },
+    { imgFileName: "figma.png", imgLabel: "Figma" },
+    { imgFileName: "trello.png", imgLabel: "Trello" },
+    { imgFileName: "slack.png", imgLabel: "Slack" },
+    { imgFileName: "notion.png", imgLabel: "Notion" },
+  ];
 
-    return (isLoad &&
-        <PageContainer id='tools' className={"animate__animated animate__backIn"}>
-            <GlassmorphismComponent addStyle={{borderRadius:"0px", maxWidth: "100vw"}}>
-                <h2 style={{color: "white"}}>Outils</h2>
-                <Slider data={toolsArr} />
-            </GlassmorphismComponent>
-        </PageContainer>
-    )
-};
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => entries.forEach(el =>
+      el.isIntersecting ? el.target.classList.add("active") : el.target.classList.remove("active")
+    ));
+    toolsArr.forEach((t, i) => observer.observe(refs.current[i]))
+  })
+
+
+  return (
+    <div id='tools' className={`page ${device.name}`}>
+      <h2 className='title-page'>Mes outils</h2>
+      <section className='tools-section'>
+        {toolsArr.map((t, index) => {
+          const currRef = (e) => { refs.current[index] = e };
+          const newStyle = { transitionDelay: "0.2s" };
+          return (
+            <Intersection key={t.imgLabel} refObserver={currRef} addClass={"fadein"} addStyle={newStyle}>
+                <Glasscard hoverIt addClass={"tools-container"}>
+                  <img className='tools-icon' src={require(`../assets/toolsIcone/${t.imgFileName}`)} alt={t.imgLabel} />
+                  <p className='tools-label'>{t.imgLabel}</p>
+                </Glasscard>
+            </Intersection>
+          )
+        })}
+      </section>
+    </div>
+  )
+}

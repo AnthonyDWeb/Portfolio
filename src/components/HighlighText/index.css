@@ -1,5 +1,9 @@
 /* === removing default button style ===*/
-.button {
+* {
+  --animation-color: light-dark(var(--dark), var(--primary-color));
+}
+
+.span-container {
   margin: 0;
   height: auto;
   background: transparent;
@@ -8,20 +12,15 @@
 }
 
 /* button styling */
-.button {
-  --border-right: 6px;
-  --text-stroke-color: rgba(255,255,255,0.6);
-  --animation-color: #37FF8B;
-  --fs-size: 2.5vw;
+.span-container {
   letter-spacing: 3px;
   text-decoration: none;
-  font-size: var(--fs-size);
   font-family: "Arial";
   position: relative;
-  text-transform: uppercase;
-  color: transparent;
-  -webkit-text-stroke: 1px var(--text-stroke-color);
+  color: light-dark(var(--light), transparent);
+  -webkit-text-stroke: 1px var(--gray);
 }
+
 /* this is the text, when you hover on button */
 .hover-text {
   position: absolute;
@@ -30,13 +29,15 @@
   color: var(--animation-color);
   width: 0%;
   inset: 0;
-  border-right: var(--border-right) solid var(--animation-color);
+  border-right: 6px solid var(--animation-color);
   overflow: hidden;
   transition: 0.5s;
   -webkit-text-stroke: 1px var(--animation-color);
 }
+
 /* hover */
-.button:hover .hover-text {
+.span-container:hover .hover-text {
   width: 100%;
-  filter: drop-shadow(0 0 23px var(--animation-color))
+  filter: drop-shadow(0 0 23px var(--animation-color));
+  text-shadow: 2px 0 1px cyan;
 }

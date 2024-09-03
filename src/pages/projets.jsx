@@ -1,88 +1,94 @@
 // LIBRARY //
-import React, { useContext, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 // STYLE //
-import '../App.css';
 // CONTEXT //
-import { StyleContext } from '../contexts/style.context';
 // PAGE //
 // COMPONENT //
-import GlassmorphismComponent from '../components/glassmorphism/glassmorphism-component';
-import { ThemeContext } from '../contexts/theme.context';
-import { projects } from '../utils/other/project-datalist';
-import useDevice from '../utils/hooks/useDevice';
-import SwiperGalery from '../components/swiper/swiper';
-import { FlipCard } from '../components/filpCard/flipCard';
+import Intersection from '../components/Insersection/intersection';
+import Glasscard from '../components/cards/glass-card/glasscard';
 // OTHER //
+import dataProjects from '../utils/data/projects.json';
 
-export default function Projets() {
-  const { PageContainer, isLoad } = useContext(StyleContext);
-  const { theme } = useContext(ThemeContext);
-  const { width, device } = useDevice();
-  const [display, setDisplay] = useState({ card: true, description: undefined });
-  const pageAnim = 'animate__animated animate__backIn';
-  const arrowImg = require("../assets/icon-arrow-down.webp");
-  const deviceWidth = width * (device === "desktop" ? 0.65 : 0.58);
+export default function Projets({ device }) {
+  const [display, setDisplay] = useState(false);
+  const refs = useRef([]);
 
-  const Title = () => {
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => entries.forEach(el =>
+      el.isIntersecting ? el.target.classList.add("active") : el.target.classList.remove("active")
+    ));
+    device.name && dataProjects.forEach((t, i) => observer.observe(refs.current[i]))
+  })
+
+  // ----------------------------- FUNCTION -----------------------------
+  const showDetail = (range) => {
+    const els = document.querySelectorAll(`.projects-informations`);
+    els[range].classList.add("show");
+  };
+  const hideDetail = (range) => {
+    const els = document.querySelectorAll(`.projects-informations`);
+    els[range].classList.remove("show");
+  };
+
+
+  // ----------------------------- RENDER -----------------------------
+
+  const Projects = () => {
+
     return (
-      <div style={{ display: "flex", alignItems: "center", marginBottom: "10px" }}>
-        <h2 style={{ color: theme.text }}>Portfolio</h2>
-        {device === "mobile" &&
-          <img className={`title-arrow ${display.card}`} src={arrowImg} alt="" onClick={() => setDisplay({ ...display, card: !display.card })} />
-        }
+      <div className='projects'>
+        {device.name && dataProjects.map((d, i) => {
+          const currRef = (e) => { refs.current[i] = e };
+          const newStyle = { transitionDelay: "0.2s" };
+          const imgSrc = require(`../assets/projects/${device.name}/${d.source}`);
+          return (
+            <Intersection key={d.Titre} refObserver={currRef} addClass={"fadein project-container"} addStyle={newStyle}>
+              <div className="project-image-container">
+                <img className='project-image' id={d.source} src={imgSrc} alt={d.Titre} />
+                <Glasscard addClass={"project-image-link"}>
+                  <button className='project-image-link-label' onMouseEnter={() => showDetail(i)} onMouseLeave={() => hideDetail(i)}>
+                    <a href={d.Url} target='_blank' rel="noreferrer">Voir le projet</a>
+                  </button>
+                </Glasscard>
+              </div>
+              <div className="test" />
+              <ProjectCard data={d} />
+            </Intersection>
+          )
+        })}
       </div>
     )
   };
 
-  const Galery = () => projects.map(e => {
-    const url = require(`../assets/projects/${device}/${e.source}`);
-    const show = display.description === e.title;
-    const handle = () => setDisplay({ ...display, description: show ? undefined : e.title });
-
-    return (<div className='project-container' key={e.title}>
-      <h3>{e.title}</h3>
-      <p className={`detail ${show}`} onClick={() => handle()}>[<span>{`${show ? "-" : "+"} detail`}</span>]</p>
-      {show && <p>{e.description}</p>}
-      {display.card && <a href={e.link} rel="noreferrer" target="_blank" key={e.title}><img src={url} alt={`${e.title}`} /></a>}
-      <div className='border-container' />
-    </div>)
-  });
-
-  const SwipeGalery = () => {
-
-    const Front = ({ e }) => {
-      const imgSrc = require(`../assets/projects/${device}/${e.source}`);
-      return imgSrc && <img className='front' src={imgSrc} alt="" />
-    };
-    const Back = ({ e }) => {
-      return (
-        <div className='back'>
-          <h2>{e.title}</h2>
-          <p>{e.description}</p>
-        </div>
-      )
-    };
+  const ProjectCard = ({ data }) => {
+    const project_field = Object.keys(data);
 
     return (
-      <SwiperGalery show={1} width={deviceWidth} margin={20} data={projects}>
-        {projects.map(e =>
-          <a href={e.link} rel="noreferrer" target="_blank" key={e.title}>
-            <FlipCard device={device} width={deviceWidth}>
-              <Front e={e} />
-              <Back e={e} />
-            </FlipCard>
-          </a>
-        )}
-      </SwiperGalery>
+      <Glasscard addClass={'projects-informations'}>
+        {project_field.map(p => {
+          const isTitle = p === "Titre";
+          const isNotException = p !== "source" && p !== "Url";
+          const canDisplay = (!device.isMobile || display);
+          return isNotException && (
+            <div className='project-label' key={`${data.Titre}-${p}`}>
+              {isTitle ?
+                <p className='label-category-title'>{data[p]}</p>
+                : canDisplay
+                  ? <p><span className='label-category'>{p}:</span> {data[p]}</p>
+                  : null
+              }
+            </div>
+          )
+        })}
+        <button className='label-category-details' onClick={() => setDisplay(!display)}>{display ? "Afficher moins" : "Afficher plus"}</button>
+      </Glasscard>
     )
-  };
+  }
 
-
-  return isLoad &&
-    <PageContainer id='portfolio' className={pageAnim}>
-      <GlassmorphismComponent>
-        <Title />
-        {device === "mobile" ? <Galery /> : <SwipeGalery />}
-      </GlassmorphismComponent>
-    </PageContainer>
-};
+  return (
+    <div id='project' className={`page ${device.name}`}>
+      <h2 id='project-title' className='title-page'>Mes projets</h2>
+      <Projects />
+    </div >
+  )
+}

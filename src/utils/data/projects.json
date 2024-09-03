@@ -1,0 +1,58 @@
+[
+    {
+        "Titre": "Countries API",
+        "source": "countriesAPI.png",
+        "Description": "Site utilisant l'API 'restCountries' afin d'afficher certaine information d'un pays (drapeau,nom du pays, capital, population) avec au verso de chaque carte une carte les positionant",
+        "Technologie(s)": "Html, CSS3, Javascript, Hooks, react-leaflet, firebase",
+        "Url": "https://anthonydweb.github.io/countries/"
+    },
+    {
+        "Titre": "PokeDex",
+        "source": "pokeDex.png",
+        "Description": "Projet réalisé au cours de la formation Digitous ( de Konexio ) et ayant pour but de créer un mini site pour récupérer l’information d’un pokemon de manière aléatoire.",
+        "Technologie(s)": "React (hook), CSS3, Pokeapi (API)",
+        "Url": "https://anthonydweb.github.io/pokeDex"
+    },
+    {
+        "Titre": "Puissance 4",
+        "source": "puissance4.png",
+        "Description": "Projet réalisé au cours de la formation Digitous ( de Konexio ) et ayant pour but de coder en groupe un jeu parmis une liste. Chaque joueur joue a tour de rôle, le premier a aligner 4 jetons de sa couleur a gagner",
+        "Technologie(s)": "Html, CSS3, Javascript, React",
+        "Url": "https://anthonydweb.github.io/puissance4"
+    },
+    {
+        "Titre": "Wheather App",
+        "source": "wheatherApp.png",
+        "Description": "Site affichant la méteo de la ville recherché (les données affichées sont: nom de la ville, icone météo, description du temps, température en celcius, vitesse du vent, pourcentage d'humidité). Il y a aussi la possibilité d'ajouter 5 villes dans nos favoris.",
+        "Technologie(s)": "Html, CSS3, Javascript, Hooks, Open Weather Map (API)",
+        "Url": "https://anthonydweb.github.io/weatherApp"
+    },
+    {
+        "Titre": "Cuizine",
+        "source": "cuizine.png",
+        "Description": "Reproduction d'un site sur le thème de la cuisine.",
+        "Technologie(s)": "Html, CSS3, Bootstrap, Javascript",
+        "Url": "https://anthonydweb.github.io/digitous-cuizine/index.html"
+    },
+    {
+        "Titre": "Backery",
+        "source": "backery.png",
+        "Description": "Il s'agit d'une simulation d'ajout d'articles a son panier (list) et de pouvoir obtenir le prix final en prenant en compte une TVA et ecoTax (valeur choisi arbitrairement)",
+        "Technologie(s)": "Html, CSS3, react",
+        "Url": "https://anthonydweb.github.io/Backery"
+    },
+    {
+        "Titre": "Fight Calculator",
+        "source": "fightcalculator.png",
+        "Description": "Il s'agit d'une petite application web ayant pour but de calculer le nombre de combats a faire pour obtenir un certain nombre de points enfonction du nombre de vies et des points des joueurs sur leur jeux mobile.",
+        "Technologie(s)": "Html, CSS3, Javascript",
+        "Url": "https://anthonydweb.github.io/fightCalculator"
+    },
+    {
+        "Titre": "Random Fight",
+        "source": "randomfight.png",
+        "Description": "Il s'agit d'une petite application web ayant pour but de facilité le choix des personnages lors d'un random-fight (choix de personnage aléatoire pour des combats entre joueurs) sur leur jeux mobile.",
+        "Technologie(s)": "Html, CSS3, Javascript",
+        "Url": "https://anthonydweb.github.io/randomFight"
+    }
+]

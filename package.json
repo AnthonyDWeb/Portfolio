@@ -4,28 +4,24 @@
   "private": true,
   "homepage": ".",
   "dependencies": {
-    "@emailjs/browser": "^3.11.0",
-    "@testing-library/jest-dom": "^5.16.5",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/plugin-transform-private-property-in-object": "^7.24.7",
+    "@emailjs/browser": "^4.4.1",
+    "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "animate.css": "^4.1.1",
-    "gh-pages": "^5.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "gh-pages": "^6.1.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
-    "react-tsparticles": "^2.9.3",
-    "styled-components": "^5.3.10",
-    "swiper": "^9.3.2",
-    "tsparticles": "^2.9.3",
-    "tsparticles-plugin-emitters": "^2.9.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "deploy": "npm run build&&gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build&&gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -44,5 +40,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5"
   }
 }

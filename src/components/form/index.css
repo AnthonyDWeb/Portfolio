@@ -1,0 +1,107 @@
+:root {
+    --form-background: light-dark(var(--dark), var(--primary-color));
+}
+
+.form-card1 {
+    background-image: linear-gradient(163deg, var(--form-background) 0%, var(--form-background) 100%);
+    border-radius: 22px;
+    transition: all 0.3s;
+
+    &:hover {
+        box-shadow: 0px 0px 30px 1px light-dark(var(--medium-dark), var(--medium-primary-color));
+    }
+
+    .form-card2 {
+        border-radius: 0;
+        transition: all 0.2s;
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            align-self: center;
+            font-family: inherit;
+            gap: 10px;
+            padding-inline: 1em;
+            padding-bottom: 0.2em;
+            border-radius: 20px;
+            border: 1px solid light-dark("transparent", var(--gray));
+            background-color: light-dark(var(--light), var(--dark));
+
+
+            .form-field {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5em;
+                border-radius: 10px;
+                padding: 0.6em;
+                border: none;
+                outline: none;
+                color: light-dark(var(--dark), var(--light));
+                background-color: light-dark(var(--light), var(--dark));
+                box-shadow: inset 2px 5px 10px light-dark(var(--dark), var(--gray));
+
+                .input-field {
+                    background: none;
+                    border: none;
+                    outline: none;
+                    width: 100%;
+                    padding-inline: 1em;
+
+                    &::placeholder {
+                        color: light-dark(var(--dark), var(--light));
+                    }
+                }
+            }
+
+            .send-message-container {
+                display: flex;
+                cursor: pointer;
+                align-items: center;
+                justify-content: center;
+                transition: all ease-in-out 0.3s;
+                height: 40px;
+                margin-bottom: 2em;
+                border-radius: 10px;
+                background-color: transparent;
+                outline: 1px solid light-dark(var(--medium-light), var(--gray));
+                border: none;
+                font-weight: bold;
+                color: light-dark(var(--dark), var(--light));
+
+                &:hover,
+                &.send {
+                    cursor: pointer;
+                    color: var(--dark);
+                    transition: all ease-in-out 0.3s;
+                    background-color: light-dark(var(--secondary-color), var(--primary-color));
+                    box-shadow: inset 2px 5px 10px #050505;
+                    outline: 1px solid transparent;
+                }
+            }
+        }
+
+        &:hover {
+            transform: scale(0.98);
+            border-radius: 20px;
+
+            .title-page {
+                color: light-dark(var(--tertiary-color), var(--primary-color));
+                text-shadow: 2px 1px 3px light-dark(var(--secondary-color), var(--primary-color));
+
+            }
+
+            .send-message-container {
+                outline: 1px solid light-dark(var(--dark), var(--primary-color));
+            }
+        }
+
+        @media screen and (width >=768px) {
+            .form {
+                padding-inline: 2em;
+            }
+
+        }
+    }
+
+}

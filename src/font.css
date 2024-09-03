@@ -1,0 +1,65 @@
+@font-face {
+    font-family: 'Qwitcher Grypen';
+    src: url('./assets/fonts/Qwigley-Regular.ttf') format('truetype');
+    /* font-weight: 400; */
+  }
+  @font-face {
+    font-family: 'Jersey10 Regular';
+    src: url('./assets/fonts/Jersey10-Regular.ttf') format('truetype');
+    /* font-weight: 400; */
+  }
+  @font-face {
+    font-family: 'UbuntuMono Regular';
+    src: url('./assets/fonts/UbuntuMono-Regular.ttf') format('truetype');
+    /* font-weight: 400; */
+  }
+  @font-face {
+    font-family: 'Rafgins Regular';
+    src: url('./assets/fonts/Rafgins-Regular.otf') format('truetype');
+    /* font-weight: 400; */
+  }
+  @font-face {
+    font-family: 'alex';
+    src: url('./assets/fonts/AlexBrush-Regular.ttf') format('truetype');
+    /* font-weight: 400; */
+  }
+  @font-face {
+    font-family: 'birds';
+    src: url('./assets/fonts/Birds-of-Paradise.ttf') format('truetype');
+    /* font-weight: 400; */
+  }
+  @font-face {
+    font-family: 'BlackFuture';
+    src: url('./assets/fonts/BlackFuture-gx1q3.otf') format('truetype');
+    /* font-weight: 400; */
+  }
+  @font-face {
+    font-family: 'Blacksword';
+    src: url('./assets/fonts/Blacksword.otf') format('truetype');
+    /* font-weight: 400; */
+  }
+  @font-face {
+    font-family: 'CyberspaceRacewayBack';
+    src: url('./assets/fonts/CyberspaceRacewayBack-9arj.ttf') format('truetype');
+    /* font-weight: 400; */
+  }
+  @font-face {
+    font-family: 'CyberspaceRacewayFront';
+    src: url('./assets/fonts/CyberspaceRacewayFront-lWGD.ttf') format('truetype');
+    /* font-weight: 400; */
+  }
+  @font-face {
+    font-family: 'Kaush';
+    src: url('./assets/fonts/KaushanScript-Regular.otf') format('truetype');
+    /* font-weight: 400; */
+  }
+  @font-face {
+    font-family: 'SpaceArmor';
+    src: url('./assets/fonts/SpaceArmor-vmlv4.otf') format('truetype');
+    /* font-weight: 400; */
+  }
+  @font-face {
+    font-family: 'Tec';
+    src: url('./assets/fonts/Technology.ttf') format('truetype');
+    /* font-weight: 400; */
+  }

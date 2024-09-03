@@ -1,0 +1,15 @@
+.star {
+    margin: 0 1vw;
+    cursor: pointer;
+    fill: #b4b4b4b2;
+    transition: all 0.4s ease;
+
+    &:hover:not(.special) {
+        fill: light-dark(rgba(0, 0, 0, 0.556), #37ff8a3b);
+    }
+
+    &.special {
+        /* fill: #ffeb49; */
+        fill: light-dark(black, var(--primary-color));
+    }
+}

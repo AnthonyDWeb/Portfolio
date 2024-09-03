@@ -1,0 +1,36 @@
+.text-load {
+    overflow: hidden;
+    color: light-dark(var(--tertiary-color), var(--primary-color));
+    text-shadow: 1px 1px 3px light-dark(var(--dark), var(--light));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    font-weight: bold;
+    white-space: nowrap;
+    max-width: 220px;
+    border-right: 0.2em solid light-dark(var(--tertiary-color), var(--primary-color));
+    animation: typeAndDelete 5s steps(31) infinite, blinkCursor 1s step-end infinite alternate;
+}
+
+@keyframes blinkCursor {
+    50% {
+        border-right-color: transparent;
+    }
+}
+
+@keyframes typeAndDelete {
+
+    0%,
+    10% {
+        width: 0;
+    }
+
+    45%,
+    55% {
+        width: 100%;
+    }
+
+    90%,
+    100% {
+        width: 0;
+    }
+}

@@ -1,21 +1,48 @@
-body {
+:root {
+  /* COLOR */
+  color-scheme: light-dark;
+  --dark: #171717;
+  --gray: #6c757d;
+  --light: #ffffff;
+
+  --primary-color: #37FF8B;
+  --secondary-color: #00ffff;
+  --tertiary-color: #0000ff;
+
+  --medium-dark: #343a40;
+  --medium-light: #e0e2e4;
+  --medium-primary-color: #64ffda4d;
+  --medium-tertiary-color: #1e1963;
+
+  --background-color: light-dark(var(--light), var(--dark));
+  --background-color2: light-dark(var(--light), var(--medium-tertiary-color));
+}
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5vh;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+button,
+p,
+span,
+::placeholder,
+.animate-subtitle,
+a {
+  font-family: 'Kaush';
 }
 
-theme {
-  color: #252422;
-  color: #403D39;
-  color: #CCC5B9;
-  color: #FFFCF2;
-  color: #c1121f;
+p {
+  text-align: justify;
+}
+
+.main-title,
+.title-page {
+  color: white;
+  font-family: 'Blacksword';
+  text-align: center;
+  text-wrap: pretty;
 }
