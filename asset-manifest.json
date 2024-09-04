@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.46022c4b.css",
-    "main.js": "./static/js/main.feb36d21.js",
+    "main.js": "./static/js/main.ea70a854.js",
     "static/js/453.ace21015.chunk.js": "./static/js/453.ace21015.chunk.js",
     "static/media/pokeDex.png": "./static/media/pokeDex.53004d49dadf1a7135b1.png",
     "static/media/puissance4.png": "./static/media/puissance4.2f97e8f54f373f9cd046.png",
@@ -44,11 +44,11 @@
     "static/media/mongoDB.svg": "./static/media/mongoDB.1aca075d5cce0819fea7.svg",
     "index.html": "./index.html",
     "main.46022c4b.css.map": "./static/css/main.46022c4b.css.map",
-    "main.feb36d21.js.map": "./static/js/main.feb36d21.js.map",
+    "main.ea70a854.js.map": "./static/js/main.ea70a854.js.map",
     "453.ace21015.chunk.js.map": "./static/js/453.ace21015.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.46022c4b.css",
-    "static/js/main.feb36d21.js"
+    "static/js/main.ea70a854.js"
   ]
 }
