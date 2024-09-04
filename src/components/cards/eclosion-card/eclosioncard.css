@@ -27,7 +27,7 @@
     .img-profil::after {
         border-radius: 8px;
         transition: all .8s ease;
-        background: url("../../../assets/images/pixel-ia-me.png") no-repeat center / cover;
+        background: url("../../../assets/images/profile-img.png") no-repeat center / cover;
     }
 
 
