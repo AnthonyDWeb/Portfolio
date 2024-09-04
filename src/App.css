@@ -197,6 +197,7 @@
                     height: 150px;
                     margin: 1vmax;
                     display: flex;
+                    cursor: default;
                     position: relative;
                     align-items: center;
                     flex-direction: column;
