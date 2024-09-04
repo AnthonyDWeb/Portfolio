@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "./static/css/main.e39626d0.css",
-    "main.js": "./static/js/main.0ec22448.js",
+    "main.css": "./static/css/main.07115d29.css",
+    "main.js": "./static/js/main.feb36d21.js",
     "static/js/453.ace21015.chunk.js": "./static/js/453.ace21015.chunk.js",
     "static/media/pokeDex.png": "./static/media/pokeDex.53004d49dadf1a7135b1.png",
     "static/media/puissance4.png": "./static/media/puissance4.2f97e8f54f373f9cd046.png",
     "static/media/cuizine.png": "./static/media/cuizine.9871387713fd1c009057.png",
-    "static/media/pixel-ia-me.png": "./static/media/pixel-ia-me.b6f1056048a22544c79d.png",
+    "static/media/profile-img.png": "./static/media/profile-img.b6f1056048a22544c79d.png",
     "static/media/CV_Anthony_DELFORGE.pdf": "./static/media/CV_Anthony_DELFORGE.8a7ded29dd76c86d75d4.pdf",
     "static/media/countriesAPI.png": "./static/media/countriesAPI.870b30f25b166597eaa3.png",
     "static/media/Jersey10-Regular.ttf": "./static/media/Jersey10-Regular.e27466ea70742643a529.ttf",
@@ -43,12 +43,12 @@
     "static/media/github.svg": "./static/media/github.5463bf542b33d9f87619.svg",
     "static/media/mongoDB.svg": "./static/media/mongoDB.1aca075d5cce0819fea7.svg",
     "index.html": "./index.html",
-    "main.e39626d0.css.map": "./static/css/main.e39626d0.css.map",
-    "main.0ec22448.js.map": "./static/js/main.0ec22448.js.map",
+    "main.07115d29.css.map": "./static/css/main.07115d29.css.map",
+    "main.feb36d21.js.map": "./static/js/main.feb36d21.js.map",
     "453.ace21015.chunk.js.map": "./static/js/453.ace21015.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e39626d0.css",
-    "static/js/main.0ec22448.js"
+    "static/css/main.07115d29.css",
+    "static/js/main.feb36d21.js"
   ]
 }
