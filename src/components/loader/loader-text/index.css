@@ -2,8 +2,6 @@
     overflow: hidden;
     color: light-dark(var(--tertiary-color), var(--primary-color));
     text-shadow: 1px 1px 3px light-dark(var(--dark), var(--light));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
     font-weight: bold;
     white-space: nowrap;
     max-width: 220px;
