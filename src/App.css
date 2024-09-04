@@ -8,13 +8,13 @@
     }
 
     overflow: hidden;
-    background: linear-gradient(90deg, var(--background-color) 20%, var(--background-color2) 50%, var(--background-color) 80%);
+    background: linear-gradient(90deg, var(--background-color) 10%, var(--background-color2) 50%, var(--background-color) 90%);
     color: light-dark(var(--dark), var(--medium-light));
 
     .page {
         * {
             margin: 0;
-            padding: 0;
+            padding: 0
         }
 
         .title-page {

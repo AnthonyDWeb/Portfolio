@@ -10,12 +10,14 @@
   --tertiary-color: #0000ff;
 
   --medium-dark: #343a40;
+  --medium-dark2: #27292d;
   --medium-light: #e0e2e4;
   --medium-primary-color: #64ffda4d;
   --medium-tertiary-color: #1e1963;
 
   --background-color: light-dark(var(--light), var(--dark));
-  --background-color2: light-dark(var(--light), var(--medium-tertiary-color));
+  /* --background-color2: light-dark(var(--light), var(--medium-tertiary-color)); */
+  --background-color2: light-dark(var(--light), var(--medium-dark2));
 }
 
 * {
