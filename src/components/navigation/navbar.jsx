@@ -48,7 +48,7 @@ export default function NavBar({device}) {
           </ul>
           <div className="nav-theme">
             <Toggle />
-            <Star />
+            {/* <Star /> */}
           </div>
         </div>
       </Glasscard>
