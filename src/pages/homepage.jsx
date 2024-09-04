@@ -31,7 +31,7 @@ export default function Homepage({ device }) {
   const MainTitle = () => {
     const titleJob = device.width < 480 ? "Développeur Web & Mobile" : "Développeur Web & Mobile FullStack";
     return (
-      <Intersection refObserver={titleRef} addClass={"top"}>
+      <Intersection refObserver={titleRef} addClass={ device.isMobile ? "bottom" :"top"}>
         <div className="main-title-container">
           <TextLoad label={"main-title name"} text={"Anthony Delforge"} />
           <h2 className='main-title job'>{titleJob}</h2>

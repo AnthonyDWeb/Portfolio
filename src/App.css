@@ -33,11 +33,12 @@
             align-items: center;
             flex-direction: column;
 
-
-            .img-container {
-                .img-profil {
-                    width: 60vmin;
-                    height: 70vmin;
+            .intersection-img-container {
+                .img-container {
+                    .img-profil {
+                        width: 60vmin;
+                        height: 70vmin;
+                    }
                 }
             }
 
@@ -55,7 +56,7 @@
                         font-size: 1.8rem;
 
                         &.job {
-                            color: light-dark(var(--dark), var(--light))
+                            color: light-dark(var(--dark), var(--light));
                         }
                     }
                 }
@@ -247,6 +248,7 @@
 
             .title-page {
                 margin: 0;
+                color: light-dark(var(--dark), var(--primary-color));
             }
 
             .form {
@@ -399,12 +401,15 @@
             &#homepage {
                 flex-direction: row;
 
-                .img-container {
+                .intersection-img-container {
                     margin-left: 5.5vw;
 
-                    .img-profil {
-                        width: 33vmin;
-                        height: 44vmin;
+                    .img-container {
+
+                        .img-profil {
+                            width: 33vmin;
+                            height: 44vmin;
+                        }
                     }
                 }
 
@@ -536,12 +541,15 @@
                 height: 100vh;
                 margin-top: 0;
 
-                .img-container {
+                .intersection-img-container {
                     margin-left: 2.5vw;
 
-                    .img-profil {
-                        width: 40vmin;
-                        height: 55vmin;
+                    .img-container {
+
+                        .img-profil {
+                            width: 40vmin;
+                            height: 55vmin;
+                        }
                     }
                 }
 
@@ -619,10 +627,12 @@
     @media screen and (width >=1280px) {
         .page {
             &#homepage {
-                .img-container {
-                    .img-profil {
-                        width: 50vmin;
-                        height: 65vmin;
+                .intersection-img-container {
+                    .img-container {
+                        .img-profil {
+                            width: 50vmin;
+                            height: 65vmin;
+                        }
                     }
                 }
 
