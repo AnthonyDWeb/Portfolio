@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "./static/css/main.07115d29.css",
+    "main.css": "./static/css/main.46022c4b.css",
     "main.js": "./static/js/main.feb36d21.js",
     "static/js/453.ace21015.chunk.js": "./static/js/453.ace21015.chunk.js",
     "static/media/pokeDex.png": "./static/media/pokeDex.53004d49dadf1a7135b1.png",
@@ -43,12 +43,12 @@
     "static/media/github.svg": "./static/media/github.5463bf542b33d9f87619.svg",
     "static/media/mongoDB.svg": "./static/media/mongoDB.1aca075d5cce0819fea7.svg",
     "index.html": "./index.html",
-    "main.07115d29.css.map": "./static/css/main.07115d29.css.map",
+    "main.46022c4b.css.map": "./static/css/main.46022c4b.css.map",
     "main.feb36d21.js.map": "./static/js/main.feb36d21.js.map",
     "453.ace21015.chunk.js.map": "./static/js/453.ace21015.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.07115d29.css",
+    "static/css/main.46022c4b.css",
     "static/js/main.feb36d21.js"
   ]
 }
