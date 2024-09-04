@@ -1,21 +1,33 @@
 // LIBRARY //
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 // STYLE //
 // CONTEXT //
 // PAGE //
 // COMPONENT //
 import Glasscard from '../components/cards/glass-card/glasscard';
+import Intersection from '../components/Insersection/intersection';
 // OTHER //
 
-export default function AboutMe({device}) {
+export default function AboutMe({ device }) {
+  const titleRefs = useRef();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => entries.forEach(el =>
+      el.isIntersecting ? el.target.classList.add("active") : el.target.classList.remove("active")
+    ));
+    observer.observe(titleRefs.current);
+  });
+
   return (
     <div id='about_me' className={`page ${device.name}`}>
-      <h2 className='title-page'>À propos de moi ?</h2>
+      <Intersection refObserver={titleRefs} addClass={"bottom"}>
+        <h2 className='title-page'>À propos de moi ?</h2>
+      </Intersection>
       <Glasscard addClass="container">
         <p>
           Après un cursus initial en biologie guidé par un besoin continu d'apprentissage et de recherche, je me suis réorienté vers le developpement web et mobile, un métier d'avenir ayant pour caractéristique un apprentissage continu tout au long de sa carrière, ce qui correspond à mes besoins.
         </p>
-        <br/>
+        <br />
         <p>
           C'est donc ainsi que j'ai commencé en Mars 2021 la formation
           <a target="_blank" rel="noreferrer" className='formation link' href="https://simplon.co/formation/foundation/24">Apple Foundation Program</a>

@@ -12,12 +12,14 @@ import dataProjects from '../utils/data/projects.json';
 export default function Projets({ device }) {
   const [display, setDisplay] = useState(false);
   const refs = useRef([]);
+  const titleRefs = useRef();
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => entries.forEach(el =>
       el.isIntersecting ? el.target.classList.add("active") : el.target.classList.remove("active")
     ));
-    device.name && dataProjects.forEach((t, i) => observer.observe(refs.current[i]))
+    device.name && dataProjects.forEach((t, i) => observer.observe(refs.current[i]));
+    observer.observe(titleRefs.current);
   })
 
   // ----------------------------- FUNCTION -----------------------------
@@ -34,7 +36,6 @@ export default function Projets({ device }) {
   // ----------------------------- RENDER -----------------------------
 
   const Projects = () => {
-
     return (
       <div className='projects'>
         {device.name && dataProjects.map((d, i) => {
@@ -87,7 +88,9 @@ export default function Projets({ device }) {
 
   return (
     <div id='project' className={`page ${device.name}`}>
-      <h2 id='project-title' className='title-page'>Mes projets</h2>
+      <Intersection refObserver={titleRefs} addClass={"bottom"}>
+        <h2 id='project-title' className='title-page'>Mes projets</h2>
+      </Intersection>
       <Projects />
     </div >
   )

@@ -11,6 +11,8 @@ import Intersection from '../components/Insersection/intersection';
 
 export default function Homepage({ device }) {
   const refs = useRef([]);
+  const titleRef = useRef();
+  const ppRef = useRef();
 
   const subtitle1 = "Une idée ? Un projet ?";
   const subtitle2 = "La création d'un site web ou d'une application mobile ?";
@@ -21,21 +23,24 @@ export default function Homepage({ device }) {
     const observer = new IntersectionObserver((entries) => entries.forEach(el =>
       el.isIntersecting ? el.target.classList.add("active") : el.target.classList.remove("active")
     ));
-    titles.forEach((t, i) => observer.observe(refs.current[i]))
+    titles.forEach((t, i) => observer.observe(refs.current[i]));
+    observer.observe(titleRef.current);
+    observer.observe(ppRef.current);
   })
 
   const MainTitle = () => {
     const titleJob = device.width < 480 ? "Développeur Web & Mobile" : "Développeur Web & Mobile FullStack";
     return (
-      <div className="main-title-container">
-        <TextLoad label={"main-title name"} text={"Anthony Delforge"} />
-        <h2 className='main-title job'>{titleJob}</h2>
-      </div>
+      <Intersection refObserver={titleRef} addClass={"top"}>
+        <div className="main-title-container">
+          <TextLoad label={"main-title name"} text={"Anthony Delforge"} />
+          <h2 className='main-title job'>{titleJob}</h2>
+        </div>
+      </Intersection>
     )
   };
 
   const SubTitles = () => {
-
     return (
       <div className="subtitle-container">
         {titles.map((t, i) => {
@@ -52,7 +57,9 @@ export default function Homepage({ device }) {
 
   return (
     <section id='homepage' className={`page ${device.name}`}>
-      <EclosionCard />
+      <Intersection refObserver={ppRef} addClass={"left"}>
+        <EclosionCard />
+      </Intersection>
       <div className='title-container'>
         <MainTitle />
         <SubTitles />
