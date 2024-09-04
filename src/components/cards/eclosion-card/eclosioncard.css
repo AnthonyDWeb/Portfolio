@@ -7,7 +7,6 @@
         width: 20vw;
         height: 30vw;
         opacity: 0.5;
-        cursor: pointer;
         position: relative;
         box-shadow: 0 0 15px light-dark(rgba(0, 0, 0, 0.444), rgb(140, 253, 99));
         border: light-dark(rgba(0, 0, 0, 0.444), rgba(255, 255, 255, 0.444)) 1px solid;
@@ -43,16 +42,20 @@
         border-radius: 8px;
         background-color: var(--gray);
         transition: all 0.5s ease-in-out;
+        cursor: pointer;
+
         .img-btn-link {
             color: var(--medium-light);
             text-decoration: none;
+            font-size: 1rem;
         }
 
         &:hover {
             background-color: light-dark(var(--secondary-color), var(--primary-color));
             box-shadow: 0 0 25px light-dark(var(--secondary-color), var(--primary-color));
+
             .img-btn-link {
-                color: var(--medium-dark);  
+                color: var(--medium-dark);
             }
         }
     }

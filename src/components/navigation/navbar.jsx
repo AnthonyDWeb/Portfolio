@@ -8,7 +8,7 @@ import { ThemeContext } from '../../contexts/theme';
 // COMPONENT //
 import Toggle from '../toggle';
 import Hamburger from '../buttons/hamburger';
-import Star from '../buttons/star';
+// import Star from '../buttons/star';
 import Glasscard from '../cards/glass-card/glasscard';
 // OTHER //
 

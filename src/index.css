@@ -48,3 +48,9 @@ p {
   text-align: center;
   text-wrap: pretty;
 }
+
+.background-app {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(90deg, var(--background-color) 10%, var(--background-color2) 50%, var(--background-color) 90%);
+}

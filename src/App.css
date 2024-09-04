@@ -14,14 +14,13 @@
     .page {
         * {
             margin: 0;
-            padding: 0
+            padding: 0;
         }
 
         .title-page {
             margin: 5vh 0;
             font-size: 1.5rem;
             text-align: center;
-
         }
 
         &:not(#contact) {
@@ -54,6 +53,10 @@
 
                     .main-title {
                         font-size: 1.8rem;
+
+                        &.job {
+                            color: light-dark(var(--dark), var(--light))
+                        }
                     }
                 }
 
@@ -63,17 +66,41 @@
                     margin: 0;
                     justify-items: flex-end;
 
-                    .animate-subtitle {
+                    .intersection-container {
+                        transition-duration: 0.6s;
                         margin-top: 3vh;
-                        font-size: 1.2rem;
-                        color: light-dark(var(--dark), var(--light));
 
-                        &:nth-child(1) {
-                            margin-top: 0;
+                        .animate-subtitle {
+                            position: relative;
+                            font-size: 1.2rem;
+                            color: light-dark(var(--dark), var(--light));
+
+                            &:nth-child(1) {
+                                margin-top: 0;
+                            }
+
+                            &:nth-child(2) {
+                                text-align: left;
+                            }
+
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                inset: 0;
+                                width: calc(100% + 7px);
+                                border-radius: 20px;
+                                box-shadow: 0 0 20px light-dark(var(--dark), var(--primary-color));
+                                background-color: light-dark(var(--dark), var(--primary-color));
+                            }
                         }
 
-                        &:nth-child(2) {
-                            text-align: left;
+                        &.active {
+                            .animate-subtitle::after {
+                                transition-delay: 0.5s;
+                                transition-property: width;
+                                transition-duration: 0.6s;
+                                width: 0;
+                            }
                         }
                     }
                 }
@@ -149,7 +176,6 @@
                                 color: var(--dark);
                             }
                         }
-
                     }
                 }
 
@@ -184,7 +210,6 @@
                     .tools-label {
                         font-size: 0.7rem;
                     }
-
                 }
             }
         }
@@ -265,49 +290,30 @@
                     box-shadow: 0 0 10px light-dark(var(--dark), var(--primary-color));
                 }
             }
-
-        }
-    }
-
-    @media screen and (width < 480px) {
-        .page {
-
-            &#homepage {
-                .title-container {
-                    .main-title {
-                        .job {}
-                    }
-                }
-            }
-
         }
     }
 
     @media screen and (width >=480px) {
         .page {
-
             &#homepage {
                 .title-container {
                     .subtitle-container {
-                        .animate-subtitle {
+                        .intersection-container {
                             margin-top: 2.5vh;
                         }
                     }
                 }
             }
-
         }
     }
 
     @media screen and (width >=533px) {
         .page {
-
             &#contact {
                 .media-container>.media-icon {
                     height: 100px;
                     width: 100px;
                 }
-
             }
         }
     }
@@ -316,7 +322,6 @@
         .page {
             &#homepage {
                 .title-container {
-
                     .subtitle-container {
                         margin: 3vh 0;
                     }
@@ -382,22 +387,14 @@
                                 top: 80%;
                             }
                         }
-
-
-
                     }
-
                 }
-
             }
-
         }
     }
 
     @media screen and (width >=768px) {
-
         .page {
-
             &#homepage {
                 flex-direction: row;
 
@@ -420,7 +417,7 @@
                     .subtitle-container {
                         margin: 2vh 0 0 5vw;
 
-                        .animate-subtitle {
+                        .intersection-container {
                             margin-top: 2.5vh;
                         }
                     }
@@ -472,8 +469,6 @@
                             transition: all 0.6s ease;
                             visibility: hidden;
 
-
-
                             &.show {
                                 opacity: 1;
                                 visibility: visible;
@@ -499,7 +494,6 @@
 
                                 p,
                                 .label-category {
-
                                     font-size: 1rem;
                                     text-underline-offset: 3px;
                                 }
@@ -522,31 +516,17 @@
                                 .label-category {
                                     font-weight: bold;
                                     text-decoration: underline;
-
                                 }
-
                             }
                         }
                     }
-
                 }
-
             }
-
         }
-    }
-
-    @media screen and (width >=800px) {
-        .page {}
-    }
-
-    @media screen and (width >=960px) {
-        .page {}
     }
 
     @media screen and (width >=1024px) {
         .page {
-
             .title-page {
                 font-size: 2.2rem;
             }
@@ -570,12 +550,10 @@
                     display: flex;
                     flex-direction: column;
 
-                    .main-title {}
-
                     .subtitle-container {
                         margin: 10vh 0;
 
-                        .animate-subtitle {
+                        .intersection-container {
                             margin-top: 7vh;
                         }
                     }
@@ -584,37 +562,10 @@
 
             &#project {
                 .projects {
-
                     .project-container {
-
-
-                        .label-category-details {}
-
                         .project-image-container {
                             height: 300px;
                             width: 320px;
-
-                            &:hover {}
-
-                            .project-image-link {}
-                        }
-
-                        .projects-informations {
-
-                            &.show {}
-
-                            .label-category-details {}
-
-                            .project-label {
-
-
-                                .label-category-title {}
-
-                                .label-category-link {}
-
-                                .label-category {}
-
-                            }
                         }
 
                         &:nth-child(odd),
@@ -634,11 +585,8 @@
                         &:nth-child(even) {
                             margin-top: 5vh;
                         }
-
                     }
-
                 }
-
             }
 
             &#tools {
@@ -664,13 +612,11 @@
                     font-size: 1.1rem;
                 }
             }
-
         }
     }
 
     @media screen and (width >=1280px) {
         .page {
-
             &#homepage {
                 .img-container {
                     .img-profil {
@@ -701,8 +647,10 @@
                     .subtitle-container {
                         margin: 15vh 10vh 10vh 0;
 
-                        .animate-subtitle {
-                            font-size: 1.5rem;
+                        .intersection-container {
+                            .animate-subtitle {
+                                font-size: 1.5rem;
+                            }
                         }
                     }
                 }
@@ -724,39 +672,16 @@
 
             &#project {
                 .projects {
-
                     .project-container {
                         flex: 0 0 33.333%;
 
-
-                        .label-category-details {}
-
                         .project-image-container {
                             height: 300px;
-                            width: 400px;
-
-                            &:hover {}
-
-                            .project-image-link {}
+                            width: 350px;
                         }
 
                         .projects-informations {
-                            width: 400px;
-
-                            &.show {}
-
-                            .label-category-details {}
-
-                            .project-label {
-
-
-                                .label-category-title {}
-
-                                .label-category-link {}
-
-                                .label-category {}
-
-                            }
+                            width: 350px;
                         }
 
                         &:nth-child(odd),
@@ -765,7 +690,7 @@
                             margin-top: 0vh;
 
                             .projects-informations {
-                                left: 3.5%;
+                                left: 2%;
                             }
                         }
 
@@ -787,9 +712,54 @@
                             margin-top: 10vh;
                         }
                     }
-
                 }
+            }
+        }
+    }
 
+    @media screen and (width > 1280px) {
+        .page {
+            &#project {
+                .projects {
+                    .project-container {
+                        .project-image-container {
+                            height: 300px;
+                            width: 400px;
+                        }
+
+                        .projects-informations {
+                            width: 400px;
+                        }
+
+                        &:nth-child(odd),
+                        &:nth-child(even) {
+                            justify-content: center;
+                            margin-top: 0vh;
+
+                            .projects-informations {
+                                left: 3.5%;
+                            }
+                        }
+
+                        &:nth-child(1),
+                        &:nth-child(4),
+                        &:nth-child(7) {
+                            margin-top: -15vh;
+                        }
+
+                        &:nth-child(2),
+                        &:nth-child(5),
+                        &:nth-child(8) {
+                            margin-top: 5vh;
+                        }
+
+                        &:nth-child(3),
+                        &:nth-child(6),
+                        &:nth-child(9) {
+                            margin-top: 25vh;
+                        }
+                    }
+                }
             }
         }
     }

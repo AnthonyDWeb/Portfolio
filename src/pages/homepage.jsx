@@ -1,14 +1,28 @@
 // LIBRARY //
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 // STYLE //
 // CONTEXT //
 // PAGE //
 // COMPONENT //
 import EclosionCard from '../components/cards/eclosion-card/eclosioncard';
 import TextLoad from '../components/loader/loader-text';
+import Intersection from '../components/Insersection/intersection';
 // OTHER //
 
-export default function Homepage({device}) {
+export default function Homepage({ device }) {
+  const refs = useRef([]);
+
+  const subtitle1 = "Une idée ? Un projet ?";
+  const subtitle2 = "La création d'un site web ou d'une application mobile ?";
+  const subtitle3 = "Donnez vie à tous vos projets !";
+  const titles = [subtitle1, subtitle2, subtitle3];
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => entries.forEach(el =>
+      el.isIntersecting ? el.target.classList.add("active") : el.target.classList.remove("active")
+    ));
+    titles.forEach((t, i) => observer.observe(refs.current[i]))
+  })
 
   const MainTitle = () => {
     const titleJob = device.width < 480 ? "Développeur Web & Mobile" : "Développeur Web & Mobile FullStack";
@@ -21,11 +35,17 @@ export default function Homepage({device}) {
   };
 
   const SubTitles = () => {
+
     return (
       <div className="subtitle-container">
-        <h3 className='animate-subtitle'>Une idée ? Un projet ?</h3>
-        <h3 className='animate-subtitle'>La création d'un site web ou d'une application mobile ?</h3>
-        <h3 className='animate-subtitle'>Donnez vie à tous vos projets !</h3>
+        {titles.map((t, i) => {
+          const currRef = (e) => { refs.current[i] = e };
+          return (
+            <Intersection key={`as-${i}`} refObserver={currRef} addClass={"right intersection-container"}>
+              <h3 className='animate-subtitle'>{t}</h3>
+            </Intersection>
+          )
+        })}
       </div>
     )
   };

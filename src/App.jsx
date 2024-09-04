@@ -1,11 +1,16 @@
+import React, { Suspense } from 'react';
 import './App.css';
 import { ThemeProvider } from './contexts/theme';
-import Pages from './pages';
 
 function App() {
+  const PageComponent = React.lazy(() => import('./pages'));
+  const Background = () => <div className='background-app' />;
+  
   return (
     <ThemeProvider>
-      <Pages />
+      <Suspense fallback={<Background />}>
+        <PageComponent />
+      </Suspense>
     </ThemeProvider>
   );
 }
