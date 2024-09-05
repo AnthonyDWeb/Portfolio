@@ -20,9 +20,7 @@ export default function Homepage({ device }) {
   const titles = [subtitle1, subtitle2, subtitle3];
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => entries.forEach(el =>
-      el.isIntersecting ? el.target.classList.add("active") : el.target.classList.remove("active")
-    ));
+    const observer = new IntersectionObserver((entries) => entries.forEach(el => el.isIntersecting && el.target.classList.add("active")));
     titles.forEach((t, i) => observer.observe(refs.current[i]));
     observer.observe(titleRef.current);
     observer.observe(ppRef.current);
@@ -31,7 +29,7 @@ export default function Homepage({ device }) {
   const MainTitle = () => {
     const titleJob = device.width < 480 ? "Développeur Web & Mobile" : "Développeur Web & Mobile FullStack";
     return (
-      <Intersection refObserver={titleRef} addClass={ device.isMobile ? "bottom" :"top"}>
+      <Intersection refObserver={titleRef} addClass={device.isMobile ? "bottom" : "top"}>
         <div className="main-title-container">
           <TextLoad label={"main-title name"} text={"Anthony Delforge"} />
           <h2 className='main-title job'>{titleJob}</h2>
@@ -57,7 +55,7 @@ export default function Homepage({ device }) {
 
   return (
     <section id='homepage' className={`page ${device.name}`}>
-      <Intersection refObserver={ppRef} addClass={"left"}>
+      <Intersection refObserver={ppRef} addClass={"left intersection-img-container"}>
         <EclosionCard />
       </Intersection>
       <div className='title-container'>

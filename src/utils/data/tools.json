@@ -1,0 +1,52 @@
+[
+    {
+        "imgFileName": "bootstrap.png",
+        "imgLabel": "Bootstrap",
+        "type": "Web integration"
+    },
+    {
+        "imgFileName": "tailwind.svg",
+        "imgLabel": "Tailwind",
+        "type": "Web integration"
+    },
+    {
+        "imgFileName": "sass.svg",
+        "imgLabel": "Sass",
+        "type": "Web integration"
+    },
+    {
+        "imgFileName": "typescript.png",
+        "imgLabel": "Typescript",
+        "type": "Front-end"
+    },
+    {
+        "imgFileName": "react.png",
+        "imgLabel": "React/Native",
+        "type": "Front-end"
+    },
+    {
+        "imgFileName": "expressJS.webp",
+        "imgLabel": "ExpressJs",
+        "type": "Server side"
+    },
+    {
+        "imgFileName": "nodejs.png",
+        "imgLabel": "NodeJs",
+        "type": "Server side"
+    },
+    {
+        "imgFileName": "nestjs.png",
+        "imgLabel": "NestJs",
+        "type": "Server side"
+    },
+    {
+        "imgFileName": "mongoDB.svg",
+        "imgLabel": "MongoDB",
+        "type": "Database"
+    },
+    {
+        "imgFileName": "mysql.png",
+        "imgLabel": "Mysql",
+        "type": "Database"
+    }
+]

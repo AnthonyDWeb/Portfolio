@@ -12,9 +12,7 @@ export default function AboutMe({ device }) {
   const titleRefs = useRef();
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => entries.forEach(el =>
-      el.isIntersecting ? el.target.classList.add("active") : el.target.classList.remove("active")
-    ));
+    const observer = new IntersectionObserver((entries) => entries.forEach(el => el.isIntersecting && el.target.classList.add("active")));
     observer.observe(titleRefs.current);
   });
 

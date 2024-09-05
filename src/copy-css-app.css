@@ -194,59 +194,51 @@
                 justify-content: center;
 
                 .skills-container {
+                    height: 50vh;
                     position: relative;
                     flex: 0 0 calc(50%);
 
-                    .skills-type {
+                    .skill-type {
                         height: 10%;
                         display: flex;
                         align-items: center;
                         justify-content: center;
-                        margin-top: 2.5vh;
                     }
 
                     .skill-list-container {
                         display: flex;
                         height: 90%;
-                        min-height: 15vmax;
                         flex-wrap: wrap;
                         align-items: center;
-                        justify-content: center;
-
-                        .skill-container {
-                            z-index: 1;
-                            display: flex;
-                            margin: 1vmin;
-                            padding: 1vmin;
-                            position: relative;
-                            align-items: center;
-                            justify-content: center;
-                            transition: all 0.6s ease-in-out;
-
-
-                            .skill-icon {
-                                width: 40px;
-                                height: 40px;
-                                border-radius: 8px;
-                            }
-
-                            .skill-label {
-                                display: none;
-                                visibility: hidden;
-                                font-size: 0.7rem;
-                            }
-
-                        }
-
-                        .skill-container:hover {
-                            transform: scale(1.2);
-                        }
+                        justify-content: space-around;
                     }
 
+                    .skill-container {
+                        width: 75px;
+                        height: 75px;
+                        margin: 1vmax;
+                        display: flex;
+                        cursor: default;
+                        position: relative;
+                        align-items: center;
+                        flex-direction: column;
+                        justify-content: space-evenly;
+
+                        .skill-icon {
+                            width: 50px;
+                            height: 50px;
+                        }
+
+                        .skill-label {
+                            visibility: hidden;
+                            font-size: 0.7rem;
+                        }
+                    }
 
                     &::after,
                     &::before {
                         content: "";
+                        z-index: 10;
                         position: absolute;
                         inset: 0;
                         padding: 0;
@@ -272,7 +264,6 @@
             &:hover {
                 .skills-section {
                     .skills-container {
-                        .skill-list-container {}
 
                         &:nth-child(2)&::after,
                         &:nth-child(4)&::after {
@@ -465,27 +456,6 @@
                     }
                 }
             }
-
-
-            &#skills {
-                .skills-section {
-                    .skills-container {
-                        .skill-list-container {
-                            .skill-container {
-                                margin: 1vh 2vw;
-                                flex-direction: column;
-
-                                .skill-label {
-                                    display: contents;
-                                    visibility: visible;
-                                }
-                            }
-                        }
-
-                    }
-
-                }
-            }
         }
     }
 
@@ -621,7 +591,6 @@
                     }
                 }
             }
-
         }
     }
 
@@ -695,11 +664,9 @@
             &#skills {
                 .skills-section {
                     .skills-container {
-                        .skill-list-container {
-                            .skill-container {
-                                .skill-label {
-                                    font-size: 1.1rem;
-                                }
+                        .skill-container {
+                            .skill-label {
+                                font-size: 1rem;
                             }
                         }
                     }
@@ -770,6 +737,8 @@
             &#skills {
                 .skills-section {
                     .skill-container {
+                        width: 150px;
+                        height: 200px;
 
                         .skill-icon {
                             width: 70px;

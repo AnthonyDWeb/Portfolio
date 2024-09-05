@@ -15,9 +15,7 @@ export default function Projets({ device }) {
   const titleRefs = useRef();
 
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => entries.forEach(el =>
-      el.isIntersecting ? el.target.classList.add("active") : el.target.classList.remove("active")
-    ));
+    const observer = new IntersectionObserver((entries) => entries.forEach(el => el.isIntersecting && el.target.classList.add("active")));
     device.name && dataProjects.forEach((t, i) => observer.observe(refs.current[i]));
     observer.observe(titleRefs.current);
   })
