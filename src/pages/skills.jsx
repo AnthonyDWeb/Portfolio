@@ -5,7 +5,6 @@ import React, { useEffect, useRef } from 'react';
 // PAGE //
 // COMPONENT //
 import Intersection from '../components/Insersection/intersection';
-import Glasscard from '../components/cards/glass-card/glasscard';
 // OTHER //
 import toolsData from "../utils/data/tools.json";
 
