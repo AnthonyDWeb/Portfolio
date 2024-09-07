@@ -52,7 +52,12 @@
                 align-items: center;
                 flex-direction: column;
 
+
+
                 a {
+                    display: flex;
+                    align-items: center;
+                    justify-content: baseline;
                     text-align: center;
                     font-weight: bold;
                     margin: 2px 0;
@@ -62,11 +67,24 @@
                     transition-delay: 0.3s;
                     color: light-dark(var(--dark), var(--light));
 
+                    .home {
+                        height: 25px;
+                        width: 25px;
+                        fill: light-dark(var(--dark), var(--light));
+                        transition-delay: 0.3s;
+
+                    }
+
                     &:hover {
                         transition-delay: 0s;
                         color: light-dark(var(--light), var(--dark));
                         background-color: light-dark(var(--dark), var(--primary-color));
-                        box-shadow: 0 0 1em 0.5em light-dark(transparent, var(--primary-color));
+                        box-shadow: 0 0 10px light-dark(transparent, var(--primary-color));
+
+                        .home {
+                            transition-delay: 0s;
+                            fill: light-dark(var(--light), var(--dark));
+                        }
                     }
 
                 }

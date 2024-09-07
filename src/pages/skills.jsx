@@ -37,7 +37,7 @@ export default function MySkills({ device }) {
 
   const Skills = () => {
     const dataSkills = getSkills();
-    return dataSkills.map((ds, i) => {
+    return dataSkills.map(ds => {
       const isItegration = ds.name === "Web integration";
       const isClientSide = ds.name === "Front-end";
       const isServerSide = ds.name === "Server side";
@@ -45,25 +45,40 @@ export default function MySkills({ device }) {
         : isClientSide ? clientsideRefs
           : isServerSide ? serversideRefs
             : databaseRefs;
-      const containerStyle = {};
-      const listStyle = {};
       return (
-        <Intersection key={ds.name} refObserver={currentRef} addClass={"fadein skills-container"} addStyle={containerStyle}>
+        <Intersection key={ds.name} refObserver={currentRef} addClass={"fadein skills-container"}>
           <h3 className='skills-type'>{ds.name}</h3>
-
-          <div className='skill-list-container' style={listStyle}>
-            {ds.list.map(l => {
-              return (
-                <div key={l.imgLabel} className='skill-container'>
-                  <img className='skill-icon' src={require(`../assets/skillsIcone/${l.imgFileName}`)} alt={l.imgLabel} />
-                  <p className='skill-label'>{l.imgLabel}</p>
-                </div>
-              )
-            })}
-          </div>
+          <ListSkills data={ds} />
         </Intersection>
       )
     });
+  }
+
+  const ListSkills = ({ data }) => {
+    return (
+      <div className='skill-list-container'>
+        {data.list.map(l => {
+          return (
+            <div key={l.imgLabel} className='skill-container'>
+              <img className='skill-icon' src={require(`../assets/skillsIcone/${l.imgFileName}`)} alt={l.imgLabel} />
+              <p className='skill-label'>{l.imgLabel}</p>
+            </div>
+          )
+        })}
+      </div>
+    )
+  };
+
+  const Point = () => {
+    return (
+      <div className="point-container">
+        <span className="point top" />
+        <span className="point right" />
+        <span className="point center" />
+        <span className="point left" />
+        <span className="point bottom" />
+      </div>
+    )
   }
 
 
@@ -74,6 +89,7 @@ export default function MySkills({ device }) {
       </Intersection>
       <section className='skills-section'>
         <Skills />
+        <Point />
       </section>
     </div>
   )

@@ -189,13 +189,16 @@
 
         &#skills {
             .skills-section {
+                position: relative;
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
 
                 .skills-container {
+                    z-index: 5;
                     position: relative;
                     flex: 0 0 calc(50%);
+                    border-radius: 20px;
 
                     .skills-type {
                         height: 10%;
@@ -212,16 +215,20 @@
                         flex-wrap: wrap;
                         align-items: center;
                         justify-content: center;
+                        justify-content: space-evenly;
 
                         .skill-container {
-                            z-index: 1;
+                            z-index: 6;
                             display: flex;
                             margin: 1vmin;
                             padding: 1vmin;
                             position: relative;
                             align-items: center;
                             justify-content: center;
-                            transition: all 0.6s ease-in-out;
+                            transition: all 0.5s ease-in-out;
+                            border: 1px solid gray;
+                            border-radius: 15px;
+                            background-color: light-dark(rgba(241, 239, 239, 0.325), rgba(128, 128, 128, 0.325));
 
 
                             .skill-icon {
@@ -240,9 +247,13 @@
 
                         .skill-container:hover {
                             transform: scale(1.2);
+                            box-shadow: 0 0 25px light-dark(var(--gray), var(--primary-color));
                         }
                     }
 
+                    &:hover {
+                        background-color: light-dark(rgba(120, 115, 115, 0.1),rgba(255, 255, 255, 0.1));
+                    }
 
                     &::after,
                     &::before {
@@ -252,21 +263,71 @@
                         padding: 0;
                         margin: auto;
                         transition: all 0.6s ease;
+                        border: 1px solid transparent;
                     }
 
                     &:nth-child(2)&::after,
                     &:nth-child(4)&::after {
                         height: calc(100% - 40px);
-                        border-left: 1px solid var(--medium-dark);
+                        border-left: 1px solid light-dark(var(--medium-light), var(--medium-dark));
                     }
 
                     &:nth-child(3)&::before,
                     &:nth-child(4)&::before {
                         width: calc(100% - 40px);
-                        border-top: 1px solid var(--medium-dark);
+                        border-top: 1px solid light-dark(var(--medium-light), var(--medium-dark));
                     }
                 }
 
+                .point-container {
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    z-index: 0;
+
+                    .point {
+                        position: absolute;
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 50%;
+                        transition: all 0.3s ease-in-out;
+                        background-color: light-dark(rgba(241, 239, 239, 0.325), rgba(128, 128, 128, 0.325));
+
+                        &.top,
+                        &.bottom {
+                            left: calc(50% - 5px);
+                        }
+
+                        &.left,
+                        &.right {
+                            top: calc(50% - 5px);
+                        }
+
+                        &.left {
+                            left: 0;
+                        }
+
+                        &.right {
+                            right: 0;
+                        }
+
+                        &.top {
+                            top: 0;
+                            transform: translateX(1px);
+                        }
+
+                        &.bottom {
+                            bottom: 0;
+                            transform: translateX(1px);
+                        }
+
+                        &.center {
+                            top: calc(50% - 5px);
+                            left: calc(50% - 5px);
+                            transform: translateX(1px);
+                        }
+                    }
+                }
             }
 
             &:hover {
@@ -276,12 +337,18 @@
 
                         &:nth-child(2)&::after,
                         &:nth-child(4)&::after {
-                            border-left: 1px solid var(--gray);
+                            border-left: 1px solid light-dark(var(--gray), var(--primary-color));
                         }
 
                         &:nth-child(3)&::before,
                         &:nth-child(4)&::before {
-                            border-top: 1px solid var(--gray);
+                            border-top: 1px solid light-dark(var(--gray), var(--primary-color));
+                        }
+                    }
+
+                    .point-container {
+                        .point {
+                            background-color: light-dark(var(--gray), var(--primary-color));
                         }
                     }
                 }
@@ -769,11 +836,17 @@
 
             &#skills {
                 .skills-section {
-                    .skill-container {
+                    .skills-container {
+                        .skill-list-container {
+                            .skill-container {
+                                height: 100px;
+                                width: 100px;
 
-                        .skill-icon {
-                            width: 70px;
-                            height: 70px;
+                                .skill-icon {
+                                    width: 70px;
+                                    height: 70px;
+                                }
+                            }
                         }
                     }
                 }
