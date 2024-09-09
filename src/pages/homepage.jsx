@@ -4,15 +4,14 @@ import React, { useEffect, useRef } from 'react';
 // CONTEXT //
 // PAGE //
 // COMPONENT //
-import EclosionCard from '../components/cards/eclosion-card/eclosioncard';
 import TextLoad from '../components/loader/loader-text';
 import Intersection from '../components/Insersection/intersection';
+import RotateCard from '../components/cards/rotate-card/rotateCard';
 // OTHER //
 
 export default function Homepage({ device }) {
   const refs = useRef([]);
   const titleRef = useRef();
-  const ppRef = useRef();
 
   const subtitle1 = "Une idée ? Un projet ?";
   const subtitle2 = "La création d'un site web ou d'une application mobile ?";
@@ -23,7 +22,6 @@ export default function Homepage({ device }) {
     const observer = new IntersectionObserver((entries) => entries.forEach(el => el.isIntersecting && el.target.classList.add("active")));
     titles.forEach((t, i) => observer.observe(refs.current[i]));
     observer.observe(titleRef.current);
-    observer.observe(ppRef.current);
   })
 
   const MainTitle = () => {
@@ -55,9 +53,7 @@ export default function Homepage({ device }) {
 
   return (
     <section id='homepage' className={`page ${device.name}`}>
-      <Intersection refObserver={ppRef} addClass={"left intersection-img-container"}>
-        <EclosionCard />
-      </Intersection>
+      <RotateCard/>
       <div className='title-container'>
         <MainTitle />
         <SubTitles />

@@ -1,0 +1,195 @@
+.container {
+    position: relative;
+    .card-container {
+        width: 50vw;
+        height: 70vw;
+        margin-bottom: 30px;
+        -webkit-perspective: 1500;
+
+        &.active {
+            animation: holograme 5s infinite, shake 5s infinite;
+        }
+
+        .img-card {
+            width: 100%;
+            height: 0%;
+            position: relative;
+            animation-delay: 2s;
+            transition: all 0.6s ease-in-out;
+            -webkit-transform-style: preserve-3d;
+
+
+            &.active {
+                height: 100%;
+                -webkit-animation: rotating 5s linear infinite;
+                -moz-animation: rotating 5s linear infinite;
+                -ms-animation: rotating 5s linear infinite;
+                -o-animation: rotating 5s linear infinite;
+                animation: rotating 5s linear infinite;
+            }
+
+
+            .profil-image {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                border-radius: 2px;
+                opacity: 0.6;
+                border-radius: 5px;
+
+                &.back {
+                    transform: translateZ(2px);
+                }
+
+            }
+
+            .right,
+            .left {
+                position: absolute;
+                width: 2px;
+                height: 100%;
+                border-radius: 5px;
+                border-radius: 10% / 50%;
+                background-color: light-dark(rgba(33, 40, 44, 0.9),var(--primary-color));
+            }
+
+            .right {
+                right: -1px;
+                transform: rotateY(-90deg) translateX(1px);
+            }
+
+            .left {
+                left: -1px;
+                transform: rotateY(90deg) translateX(-1px);
+            }
+        }
+    }
+
+    @media screen and (width >=600px) {}
+
+    @media screen and (width >=768px) {
+        .card-container {
+            width: 40vw;
+            height: 60vw;
+        }
+    }
+
+    @media screen and (width >=1024px) {}
+
+    @media screen and (width >=1280px) {
+        .card-container {
+            width: 20vw;
+            height: 30vw;
+        }
+    }
+}
+
+@keyframes rotating {
+    0% {
+        -ms-transform: rotateY(0deg);
+        -moz-transform: rotateY(0deg);
+        -webkit-transform: rotateY(0deg);
+        -o-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+    }
+
+
+    100% {
+        -ms-transform: rotateY(360deg);
+        -moz-transform: rotateY(360deg);
+        -webkit-transform: rotateY(360deg);
+        -o-transform: rotateY(360deg);
+        transform: rotateY(360deg);
+    }
+}
+
+@keyframes holograme {
+    1% {
+        opacity: 0.3;
+    }
+
+    2% {
+        opacity: 0.9;
+    }
+
+    4% {
+        opacity: 0.3;
+    }
+
+    5% {
+        opacity: 0.6;
+    }
+
+    6% {
+        opacity: 0.6;
+    }
+
+    51% {
+        opacity: 0.3;
+    }
+
+    52% {
+        opacity: 0.9;
+    }
+
+    54% {
+        opacity: 0.3;
+    }
+
+    55% {
+        opacity: 0.6;
+    }
+
+    56% {
+        opacity: 1;
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(0px, 0px);
+    }
+    1% {
+        transform: translate(20px, -5px);
+    }
+
+    2% {
+        transform: translate(-50px, 5px);
+    }
+
+    4% {
+        transform: translate(50px, 15px);
+    }
+
+    5% {
+        transform: translate(-30px, -10px);
+    }
+
+    6% {
+        transform: translate(0px, 0px);
+    }
+
+    50% {
+        transform: translate(0px, 0px);
+    }
+    51% {
+        transform: translate(-20px, 5px);
+    }
+
+    52% {
+        transform: translate(50px, -5px);
+    }
+
+    54% {
+        transform: translate(-50px, 15px);
+    }
+
+    55% {
+        transform: translate(30px, -10px);
+    }
+
+    56% {
+        transform: translate(0px, 0px);
+    }
+
+}

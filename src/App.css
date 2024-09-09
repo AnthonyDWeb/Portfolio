@@ -33,18 +33,10 @@
             align-items: center;
             flex-direction: column;
 
-            .intersection-img-container {
-                .img-container {
-                    .img-profil {
-                        width: 60vmin;
-                        height: 70vmin;
-                    }
-                }
-            }
-
             .title-container {
                 z-index: 5;
                 flex: 1;
+                margin-top: 75px;
                 border: 1px solid transparent;
 
                 .main-title-container {
@@ -252,7 +244,7 @@
                     }
 
                     &:hover {
-                        background-color: light-dark(rgba(120, 115, 115, 0.1),rgba(255, 255, 255, 0.1));
+                        background-color: light-dark(rgba(120, 115, 115, 0.1), rgba(255, 255, 255, 0.1));
                     }
 
                     &::after,
@@ -439,11 +431,7 @@
         .page {
             &#homepage {
                 .title-container {
-                    .subtitle-container {
-                        .intersection-container {
-                            margin-top: 2.5vh;
-                        }
-                    }
+                    .subtitle-container {}
                 }
             }
         }
@@ -561,19 +549,8 @@
             &#homepage {
                 flex-direction: row;
 
-                .intersection-img-container {
-                    margin-left: 5.5vw;
-
-                    .img-container {
-
-                        .img-profil {
-                            width: 33vmin;
-                            height: 44vmin;
-                        }
-                    }
-                }
-
                 .title-container {
+                    margin-top: 0;
                     height: 44vmin;
 
                     .main-title {
@@ -702,18 +679,6 @@
                 height: 100vh;
                 margin-top: 0;
 
-                .intersection-img-container {
-                    margin-left: 2.5vw;
-
-                    .img-container {
-
-                        .img-profil {
-                            width: 40vmin;
-                            height: 55vmin;
-                        }
-                    }
-                }
-
                 .title-container {
                     flex: 1;
                     height: 55vmin;
@@ -794,14 +759,6 @@
     @media screen and (width >=1280px) {
         .page {
             &#homepage {
-                .intersection-img-container {
-                    .img-container {
-                        .img-profil {
-                            width: 50vmin;
-                            height: 65vmin;
-                        }
-                    }
-                }
 
                 .title-container {
                     height: 65vmin;

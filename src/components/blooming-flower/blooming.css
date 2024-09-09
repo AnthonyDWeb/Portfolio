@@ -1,0 +1,65 @@
+:root {
+    --light-gradiant: linear-gradient(rgba(56, 229, 245, 0) 0%, rgba(65, 195, 255, 0.5) 100%);
+    --gradiant: linear-gradient(light-dark(rgba(56, 229, 245, 0.1),rgba(45, 255, 129, 0.2)) 0%, light-dark(rgba(33, 40, 44, 0.9),rgba(55, 255, 139, 0.7)) 100%);
+}
+
+.rings-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .rings {
+        min-height: 100px;
+        width: max-content;
+        display: flex;
+        justify-content: center;
+
+        .ring {
+            position: absolute;
+            z-index: 5;
+            cursor: pointer;
+            background: var(--gradiant);
+            border-radius: 80% 90% 80% 90%;
+            box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.8) inset, 0px 3px 0px rgba(229, 246, 247, 0.8);
+            transition: all 0.6s ease;
+            background-size: 200% 200%;
+            -webkit-transform-style: preserve-3d;
+            animation: flow 2.5s linear infinite;
+
+
+            &.top {
+                width: 100px;
+                height: 20px;
+                margin: -10px;
+                animation-delay: 5s;
+            }
+
+            &.middle {
+                width: 150px;
+                height: 30px;
+                margin: 0px;
+                animation-delay: 2.5s;
+            }
+
+            &.bottom {
+                width: 200px;
+                height: 40px;
+                margin: 10px;
+            }
+        }
+    }
+}
+
+@keyframes flow {
+    0% {
+        background-position: 10% 0%;
+    }
+
+    50% {
+        background-position: 81% 100%;
+    }
+
+    100% {
+        background-position: 10% 0%;
+    }
+}
