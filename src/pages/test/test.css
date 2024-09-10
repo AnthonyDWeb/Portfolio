@@ -1,0 +1,177 @@
+.background-test {
+    &.light {
+        color-scheme: light;
+    }
+
+    &.dark {
+        color-scheme: dark;
+    }
+
+    height: 100vh;
+    width: 100vw;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background: linear-gradient(90deg, var(--background-color) 10%, var(--background-color2) 50%, var(--background-color) 90%);
+
+}
+
+.projects-galery {
+    .project-container {
+        height: 80vh;
+        width: 90vw;
+        padding: 10px;
+        margin: 20px auto;
+        position: relative;
+        border-radius: 10px;
+        box-shadow: 5px 5px 5px light-dark(var(--gray), #000);
+        outline: 1px solid #000;
+        background-color: light-dark(rgb(217, 210, 210), rgb(33, 33, 33));
+
+        .project-image {
+            height: 100%;
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .project-title,
+        .project-information {
+            visibility: hidden;
+        }
+
+        .project-link {
+            position: absolute;
+            z-index: 1;
+            top: 5px;
+            right: 5px;
+            background-color: light-dark(var(--dark), var(--light));
+            padding: 5px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px light-dark(var(--dark), var(--primary-color));
+
+            .project-link-icon {
+                height: 5%;
+                width: auto;
+                fill: light-dark(var(--light), var(--dark));
+                stroke: light-dark(var(--light), var(--dark));
+
+                &:hover {
+                    transform: rotate(360deg);
+                }
+            }
+        }
+
+    }
+}
+
+@media screen and (width >=600px) {
+    .projects-galery {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        .project-container {
+            flex: 1 1 0;
+            height: 40vh;
+            margin: 3vmin 5vmin;
+            padding: 2vmin;
+            display: flex;
+            position: relative;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 10px;
+            transform: rotateZ(8deg);
+            outline: 1px solid light-dark(var(--gray), var(--medium-light));
+            ;
+            background-color: light-dark(rgb(217, 210, 210), rgb(12, 12, 12));
+            box-shadow: 15px 15px 10px light-dark(var(--gray), #000);
+            transition: all 0.4s ease-in-out;
+
+            .project-image,
+            .project-title,
+            .project-information,
+            .project-link .project-link-icon {
+                transition: all 0.4s ease-in-out;
+                color: light-dark(var(--dark), var(--light));
+            }
+
+            .project-image {
+                height: 100%;
+                width: 100%;
+                min-width: 10vw;
+                border-radius: 5px;
+            }
+
+            &:hover {
+                transform: rotateZ(0deg);
+                box-shadow: 0px 0px 10px light-dark(var(--dark), var(--primary-color));
+
+                .project-image {
+                    outline: 5px solid light-dark(var(--dark), var(--light));
+                }
+            }
+        }
+
+    }
+
+}
+
+@media screen and (width >=1024px) {
+    .projects-galery {
+
+        .project-container {
+            height: 60vh;
+            outline: 1px solid var(--medium-dark);
+
+            .project-title {
+                transition-delay: 0.1s;
+            }
+
+            .project-title,
+            .project-information {
+                visibility: visible;
+            }
+
+            .project-image {
+                height: auto;
+                max-width: 100%;
+            }
+
+            .project-title {
+                margin-top: 2vh;
+            }
+
+            .project-information {
+                opacity: 0;
+                margin-top: 2vh;
+                width: 100%;
+            }
+
+            &:hover {
+                flex-grow: 1.5;
+
+                .project-title {
+                    transform: scale(1.5);
+                }
+
+                .project-information {
+                    opacity: 1;
+                    animation: FadeInOut 0.6s;
+                }
+            }
+        }
+
+    }
+
+}
+
+@keyframes FadeInOut {
+
+    0%,
+    90% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

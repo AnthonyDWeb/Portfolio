@@ -1,5 +1,6 @@
 .container {
     position: relative;
+
     .card-container {
         width: 50vw;
         height: 70vw;
@@ -8,6 +9,10 @@
 
         &.active {
             animation: holograme 5s infinite, shake 5s infinite;
+        }
+
+        &:hover {
+            cursor: pointer;
         }
 
         .img-card {
@@ -27,6 +32,7 @@
                 -o-animation: rotating 5s linear infinite;
                 animation: rotating 5s linear infinite;
             }
+
 
 
             .profil-image {
@@ -50,7 +56,7 @@
                 height: 100%;
                 border-radius: 5px;
                 border-radius: 10% / 50%;
-                background-color: light-dark(rgba(33, 40, 44, 0.9),var(--primary-color));
+                background-color: light-dark(rgba(33, 40, 44, 0.9), var(--primary-color));
             }
 
             .right {
@@ -149,6 +155,7 @@
     0% {
         transform: translate(0px, 0px);
     }
+
     1% {
         transform: translate(20px, -5px);
     }
@@ -172,6 +179,7 @@
     50% {
         transform: translate(0px, 0px);
     }
+
     51% {
         transform: translate(-20px, 5px);
     }

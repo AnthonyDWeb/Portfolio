@@ -22,7 +22,7 @@ export default function useDevice() {
         newDevice.height = window.innerHeight;
         newDevice.width = window.innerWidth;
         const w = newDevice.width;
-        w < 768 ? newDevice.isMobile = true : w >= 768 && w < 1024 ? newDevice.isTablet = true : newDevice.isDesktop = true;
+        w < 600 ? newDevice.isMobile = true : w >= 600 && w < 1024 ? newDevice.isTablet = true : newDevice.isDesktop = true;
         newDevice.name = newDevice.isMobile ? "mobile" : newDevice.isTablet ? "tablet" : "desktop";
         setDevice(newDevice);
     }

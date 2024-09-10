@@ -8,23 +8,25 @@ import MySkills from './skills';
 import AboutMe from './about_me';
 import Contact from './contact';
 import useDevice from '../utils/useDevice';
+import Test from './test/test';
 
 export default function Pages() {
     const { theme } = useContext(ThemeContext);
     const { device } = useDevice();
-    return (
+    const test = false;
+    return test ? <Test device={device} /> : (
         <div className={`App ${theme}`}>
             <header>
-                <NavBar  device={device}/>
+                <NavBar device={device} />
             </header>
             <main>
-                <Homepage device={device}/>
-                <Projets  device={device}/>
-                <MySkills  device={device}/>
-                <AboutMe  device={device}/>
+                <Homepage device={device} />
+                <Projets device={device} />
+                <MySkills device={device} />
+                <AboutMe device={device} />
             </main>
             <footer>
-                <Contact  device={device}/>
+                <Contact device={device} />
             </footer>
         </div>
     )

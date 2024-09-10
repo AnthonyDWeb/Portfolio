@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import "./rotatecard.css";
-// import CV from "../../../downloads/CV_Anthony_DELFORGE.pdf"
 import Blooming from '../../blooming-flower/blooming';
 
 export default function RotateCard() {

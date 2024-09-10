@@ -47,6 +47,7 @@ export default function NavBar({ device }) {
         <div className='navcontainer'>
           <ul className="navlinks">
             <NavLink to={"homepage"} label={<Home/>} />
+            <NavLink to={"services"} label={"Services"} />
             <NavLink to={"project"} label={"Projets"} />
             <NavLink to={"skills"} label={"Mes compétences"} />
             <NavLink to={"about_me"} label={"À propos de moi"} />
