@@ -349,7 +349,6 @@
             &:hover {
                 .skills-section {
                     .skills-container {
-                        .skill-list-container {}
 
                         &:nth-child(2)&::after,
                         &:nth-child(4)&::after {
@@ -452,13 +451,7 @@
     }
 
     @media screen and (width >=480px) {
-        .page {
-            &#homepage {
-                .title-container {
-                    .subtitle-container {}
-                }
-            }
-        }
+        .page {}
     }
 
     @media screen and (width >=533px) {
@@ -481,8 +474,6 @@
                     }
                 }
             }
-
-            &#services {}
 
             &#project {
                 .projects-galery {
@@ -596,7 +587,6 @@
                         .services-card-tjm {
                             margin: 50px;
 
-                            .tjm-value {}
                         }
                     }
                 }
@@ -755,6 +745,7 @@
 
                         .services-card-tjm {
                             margin: 80px;
+
                             .tjm-value {
                                 font-size: 40px;
                             }
@@ -764,7 +755,6 @@
                             margin: 10px;
                         }
 
-                        .services-card-explanation {}
                     }
                 }
             }
