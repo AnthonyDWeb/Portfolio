@@ -1,0 +1,57 @@
+import React, { useContext, useEffect, useRef } from 'react';
+import Intersection from '../components/Insersection/intersection';
+import servicesData from "../utils/data/services.json";
+import { ThemeContext } from '../contexts/theme';
+
+const Service = ({ device }) => {
+  const { theme } = useContext(ThemeContext);
+  const titleRefs = useRef();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => entries.forEach(el => el.isIntersecting && el.target.classList.add("active")));
+    observer.observe(titleRefs.current);
+  })
+
+  const ServicesCards = () => {
+    return (
+      <div className="services-container">
+        {servicesData.map(s => <CardService key={s.title} title={s.title} description={s.description} source={s.source} />)}
+        <CardTarif />
+      </div>
+    )
+  }
+
+  const CardService = ({ title, description, source }) => {
+    const themeSrc = theme == "light" ? source : `light-${source}`;
+    return (
+      <div className="services-card">
+        <img className="services-card-img" src={require(`../assets/${themeSrc}`)} alt='device' />
+        <h3 className="services-card-title">{title}</h3>
+        <p className="services-card-description">{description}</p>
+      </div>
+    )
+  };
+
+  const CardTarif = () => {
+    return (
+      <div className="services-card">
+        <h3 className="services-card-title"><strong>Taux Journalier</strong></h3>
+        <p className="services-card-tjm"><span className="tjm-value">450</span>€/Jour</p>
+        <p className="services-card-description">- Travail à distance *</p>
+        <p className="services-card-description">- Méthode Agile</p>
+        <p className="services-card-explanation">* possible rdv en présentiel en Ile-de-France</p>
+      </div>
+    )
+  };
+
+  return (
+    <div id='services' className={`page ${device.name}`}>
+      <Intersection refObserver={titleRefs} addClass={"bottom"}>
+        <h2 className='title-page'>Mes Services</h2>
+      </Intersection>
+      <ServicesCards />
+    </div>
+  )
+}
+
+export default Service;

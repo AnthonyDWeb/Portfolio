@@ -1,0 +1,17 @@
+[
+    {
+        "title": "Création de site web",
+        "description": "Envie d'être visible partout et tout le temps, un site web est votre  indispensable ! Pour une création complète d'un site vitrine ou d'e-commerce, je vous accompagne pour donnez vie à votre projet avec du 100% sur mesure. Vous pourrez ainsi développer votre business grâce à une réelle présence en ligne.",
+        "source": "desktop.png"
+    },
+    {
+        "title": "Création d'application mobile",
+        "description": "Dans l'ère mobile et du 100% numérique, une application dédiée offre bien plus qu'une simple présence en ligne. Elle crée un lien direct avec vos utilisateurs et/ou clients en offrant une accessibilité sans précédent et une immersion totale dans votre univers.",
+        "source": "mobile.png"
+    },
+    {
+        "title": "Développement d'un site ou d'application pré-existante",
+        "description": "Programmation ponctuelle et spécifique pour améliorer, poursuivre ou convertir un projet déjà existant dans le cadre d'une mission définie, seule où au sein d'une équipe, je m'intègre facilement.",
+        "source": "responsive.png"
+    }
+]

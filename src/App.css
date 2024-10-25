@@ -100,6 +100,57 @@
             }
         }
 
+        &#services {
+
+            .services-container {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+
+                .services-card {
+                    margin-bottom: 10px;
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    padding: 20px;
+                    border-radius: 10px;
+                    width: calc(75vw - (2*20px));
+                    outline: 1px solid #000;
+                    transition: all 0.3s ease-in-out;
+                    box-shadow: 5px 5px 5px light-dark(var(--gray), #000);
+                    background-color: light-dark(rgb(217, 210, 210), rgb(45, 45, 45));
+
+                    .services-card-img {
+                        height: 130px;
+                        width: 130px;
+                    }
+
+                    .services-card-title {
+                        font-size: 20px;
+                        margin: 10px;
+                    }
+
+                    .services-card-tjm {
+                        margin: 10px;
+
+                        .tjm-value {
+                            font-weight: bold;
+                            font-size: 30px;
+                        }
+                    }
+
+                    .services-card-description {
+                        margin-top: 10px;
+                    }
+
+                    .services-card-explanation {
+                        margin-top: 20px;
+                    }
+                }
+            }
+
+        }
+
         &#project {
             margin: 0;
 
@@ -113,7 +164,7 @@
                     border-radius: 10px;
                     box-shadow: 5px 5px 5px light-dark(var(--gray), #000);
                     outline: 1px solid #000;
-                    background-color: light-dark(rgb(217, 210, 210), rgb(33, 33, 33));
+                    background-color: light-dark(rgb(217, 210, 210), rgb(45, 45, 45));
 
                     .project-image {
                         height: 100%;
@@ -431,6 +482,8 @@
                 }
             }
 
+            &#services {}
+
             &#project {
                 .projects-galery {
                     display: flex;
@@ -450,7 +503,7 @@
                         transform: rotateZ(8deg);
                         outline: 1px solid light-dark(var(--gray), var(--medium-light));
                         ;
-                        background-color: light-dark(rgb(217, 210, 210), rgb(12, 12, 12));
+                        /* background-color: light-dark(rgb(217, 210, 210), rgb(12, 12, 12)); */
                         box-shadow: 15px 15px 10px light-dark(var(--gray), #000);
                         transition: all 0.4s ease-in-out;
 
@@ -526,6 +579,28 @@
                         }
                     }
                 }
+            }
+
+            &#services {
+                .services-container {
+                    flex-wrap: wrap;
+                    flex-direction: row;
+                    justify-content: center;
+
+                    .services-card {
+                        margin: 10px auto;
+                        width: calc(40vw - 2*20px);
+                        height: 40vh;
+                        min-height: 320px;
+
+                        .services-card-tjm {
+                            margin: 50px;
+
+                            .tjm-value {}
+                        }
+                    }
+                }
+
             }
         }
     }
@@ -667,6 +742,29 @@
                                 font-size: 1.5rem;
                             }
                         }
+                    }
+                }
+            }
+
+            &#services {
+                .services-container {
+
+                    .services-card {
+                        width: 15vw;
+                        height: 60vh;
+
+                        .services-card-tjm {
+                            margin: 80px;
+                            .tjm-value {
+                                font-size: 40px;
+                            }
+                        }
+
+                        .services-card-description {
+                            margin: 10px;
+                        }
+
+                        .services-card-explanation {}
                     }
                 }
             }

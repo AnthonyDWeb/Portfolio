@@ -9,6 +9,7 @@ import AboutMe from './about_me';
 import Contact from './contact';
 import useDevice from '../utils/useDevice';
 import Test from './test/test';
+import Service from './service';
 
 export default function Pages() {
     const { theme } = useContext(ThemeContext);
@@ -21,6 +22,7 @@ export default function Pages() {
             </header>
             <main>
                 <Homepage device={device} />
+                <Service device={device} />
                 <Projets device={device} />
                 <MySkills device={device} />
                 <AboutMe device={device} />

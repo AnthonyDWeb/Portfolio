@@ -11,7 +11,7 @@
         "source": "pokeDex.png",
         "Description": "Projet réalisé au cours de la formation Digitous ( de Konexio ) et ayant pour but de créer un mini site pour récupérer l’information d’un pokemon de manière aléatoire.",
         "Technologie(s)": "React (hook), CSS3, Pokeapi (API)",
-        "Url": "https://anthonydweb.github.io/pokeDex"
+        "Url": "https://anthonydweb.github.io/pokedex"
     },
     {
         "Titre": "Puissance 4",
