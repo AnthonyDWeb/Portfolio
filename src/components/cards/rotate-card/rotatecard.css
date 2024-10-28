@@ -71,16 +71,12 @@
         }
     }
 
-    @media screen and (width >=600px) {}
-
     @media screen and (width >=768px) {
         .card-container {
-            width: 40vw;
-            height: 60vw;
+            width: 30vw;
+            height: 60vh;
         }
     }
-
-    @media screen and (width >=1024px) {}
 
     @media screen and (width >=1280px) {
         .card-container {

@@ -128,6 +128,11 @@
                     .services-card-title {
                         font-size: 20px;
                         margin: 10px;
+
+                        &.tjm {
+                            text-decoration: underline;
+                            text-underline-offset: 5px;
+                        }
                     }
 
                     .services-card-tjm {
@@ -146,59 +151,55 @@
                     .services-card-explanation {
                         margin-top: 20px;
                     }
+
+                    &:hover {
+                        transition: bow-shadow 0.3s ease-in-out;
+                        box-shadow: 5px 5px 5px light-dark(black, white);
+                    }
                 }
+
             }
 
         }
 
         &#project {
-            margin: 0;
 
             .projects-galery {
-                .project-container {
-                    height: 70vh;
-                    width: 90vw;
-                    padding: 10px;
-                    margin: 20px auto;
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+
+                .container {
                     position: relative;
-                    border-radius: 10px;
-                    box-shadow: 5px 5px 5px light-dark(var(--gray), #000);
-                    outline: 1px solid #000;
-                    background-color: light-dark(rgb(217, 210, 210), rgb(45, 45, 45));
+                    margin: 10px;
 
                     .project-image {
-                        height: 100%;
-                        width: 100%;
-                        border-radius: 5px;
+                        height: 50vh;
+                        width: auto;
                     }
 
-                    .project-title,
                     .project-information {
-                        visibility: hidden;
+                        display: none;
+                        align-items: center;
+                        position: absolute;
+                        top: 0;
+                        height: 100%;
+                        padding: 0 5vw;
+                        border-radius: 20px;
+                        background-color: rgba(0, 0, 0, 0.7);
                     }
 
                     .project-link {
                         position: absolute;
-                        z-index: 1;
-                        top: 5px;
-                        right: 5px;
-                        background-color: light-dark(var(--dark), var(--light));
-                        padding: 5px;
+                        top: 10px;
+                        right: 10px;
+                        background-color: white;
+                        padding: 5px 5px 2px 5px;
                         border-radius: 50%;
-                        box-shadow: 0 0 10px light-dark(var(--dark), var(--primary-color));
-
-                        .project-link-icon {
-                            height: 5%;
-                            width: auto;
-                            fill: light-dark(var(--light), var(--dark));
-                            stroke: light-dark(var(--light), var(--dark));
-
-                            &:hover {
-                                transform: rotate(360deg);
-                            }
-                        }
+                        border: 1px solid black;
                     }
-
                 }
             }
         }
@@ -450,105 +451,6 @@
         }
     }
 
-    @media screen and (width >=480px) {
-        .page {}
-    }
-
-    @media screen and (width >=533px) {
-        .page {
-            &#contact {
-                .media-container>.media-icon {
-                    height: 100px;
-                    width: 100px;
-                }
-            }
-        }
-    }
-
-    @media screen and (width >=600px) {
-        .page {
-            &#homepage {
-                .title-container {
-                    .subtitle-container {
-                        margin: 3vh 0;
-                    }
-                }
-            }
-
-            &#project {
-                .projects-galery {
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: center;
-
-                    .project-container {
-                        flex: 1 1 0;
-                        height: 40vh;
-                        margin: 3vmin 5vmin;
-                        padding: 2vmin;
-                        display: flex;
-                        position: relative;
-                        align-items: center;
-                        flex-direction: column;
-                        border-radius: 10px;
-                        transform: rotateZ(8deg);
-                        outline: 1px solid light-dark(var(--gray), var(--medium-light));
-                        ;
-                        /* background-color: light-dark(rgb(217, 210, 210), rgb(12, 12, 12)); */
-                        box-shadow: 15px 15px 10px light-dark(var(--gray), #000);
-                        transition: all 0.4s ease-in-out;
-
-                        .project-image,
-                        .project-title,
-                        .project-information,
-                        .project-link .project-link-icon {
-                            transition: all 0.4s ease-in-out;
-                            color: light-dark(var(--dark), var(--light));
-                        }
-
-                        .project-image {
-                            height: 100%;
-                            width: 100%;
-                            min-width: 10vw;
-                            border-radius: 5px;
-                        }
-
-                        &:hover {
-                            transform: rotateZ(0deg);
-                            box-shadow: 0px 0px 10px light-dark(var(--dark), var(--primary-color));
-
-                            .project-image {
-                                outline: 5px solid light-dark(var(--dark), var(--light));
-                            }
-                        }
-                    }
-
-                }
-            }
-
-
-            &#skills {
-                .skills-section {
-                    .skills-container {
-                        .skill-list-container {
-                            .skill-container {
-                                margin: 1vh 2vw;
-                                flex-direction: column;
-
-                                .skill-label {
-                                    display: contents;
-                                    visibility: visible;
-                                }
-                            }
-                        }
-
-                    }
-
-                }
-            }
-        }
-    }
-
     @media screen and (width >=768px) {
         .page {
             &#homepage {
@@ -592,6 +494,25 @@
                 }
 
             }
+
+            &#project {
+                .projects-galery {
+
+                    .container {
+
+                        .project-image {
+                            height: auto;
+                            width: 40vw;
+                        }
+
+                        &:hover {
+                            .project-information {
+                                display: flex;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -623,49 +544,23 @@
 
             &#project {
                 .projects-galery {
+                    .container {
+                        margin: 20px 25px;
 
-                    .project-container {
-                        height: 60vh;
-                        outline: 1px solid var(--medium-dark);
-
-                        .project-title {
-                            transition-delay: 0.1s;
-                        }
-
-                        .project-title,
-                        .project-information {
-                            visibility: visible;
-                        }
-
-                        .project-image {
-                            height: auto;
-                            max-width: 100%;
-                        }
-
-                        .project-title {
-                            margin-top: 2vh;
+                        .project-link {
+                            top: 5px;
+                            right: 40px;
                         }
 
                         .project-information {
-                            opacity: 0;
-                            margin-top: 2vh;
-                            width: 100%;
-                        }
-
-                        &:hover {
-                            flex-grow: 1.5;
-
-                            .project-title {
-                                transform: scale(1.5);
-                            }
-
-                            .project-information {
-                                opacity: 1;
-                                animation: FadeInOut 0.6s;
-                            }
+                            align-items: center;
+                            justify-content: center;
+                            height: 90%;
+                            width: calc(30vw - 30px);
+                            left: 10%;
+                            padding: 5px 30px;
                         }
                     }
-
                 }
             }
 
@@ -755,6 +650,33 @@
                             margin: 10px;
                         }
 
+                    }
+                }
+            }
+
+            &#project {
+                margin: 0 2vw;
+
+                .projects-galery {
+
+                    .container {
+                        margin: 20px 10px;
+
+                        .project-image {
+                            height: auto;
+                            width: 30vw;
+                        }
+                        .project-information {
+                            height: 90%;
+                            width: calc(22vw - 30px);
+                            left: 10%;
+                            padding: 5px 30px;
+                        }
+
+                        .project-link {
+                            top: 3px;
+                            right: 43px;
+                        }
                     }
                 }
             }

@@ -30,7 +30,7 @@ const Service = ({ device }) => {
   }
 
   const CardService = ({ id, title, description, source }) => {
-    const themeSrc = theme == "light" ? source : `light-${source}`;
+    const themeSrc = theme ==="light" ? source : `light-${source}`;
     const currRef = id === 0 ? card0Refs : id === 1 ? card1Refs : id === 2 ? card2Refs : null;
     const desktopStyle = device.isDesktop ? { transitionDelay: `${1.4 - 0.3 * id}s` } : undefined;
     return (
@@ -46,7 +46,7 @@ const Service = ({ device }) => {
     const desktopStyle = device.isDesktop ? { transitionDelay: `${1.8 - 0.3 * 4}s`} : undefined;
     return (
       <Intersection refObserver={card3Refs} addClass={"left services-card"} addStyle={desktopStyle}>
-        <h3 className="services-card-title"><strong>Taux Journalier</strong></h3>
+        <h3 className="services-card-title tjm"><strong>Taux Journalier</strong></h3>
         <p className="services-card-tjm"><span className="tjm-value">450</span>€/Jour</p>
         <p className="services-card-description">- Travail à distance *</p>
         <p className="services-card-description">- Méthode Agile</p>
