@@ -36,7 +36,6 @@ export default function Projets({ device }) {
             <div key={p.Titre} className='container'>
               <img className='project-image' id={p.source} src={imgSrc} alt={p.Titre} />
               <p className='project-information'>Description: {p.Description}</p>
-              {/* <p className='project-information'>Technologie(s): {p["Technologie(s)"]}</p> */}
               <IconLink url={p.Url} />
             </div>
           )
