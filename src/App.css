@@ -454,11 +454,12 @@
     @media screen and (width >=768px) {
         .page {
             &#homepage {
+                margin-top: 20px;
                 flex-direction: row;
 
                 .title-container {
                     margin-top: 0;
-                    height: 44vmin;
+                    min-height: 44vmin;
 
                     .main-title {
                         align-items: flex-start;
@@ -599,7 +600,6 @@
     @media screen and (width >=1280px) {
         .page {
             &#homepage {
-
                 .title-container {
                     height: 65vmin;
 
@@ -666,6 +666,7 @@
                             height: auto;
                             width: 30vw;
                         }
+
                         .project-information {
                             height: 90%;
                             width: calc(22vw - 30px);

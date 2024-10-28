@@ -74,14 +74,16 @@
     @media screen and (width >=768px) {
         .card-container {
             width: 30vw;
-            height: 60vh;
+            height: 70vh;
+            max-height: 400px;
         }
     }
 
     @media screen and (width >=1280px) {
         .card-container {
             width: 20vw;
-            height: 30vw;
+            height: 60vh;
+            max-height: 800px;
         }
     }
 }
