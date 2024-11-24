@@ -28,7 +28,7 @@ export default function Projets({ device }) {
   }
 
   const ProjectGalery = () => {
-    const hiddenProject = ["Backery", "PokeDex", "Wheather App"];
+    const hiddenProject = ["Backery", "PokeDex", "Wheather App","Fight Calculator"];
     return device.name && (
       <div className='projects-galery'>
         {dataProjects.map((p, i) => {
