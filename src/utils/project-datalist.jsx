@@ -6,7 +6,7 @@ const projects = [
         colab: [],
         description: `Site utilisant l'API "restCountries" afin d'afficher certaine information d'un pays (drapeau,nom du pays, capital, population) avec au verso de chaque carte une carte les positionant`,
         technology: "Html, CSS3, Javascript, Hooks, react-leaflet, firebase",
-        link: "https://anthonydweb.github.io/countries/",
+        link: "https://www.countries-api.anthony-delforge.fr/",
         responsive: ["mobile", "tablette", "Ipad"],
     },
     {

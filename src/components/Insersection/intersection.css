@@ -5,8 +5,6 @@
     transition: all 1s ease;
     visibility: hidden;
 
-    /* background-color: aqua; */
-
     &.top {
         transform: translateY(-100%);
     }
