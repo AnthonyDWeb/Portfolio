@@ -18,7 +18,7 @@
         "source": "puissance4.png",
         "Description": "Projet réalisé au cours de la formation Digitous ( de Konexio ) et ayant pour but de coder en groupe un jeu parmis une liste. Chaque joueur joue a tour de rôle, le premier a aligner 4 jetons de sa couleur a gagner",
         "Technologie(s)": "Html, CSS3, Javascript, React",
-        "Url": "www.puissance4.anthony-delforge.fr"
+        "Url": "https://www.puissance4.anthony-delforge.fr"
     },
     {
         "Titre": "Wheather App",
