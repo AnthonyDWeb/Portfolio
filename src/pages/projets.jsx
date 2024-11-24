@@ -28,11 +28,13 @@ export default function Projets({ device }) {
   }
 
   const ProjectGalery = () => {
+    const hiddenProject = ["Backery", "PokeDex", "Wheather App"];
     return device.name && (
       <div className='projects-galery'>
         {dataProjects.map((p, i) => {
           const imgSrc = require(`../assets/projects/${device.name}/${p.source}`);
-          return (
+          const isNotHidden = !hiddenProject.includes(p.Titre);
+          return isNotHidden && (
             <div key={p.Titre} className='container'>
               <img className='project-image' id={p.source} src={imgSrc} alt={p.Titre} />
               <p className='project-information'>Description: {p.Description}</p>
