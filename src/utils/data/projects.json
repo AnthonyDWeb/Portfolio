@@ -21,11 +21,11 @@
         "Url": "https://www.puissance4.anthony-delforge.fr"
     },
     {
-        "Titre": "Wheather App",
-        "source": "wheatherApp.png",
+        "Titre": "My Weather",
+        "source": "myweather.png",
         "Description": "Site affichant la méteo de la ville recherché (les données affichées sont: nom de la ville, icone météo, description du temps, température en celcius, vitesse du vent, pourcentage d'humidité). Il y a aussi la possibilité d'ajouter 5 villes dans nos favoris.",
         "Technologie(s)": "Html, CSS3, Javascript, Hooks, Open Weather Map (API)",
-        "Url": "https://anthonydweb.github.io/weatherApp"
+        "Url": "https://www.myweather.anthony-delforge.fr/"
     },
     {
         "Titre": "Cuizine",
