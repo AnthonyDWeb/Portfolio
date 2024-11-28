@@ -116,7 +116,7 @@
                     border-radius: 10px;
                     width: calc(75vw - (2*20px));
                     outline: 1px solid #000;
-                    transition: all 0.3s ease-in-out;
+                    transition: all 0.3s ease-in-out !important;
                     box-shadow: 5px 5px 5px light-dark(var(--gray), #000);
                     background-color: light-dark(rgb(217, 210, 210), rgb(45, 45, 45));
 
@@ -153,8 +153,7 @@
                     }
 
                     &:hover {
-                        transition: bow-shadow 0.3s ease-in-out;
-                        box-shadow: 5px 5px 5px light-dark(black, white);
+                        box-shadow: 0px 0px 15px light-dark(black, white);
                     }
                 }
 
@@ -633,23 +632,9 @@
 
             &#services {
                 .services-container {
-
                     .services-card {
-                        width: 15vw;
-                        height: 60vh;
-
-                        .services-card-tjm {
-                            margin: 80px;
-
-                            .tjm-value {
-                                font-size: 40px;
-                            }
-                        }
-
-                        .services-card-description {
-                            margin: 10px;
-                        }
-
+                        width: 20vw;
+                        height: 50vh;
                     }
                 }
             }

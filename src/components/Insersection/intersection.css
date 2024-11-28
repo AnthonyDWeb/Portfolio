@@ -2,8 +2,8 @@
     margin: 20px;
     text-align: center;
     align-self: center;
-    transition: all 1s ease;
     visibility: hidden;
+    transition: all 1s ease-in-out;
 
     &.top {
         transform: translateY(-100%);
@@ -20,12 +20,15 @@
     &.right {
         transform: translateX(100%);
     }
+
     &.fadein {
         opacity: 0;
+
     }
+
     &.active {
-        visibility: visible;
         opacity: 1;
+        visibility: visible;
         transform: translateX(0%) translateY(0%);
     }
 }
