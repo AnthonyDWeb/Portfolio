@@ -42,6 +42,13 @@
         "Url": "https://anthonydweb.github.io/Backery"
     },
     {
+        "Titre": "Mooovies",
+        "source": "mooovies.png",
+        "Description": "Site affichant les films a venir, ceux de la semaine ainsi que les mieux notés. En cliquant sur un poster de film, cela affiche une nouvelle page contenant l'affiche du film et le casting de celui-ci",
+        "Technologie(s)": "Html, CSS3, react, tmdb-api",
+        "Url": "https://www.mooovies.anthony-delforge.fr"
+    },
+    {
         "Titre": "Fight Calculator",
         "source": "fightcalculator.png",
         "Description": "Il s'agit d'une petite application web ayant pour but de calculer le nombre de combats a faire pour obtenir un certain nombre de points enfonction du nombre de vies et des points des joueurs sur leur jeux mobile.",

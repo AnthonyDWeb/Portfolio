@@ -28,7 +28,7 @@ export default function Projets({ device }) {
   }
 
   const ProjectGalery = () => {
-    const hiddenProject = ["Backery", "PokeDex","Fight Calculator"];
+    const hiddenProject = ["Backery", "PokeDex","Random Fight","Fight Calculator"]
     return device.name && (
       <div className='projects-galery'>
         {dataProjects.map((p, i) => {
@@ -37,7 +37,7 @@ export default function Projets({ device }) {
           return isNotHidden && (
             <div key={p.Titre} className='container'>
               <img className='project-image' id={p.source} src={imgSrc} alt={p.Titre} />
-              <p className='project-information'>Description: {p.Description}</p>
+              <p className='project-information'>{p.Description}</p>
               <IconLink url={p.Url} />
             </div>
           )
